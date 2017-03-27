@@ -13,6 +13,8 @@
 		A73CF7C51E7A1E3B00741F82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A73CF7C41E7A1E3B00741F82 /* Assets.xcassets */; };
 		A73CF7C81E7A1E3B00741F82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A73CF7C61E7A1E3B00741F82 /* LaunchScreen.storyboard */; };
 		A73CF7D31E7A1E3D00741F82 /* CPCCS_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73CF7D21E7A1E3D00741F82 /* CPCCS_AppTests.swift */; };
+		A7A431D31E7ADF93006BC2D9 /* img.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A7A431D21E7ADF93006BC2D9 /* img.jpg */; };
+		A7A431D51E7AE04D006BC2D9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7A431D41E7AE04D006BC2D9 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		A73CF7CE1E7A1E3C00741F82 /* CPCCS AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CPCCS AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A73CF7D21E7A1E3D00741F82 /* CPCCS_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPCCS_AppTests.swift; sourceTree = "<group>"; };
 		A73CF7D41E7A1E3D00741F82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A7A431D21E7ADF93006BC2D9 /* img.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img.jpg; sourceTree = SOURCE_ROOT; };
+		A7A431D41E7AE04D006BC2D9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,7 @@
 		A73CF7B11E7A1E3900741F82 = {
 			isa = PBXGroup;
 			children = (
+				A7A431D41E7AE04D006BC2D9 /* Launch Screen.storyboard */,
 				A73CF7BC1E7A1E3A00741F82 /* CPCCS App */,
 				A73CF7D11E7A1E3C00741F82 /* CPCCS AppTests */,
 				A73CF7BB1E7A1E3A00741F82 /* Products */,
@@ -83,6 +88,7 @@
 				A73CF7C41E7A1E3B00741F82 /* Assets.xcassets */,
 				A73CF7C61E7A1E3B00741F82 /* LaunchScreen.storyboard */,
 				A73CF7C91E7A1E3B00741F82 /* Info.plist */,
+				A7A431D21E7ADF93006BC2D9 /* img.jpg */,
 			);
 			path = "CPCCS App";
 			sourceTree = "<group>";
@@ -182,6 +188,8 @@
 				A73CF7C81E7A1E3B00741F82 /* LaunchScreen.storyboard in Resources */,
 				A73CF7C51E7A1E3B00741F82 /* Assets.xcassets in Resources */,
 				A73CF7C31E7A1E3B00741F82 /* Main.storyboard in Resources */,
+				A7A431D51E7AE04D006BC2D9 /* Launch Screen.storyboard in Resources */,
+				A7A431D31E7ADF93006BC2D9 /* img.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +414,7 @@
 				A73CF7D91E7A1E3D00741F82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A73CF7DA1E7A1E3D00741F82 /* Build configuration list for PBXNativeTarget "CPCCS AppTests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +423,7 @@
 				A73CF7DC1E7A1E3D00741F82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
