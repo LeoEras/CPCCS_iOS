@@ -38,6 +38,8 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     @IBOutlet weak var estCivilSelector: UIPickerView!
     
+    var estCivilOpciones = [""]
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -52,6 +54,8 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             countrows = self.tipoIdentOpciones.count
         } else if (pickerView == generoSelector){
             countrows = self.generoOpciones.count
+        }else if (pickerView == estCivilSelector){
+            countrows = self.estCivilOpciones.count
         }
         return countrows
     }
@@ -68,6 +72,9 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             return titlerow
         } else if(pickerView == generoSelector){
             let titlerow = generoOpciones[row]
+            return titlerow
+        } else if(pickerView == estCivilSelector){
+            let titlerow = estCivilOpciones[row]
             return titlerow
         }
         return ""
@@ -86,6 +93,9 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         } else if (pickerView == generoSelector){
             self.generoShow.text = self.generoOpciones[row]
             self.generoSelector.isHidden = true
+        } else if (pickerView == estCivilSelector){
+            self.estCivilShow.text = self.estCivilOpciones[row]
+            self.estCivilSelector.isHidden = true
         }
     }
     
@@ -98,6 +108,8 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             self.tipoIdentSelector.isHidden = false
         } else if (textField == generoShow){
             self.generoSelector.isHidden = false
+        } else if (textField == estCivilShow){
+            self.estCivilSelector.isHidden = false
         }
     }
     
@@ -110,6 +122,8 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             self.tipoIdentSelector.isHidden = true
         } else if (textField == generoShow){
             self.generoSelector.isHidden = true
+        } else if (textField == estCivilShow){
+            self.estCivilSelector.isHidden = true
         }
 
     }
@@ -117,6 +131,24 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        if let url = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/estados-civiles/") {
+            do {
+                let contents = try String(contentsOf: url)
+                let componnents = contents.components(separatedBy: "\"")
+                
+                estCivilOpciones.remove(at: 0)
+                estCivilOpciones.append(componnents[11])
+                estCivilOpciones.append(componnents[17])
+                estCivilOpciones.append(componnents[23])
+                estCivilOpciones.append(componnents[29])
+                estCivilOpciones.append(componnents[35])
+
+            } catch {
+                // contents could not be loaded
+            }
+        } else {
+            // the URL was bad!
+        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
