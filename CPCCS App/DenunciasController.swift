@@ -10,16 +10,25 @@ import UIKit
 
 class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
+    @IBOutlet weak var nombreTextField: UITextField!
+    @IBOutlet weak var apellidosTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var edadTextField: UITextField!
     @IBOutlet weak var identidadShow: UITextField!
     
     @IBOutlet weak var identidadSelector: UIPickerView!
     
+    @IBOutlet weak var organizacionTextField: UITextField!
+    @IBOutlet weak var direccionTextField: UITextField!
+    @IBOutlet weak var telefonoTextField: UITextField!
     var identidadOpciones = ["SI", "NO"]
     
     @IBOutlet weak var empleadoShow: UITextField!
     
     var empleadoOpciones = ["EMPLEADO PUBLICO", "EMPLEADO PRIVADO"]
     
+    @IBOutlet weak var identificacionTextField: UITextField!
+    @IBOutlet weak var cargoTextField: UITextField!
     @IBOutlet weak var empleadoSelector: UIPickerView!
     
     @IBOutlet weak var tipoIdentShow: UITextField!
@@ -131,7 +140,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        if let url = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/estados-civiles/") {
+        /*if let url = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/estados-civiles/") {
             do {
                 let estCivilOnline = try String(contentsOf: url)
                 let estCivilDepurado = estCivilOnline.components(separatedBy: "\"")
@@ -148,13 +157,46 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             }
         } else {
             // the URL was bad!
-        }
+        }*/
+        
+        // TextFields delegates assignment
+        nombreTextField.delegate = self
+        apellidosTextField.delegate = self
+        edadTextField.delegate = self
+        emailTextField.delegate = self
+        telefonoTextField.delegate = self
+        direccionTextField.delegate = self
+        organizacionTextField.delegate = self
+        identificacionTextField.delegate = self
+        cargoTextField.delegate = self
+        
+        generoSelector.delegate = self
+        
     }
     
+    // MARK: TextField
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
+        let nextTag: Int = textField.tag + 1
+        
+        let nextResponder: UIResponder? = textField.superview?.superview?.viewWithTag(nextTag)
+        
+        if let nextR = nextResponder
+        {
+            // Found next responder, so set it.
+            nextR.becomeFirstResponder()
+        }
+        else
+        {
+            // Not found, so remove keyboard.
+            textField.resignFirstResponder()
+        }
+        
         return false
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+    }
+    
 }
 
 
