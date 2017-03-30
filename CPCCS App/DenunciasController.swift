@@ -133,15 +133,15 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         // Do any additional setup after loading the view, typically from a nib.
         if let url = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/estados-civiles/") {
             do {
-                let contents = try String(contentsOf: url)
-                let componnents = contents.components(separatedBy: "\"")
+                let estCivilOnline = try String(contentsOf: url)
+                let estCivilDepurado = estCivilOnline.components(separatedBy: "\"")
                 
                 estCivilOpciones.remove(at: 0)
-                estCivilOpciones.append(componnents[11])
-                estCivilOpciones.append(componnents[17])
-                estCivilOpciones.append(componnents[23])
-                estCivilOpciones.append(componnents[29])
-                estCivilOpciones.append(componnents[35])
+                estCivilOpciones.append(estCivilDepurado[11])
+                estCivilOpciones.append(estCivilDepurado[17])
+                estCivilOpciones.append(estCivilDepurado[23])
+                estCivilOpciones.append(estCivilDepurado[29])
+                estCivilOpciones.append(estCivilDepurado[35])
 
             } catch {
                 // contents could not be loaded
