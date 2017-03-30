@@ -32,27 +32,39 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var empleadoSelector: UIPickerView!
     
     @IBOutlet weak var tipoIdentShow: UITextField!
-    
     @IBOutlet weak var tipoIdentSelector: UIPickerView!
-    
     var tipoIdentOpciones = ["CEDULA", "RUC", "PASAPORTE"]
     
     @IBOutlet weak var generoShow: UITextField!
-    
     @IBOutlet weak var generoSelector: UIPickerView!
-    
     var generoOpciones = ["FEMENINO", "MASCULINO"]
     
     @IBOutlet weak var estCivilShow: UITextField!
-    
     @IBOutlet weak var estCivilSelector: UIPickerView!
-    
     var estCivilOpciones = [""]
+    
+    @IBOutlet weak var nivEduShow: UITextField!
+    @IBOutlet weak var nivEduSelector: UIPickerView!
+    var nivEduOpciones = [""]
+    
+    @IBOutlet weak var nacionShow: UITextField!
+    @IBOutlet weak var nacionSelector: UIPickerView!
+    var nacionOpciones = [""]
+    
+    @IBOutlet weak var resideShow: UITextField!
+    @IBOutlet weak var resideSelector: UIPickerView!
+    var resideOpciones = ["SI", "NO"]
+    
+    @IBOutlet weak var provShow: UITextField!
+    @IBOutlet weak var provSelector: UIPickerView!
+    var provOpciones = [""]
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
+    @IBOutlet weak var aaa: UILabel!
+    //Numero de filas en el picker View
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         var countrows : Int = 1
         if (pickerView == identidadSelector){
@@ -63,12 +75,19 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             countrows = self.tipoIdentOpciones.count
         } else if (pickerView == generoSelector){
             countrows = self.generoOpciones.count
-        }else if (pickerView == estCivilSelector){
+        } else if (pickerView == estCivilSelector){
             countrows = self.estCivilOpciones.count
+        } else if (pickerView == nivEduSelector){
+            countrows = self.nivEduOpciones.count
+        } else if (pickerView == nacionSelector){
+            countrows = self.nacionOpciones.count
+        } else if (pickerView == resideSelector){
+            countrows = self.resideOpciones.count
         }
         return countrows
     }
     
+    //Que va en cada fila del Picker View
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if(pickerView == identidadSelector){
             let titlerow = identidadOpciones[row]
@@ -85,10 +104,20 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         } else if(pickerView == estCivilSelector){
             let titlerow = estCivilOpciones[row]
             return titlerow
+        } else if(pickerView == nivEduSelector){
+            let titlerow = nivEduOpciones[row]
+            return titlerow
+        } else if(pickerView == nacionSelector){
+            let titlerow = nacionOpciones[row]
+            return titlerow
+        } else if(pickerView == resideSelector){
+            let titlerow = resideOpciones[row]
+            return titlerow
         }
         return ""
     }
     
+    //Oculta el Picker View cuando una opcion es seleccionada
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if (pickerView == identidadSelector){
             self.identidadShow.text = self.identidadOpciones[row]
@@ -105,10 +134,21 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         } else if (pickerView == estCivilSelector){
             self.estCivilShow.text = self.estCivilOpciones[row]
             self.estCivilSelector.isHidden = true
+        } else if (pickerView == nivEduSelector){
+            self.nivEduShow.text = self.nivEduOpciones[row]
+            self.nivEduSelector.isHidden = true
+        } else if (pickerView == nacionSelector){
+            self.nacionShow.text = self.nacionOpciones[row]
+            self.nacionSelector.isHidden = true
+        } else if (pickerView == resideSelector){
+            self.resideShow.text = self.resideOpciones[row]
+            self.resideSelector.isHidden = true
         }
     }
     
+    //Al seleccionar un textfield
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        
         if (textField == identidadShow){
             self.identidadSelector.isHidden = false
         } else if (textField == empleadoShow){
@@ -119,9 +159,16 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             self.generoSelector.isHidden = false
         } else if (textField == estCivilShow){
             self.estCivilSelector.isHidden = false
+        } else if (textField == nivEduShow){
+            self.nivEduSelector.isHidden = false
+        } else if (textField == nacionShow){
+            self.nacionSelector.isHidden = false
+        } else if (textField == resideShow){
+            self.resideSelector.isHidden = false
         }
     }
     
+    //Al dejar de seleccionar el textfield
     func textFieldDidEndEditing(_ textField: UITextField) {
         if (textField == identidadShow){
             self.identidadSelector.isHidden = true
@@ -133,14 +180,40 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             self.generoSelector.isHidden = true
         } else if (textField == estCivilShow){
             self.estCivilSelector.isHidden = true
+        } else if (textField == nivEduShow){
+            self.nivEduSelector.isHidden = true
+        } else if (textField == nacionShow){
+            self.nacionSelector.isHidden = true
+        } else if (textField == resideShow){
+            self.resideSelector.isHidden = true
         }
-
     }
+    
+    /*func readFromURL(url: String, opciones: Array<String>) -> Void{
+        if let data = URL(string: url) {
+            do {
+                let info = try String(contentsOf: data)
+                let infoDepurado = info.components(separatedBy: "\"")
+                
+                opciones.remove(at: 0)
+                opciones.append(infoDepurado[11])
+                opciones.append(infoDepurado[17])
+                opciones.append(infoDepurado[23])
+                opciones.append(infoDepurado[29])
+                opciones.append(infoDepurado[35])
+                
+            } catch {
+                // contents could not be loaded
+            }
+        } else {
+            // the URL was bad!
+        }
+    }*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        /*if let url = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/estados-civiles/") {
+        if let url = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/estados-civiles/") {
             do {
                 let estCivilOnline = try String(contentsOf: url)
                 let estCivilDepurado = estCivilOnline.components(separatedBy: "\"")
@@ -157,7 +230,57 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             }
         } else {
             // the URL was bad!
-        }*/
+        }
+        
+        if let url = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/niveles-educacion/") {
+            do {
+                let nivEduOnline = try String(contentsOf: url)
+                let nivEduDepurado = nivEduOnline.components(separatedBy: "\"")
+                
+                nivEduOpciones.remove(at: 0)
+                nivEduOpciones.append(nivEduDepurado[11])
+                nivEduOpciones.append(nivEduDepurado[19])
+                nivEduOpciones.append(nivEduDepurado[27])
+                nivEduOpciones.append(nivEduDepurado[35])
+                
+            } catch {
+                // contents could not be loaded
+            }
+        } else {
+            // the URL was bad!
+        }
+        
+        if let url = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/nacionalidades/") {
+            do {
+                let nacionOnline = try String(contentsOf: url)
+                let nacionDepurado = nacionOnline.components(separatedBy: "\"")
+                
+                nacionOpciones.remove(at: 0)
+                nacionOpciones.append(nacionDepurado[11])
+                nacionOpciones.append(nacionDepurado[17])
+ 
+            } catch {
+                // contents could not be loaded
+            }
+        } else {
+            // the URL was bad!
+        }
+        
+        
+        if let url = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/provincias/?limit=30&offset=0") {
+            do {
+                let provOnline = try String(contentsOf: url)
+                let provDepurado = provOnline.components(separatedBy: "\"")
+                
+                print(provDepurado[11])
+                print(provDepurado[17])
+                print(provDepurado[23])
+            } catch {
+                // contents could not be loaded
+            }
+        } else {
+            // the URL was bad!
+        }
         
         // TextFields delegates assignment
         nombreTextField.delegate = self
@@ -170,7 +293,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         identificacionTextField.delegate = self
         cargoTextField.delegate = self
         
-        generoSelector.delegate = self
+        //generoSelector.delegate = self
         
     }
     
@@ -194,8 +317,8 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         return false
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
-    }
+    //func textFieldDidEndEditing(_ textField: UITextField, //reason: UITextFieldDidEndEditingReason) {
+    //}
     
 }
 

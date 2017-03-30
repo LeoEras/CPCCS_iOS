@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pdE-db-C3B">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16A238m" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pdE-db-C3B">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -89,7 +89,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="footer.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Pdj-9X-Bdb">
-                                <rect key="frame" x="0.0" y="639" width="415" height="46"/>
+                                <rect key="frame" x="0.0" y="639" width="420" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pedidos.png" translatesAutoresizingMaskIntoConstraints="NO" id="s4h-rz-4Na">
@@ -220,6 +220,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BbN-v2-ycD" id="3U2-x0-T0v"/>
+                                                </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Identidad Reservada" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HbC-TJ-c6p">
                                                 <rect key="frame" x="20" y="53" width="180" height="21"/>
@@ -242,7 +245,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <outlet property="delegate" destination="BbN-v2-ycD" id="B6d-cj-dnk"/>
+                                                    <outlet property="delegate" destination="BbN-v2-ycD" id="oES-U8-R6l"/>
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Edad" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hld-jh-ay6">
@@ -251,6 +254,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BbN-v2-ycD" id="Uv8-zI-Tck"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correo electrónico" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oyz-aJ-yOx">
                                                 <rect key="frame" x="20" y="231" width="380" height="30"/>
@@ -272,6 +278,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BbN-v2-ycD" id="DkZ-7H-V0d"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Organización Social" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tfp-11-3e1">
                                                 <rect key="frame" x="20" y="372" width="380" height="30"/>
@@ -548,10 +557,10 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
-                        <outlet property="ApellidosTextField" destination="POw-oq-5lL" id="avk-sQ-hGu"/>
-                        <outlet property="DireccionTextField" destination="Ke1-PJ-eaJ" id="s1R-Tc-8dv"/>
-                        <outlet property="EdadTextField" destination="hld-jh-ay6" id="WSa-Rz-3VO"/>
+                        <outlet property="apellidosTextField" destination="POw-oq-5lL" id="2Jz-cj-2MY"/>
                         <outlet property="cargoTextField" destination="BHN-gT-RQd" id="ALf-Ur-qjJ"/>
+                        <outlet property="direccionTextField" destination="Ke1-PJ-eaJ" id="aOr-D2-ZoW"/>
+                        <outlet property="edadTextField" destination="hld-jh-ay6" id="wTL-1C-t9c"/>
                         <outlet property="emailTextField" destination="oyz-aJ-yOx" id="jMr-L5-90n"/>
                         <outlet property="empleadoSelector" destination="pgU-zo-r8g" id="1GG-W5-KR5"/>
                         <outlet property="empleadoShow" destination="kkS-mr-dfZ" id="D8F-hf-H6W"/>
@@ -562,8 +571,16 @@
                         <outlet property="identidadSelector" destination="U0W-df-IK0" id="aho-ds-EPQ"/>
                         <outlet property="identidadShow" destination="8qc-mC-Gbo" id="buH-2D-um3"/>
                         <outlet property="identificacionTextField" destination="9oY-B1-fSH" id="6rb-Yx-XOl"/>
+                        <outlet property="nacionSelector" destination="E0Z-fX-P6G" id="fCN-xX-4K5"/>
+                        <outlet property="nacionShow" destination="VDV-WZ-CtU" id="0ep-Cs-VMD"/>
+                        <outlet property="nivEduSelector" destination="atD-Mo-opG" id="UtX-1D-HQV"/>
+                        <outlet property="nivEduShow" destination="GBY-G8-XXF" id="bKA-GV-1Ft"/>
                         <outlet property="nombreTextField" destination="Bgt-rL-yc7" id="h6N-MY-JQL"/>
                         <outlet property="organizacionTextField" destination="Tfp-11-3e1" id="GMm-kq-2Xn"/>
+                        <outlet property="provSelector" destination="Z7m-DZ-s78" id="jIk-9Z-8k4"/>
+                        <outlet property="provShow" destination="EQk-Bn-gRZ" id="HTU-Qb-jYP"/>
+                        <outlet property="resideSelector" destination="WRV-fk-8RK" id="EY7-pe-Q38"/>
+                        <outlet property="resideShow" destination="RHZ-hF-fUs" id="JzM-SP-yR4"/>
                         <outlet property="telefonoTextField" destination="uFE-Yr-cwu" id="laS-xS-ZEq"/>
                         <outlet property="tipoIdentSelector" destination="M1a-E9-FCI" id="a3B-Wl-K3K"/>
                         <outlet property="tipoIdentShow" destination="Azo-0S-D3c" id="4Jj-tV-D3q"/>
