@@ -82,6 +82,8 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             countrows = self.nacionOpciones.count
         } else if (pickerView == resideSelector){
             countrows = self.resideOpciones.count
+        } else if (pickerView == provSelector){
+            countrows = self.provOpciones.count
         }
         return countrows
     }
@@ -111,6 +113,9 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             return titlerow
         } else if(pickerView == resideSelector){
             let titlerow = resideOpciones[row]
+            return titlerow
+        } else if(pickerView == provSelector){
+            let titlerow = provOpciones[row]
             return titlerow
         }
         return ""
@@ -142,6 +147,9 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         } else if (pickerView == resideSelector){
             self.resideShow.text = self.resideOpciones[row]
             self.resideSelector.isHidden = true
+        } else if (pickerView == provSelector){
+            self.provShow.text = self.provOpciones[row]
+            self.provSelector.isHidden = true
         }
     }
     
@@ -435,12 +443,11 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                     displayError("Cannot find key '\(Constants.CpccsResponseKeys.Id)' in \(estadosArray)")
                     return
                 }
-                
+                self.provOpciones.append(nombreString)
             }
             //print("\(idInt): \(nombreString)")
-            //self.provOpciones.append(nombreString)
             //print(self.provOpciones[4])
-            print(estadosCiviles.Ids.count)
+            print(self.provOpciones.count)
         }
         
         // start the task!

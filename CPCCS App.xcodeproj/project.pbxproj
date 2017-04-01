@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		309B09B31E9056D2009E4C5F /* CPCCS App in Resources */ = {isa = PBXBuildFile; fileRef = 309B09B21E9056D2009E4C5F /* CPCCS App */; };
 		309B09B51E905710009E4C5F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B09B41E905710009E4C5F /* Constants.swift */; };
 		309B09B71E90572D009E4C5F /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B09B61E90572D009E4C5F /* GCDBlackBox.swift */; };
 		A735C93A1E8ACDFF006295D6 /* DenunciasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A735C9391E8ACDFF006295D6 /* DenunciasController.swift */; };
@@ -44,7 +43,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		309B09B21E9056D2009E4C5F /* CPCCS App */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "CPCCS App"; sourceTree = "<group>"; };
 		309B09B41E905710009E4C5F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		309B09B61E90572D009E4C5F /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
 		A735C9391E8ACDFF006295D6 /* DenunciasController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DenunciasController.swift; sourceTree = "<group>"; };
@@ -134,7 +132,6 @@
 				A73CF7C41E7A1E3B00741F82 /* Assets.xcassets */,
 				A73CF7C61E7A1E3B00741F82 /* LaunchScreen.storyboard */,
 				309B09B41E905710009E4C5F /* Constants.swift */,
-				309B09B21E9056D2009E4C5F /* CPCCS App */,
 				A73CF7C91E7A1E3B00741F82 /* Info.plist */,
 				A735C9391E8ACDFF006295D6 /* DenunciasController.swift */,
 			);
@@ -247,7 +244,6 @@
 				A74D2B241E89ED3B00871635 /* noticias.png in Resources */,
 				A74D2B251E89ED3B00871635 /* pedidos.png in Resources */,
 				A74D2B261E89ED3B00871635 /* preguntasfrecuentes.png in Resources */,
-				309B09B31E9056D2009E4C5F /* CPCCS App in Resources */,
 				A73CF7C81E7A1E3B00741F82 /* LaunchScreen.storyboard in Resources */,
 				A73CF7C51E7A1E3B00741F82 /* Assets.xcassets in Resources */,
 				A73CF7C31E7A1E3B00741F82 /* Main.storyboard in Resources */,
