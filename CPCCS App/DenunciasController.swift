@@ -247,6 +247,8 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             // the URL was bad!
         }
         
+        getProvincias()
+        
         // TextFields delegates assignment
         nombreTextField.delegate = self
         apellidosTextField.delegate = self
@@ -343,6 +345,133 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         //self.provSelector.isHidden = false
     }
     
+    @IBAction func grabNewImage(_ sender: AnyObject) {
+        
+    }
+    
+    // MARK: Make Network Request
+    private func getProvincias(){
+        let methodParameters = [
+            "limit": "30",
+        ]
+
+        // create url and request
+        let session = URLSession.shared
+        let urlString = Constants.Cpccs.APIBaseURL + Constants.Requests.getProvincias + escapedParameters(methodParameters as [String:AnyObject])
+        let url = URL(string: urlString)!
+        let request = URLRequest(url: url)
+    
+        
+        // create network request
+        let task = session.dataTask(with: request) { (data, response, error) in
+            
+            // if an error occurs, print it and re-enable the UI
+            func displayError(_ error: String) {
+                print(error)
+                print("URL at time of error: \(url)")
+            }
+            
+            /* GUARD: Was there an error? */
+            guard (error == nil) else {
+                displayError("There was an error with your request: \(error)")
+                return
+            }
+            
+            /* GUARD: Did we get a successful 2XX response? */
+            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+                displayError("Your request returned a status code other than 2xx!")
+                return
+            }
+            
+            /* GUARD: Was there any data returned? */
+            guard let data = data else {
+                displayError("No data was returned by the request!")
+                return
+            }
+            
+            // parse the data
+            let parsedResult: [String:AnyObject]!
+            do {
+                parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:AnyObject]
+            } catch {
+                displayError("Could not parse the data as JSON: '\(data)'")
+                return
+            }
+            
+            /* GUARD: Are the "provincias" and "provincias" keys in our result? */
+            guard let estadosArray = parsedResult[Constants.CpccsResponseKeys.Results] as? [[String:AnyObject]] else {
+                displayError("Cannot find keys '\(Constants.CpccsResponseKeys.Results)' in \(parsedResult)")
+                return
+            }
+            
+            print(estadosArray)
+            // select a random photo
+            //let randomPhotoIndex = Int(arc4random_uniform(UInt32(estadosArray.count)))
+            //let estadoDictionary = estadosArray[randomPhotoIndex] as [String:AnyObject]
+            /* GUARD: Does our photo have a key for 'url_m'? */
+            /*guard let nombreString = estadoDictionary[Constants.CpccsResponseKeys.Nombre] as? String else {
+                displayError("Cannot find key '\(Constants.CpccsResponseKeys.Nombre)' in \(estadoDictionary)")
+                return
+            }*/
+            
+            // if an image exists at the url, set the image and title
+            //if let Data = try? Data(contentsOf: nombreString) {
+            /*performUIUpdatesOnMain {
+                self.provShow.text = nombreString
+            }*/
+            
+            class Provincias {
+                var Nombres: [String] = []
+                var Ids: [Int] = []
+            }
+            
+            let estadosCiviles = Provincias()
+            for estadoCivil in estadosArray{
+                guard let nombreString = estadoCivil[Constants.CpccsResponseKeys.Nombre] as? String else {
+                    displayError("Cannot find key '\(Constants.CpccsResponseKeys.Nombre)' in \(estadosArray)")
+                    return
+                }
+                guard let idInt = estadoCivil[Constants.CpccsResponseKeys.Id] as? Int else {
+                    displayError("Cannot find key '\(Constants.CpccsResponseKeys.Id)' in \(estadosArray)")
+                    return
+                }
+                
+            }
+            //print("\(idInt): \(nombreString)")
+            //self.provOpciones.append(nombreString)
+            //print(self.provOpciones[4])
+            print(estadosCiviles.Ids.count)
+        }
+        
+        // start the task!
+        task.resume()
+    }
+    
+    // MARK: Helper for Escaping Parameters in URL
+    
+    private func escapedParameters(_ parameters: [String:AnyObject]) -> String {
+        
+        if parameters.isEmpty {
+            return ""
+        } else {
+            var keyValuePairs = [String]()
+            
+            for (key, value) in parameters {
+                
+                // make sure that it is a string value
+                let stringValue = "\(value)"
+                
+                // escape it
+                let escapedValue = stringValue.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+                
+                // append it
+                keyValuePairs.append(key + "=" + "\(escapedValue!)")
+                
+            }
+            
+            return "?\(keyValuePairs.joined(separator: "&"))"
+        }
+    }
 }
 
 
