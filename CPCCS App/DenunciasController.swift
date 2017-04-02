@@ -157,15 +157,11 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     func textFieldDidEndEditing(_ textField: UITextField) {
         
     }
-    
-    
-    @IBOutlet weak var tripDetails: UILabel!
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        if let url = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/estados-civiles/") {
+        /*if let url = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/estados-civiles/") {
             do {
                 let estCivilOnline = try String(contentsOf: url)
                 let estCivilDepurado = estCivilOnline.components(separatedBy: "\"")
@@ -181,7 +177,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             }
         } else {
             // the URL was bad!
-        }
+        }*/
         
         if let url = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/niveles-educacion/") {
             do {
@@ -216,45 +212,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         } else {
             // the URL was bad!
         }
-        let urlString = "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/provincias/?limit=30&offset=0"
-        
-        let url = URL(string: urlString)
-        URLSession.shared.dataTask(with:url!) { (data, response, error) in
-            if error != nil {
-                print(error)
-            } else {
-                do {
-                    
-                    let parsedData = try JSONSerialization.jsonObject(with: data!, options: []) as! [String:Any]
-                    //print(parsedData)
-                    /*let currentConditions = parsedData["nombre"] as! [String:Any]
-                    
-                    print(currentConditions)
-                    
-                    let currentTemperatureF = currentConditions["id"] as! Int
-                    print(currentTemperatureF)*/
-                } catch let error as NSError {
-                    print(error)
-                }
-            }
-            
-            }.resume()
-        if let url = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/provincias/?limit=30&offset=0") {
-            do {
-                let provOnline = try String(contentsOf: url)
-                let provDepurado = provOnline.components(separatedBy: "\"")
                 
-                provOpciones.remove(at: 0)
-                for i in 0...25{
-                    provOpciones.append(provDepurado[11 + 6*i])
-                }
-            } catch {
-                // contents could not be loaded
-            }
-        } else {
-            // the URL was bad!
-        }
-        
         getProvincias()
         
         // TextFields delegates assignment
@@ -268,36 +226,25 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         identificacionTextField.delegate = self
         cargoTextField.delegate = self
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(DenunciasController.tapFunction))
-        let tap2 = UITapGestureRecognizer(target: self, action: #selector(DenunciasController.tapFunction))
-        let tap3 = UITapGestureRecognizer(target: self, action: #selector(DenunciasController.tapFunction))
-        let tap4 = UITapGestureRecognizer(target: self, action: #selector(DenunciasController.tapFunction))
-        let tap5 = UITapGestureRecognizer(target: self, action: #selector(DenunciasController.tapFunction))
-        let tap6 = UITapGestureRecognizer(target: self, action: #selector(DenunciasController.tapFunction))
-        let tap7 = UITapGestureRecognizer(target: self, action: #selector(DenunciasController.tapFunction))
-        let tap8 = UITapGestureRecognizer(target: self, action: #selector(DenunciasController.tapFunction))
-        let tap9 = UITapGestureRecognizer(target: self, action: #selector(DenunciasController.tapFunction))
-        idenShow.isUserInteractionEnabled = true
-        idenShow.addGestureRecognizer(tap)
-        empleadoShow.isUserInteractionEnabled = true
-        empleadoShow.addGestureRecognizer(tap2)
-        tipoIdentShow.isUserInteractionEnabled = true
-        tipoIdentShow.addGestureRecognizer(tap3)
-        generoShow.isUserInteractionEnabled = true
-        generoShow.addGestureRecognizer(tap4)
-        estCivilShow.isUserInteractionEnabled = true
-        estCivilShow.addGestureRecognizer(tap5)
-        nivEduShow.isUserInteractionEnabled = true
-        nivEduShow.addGestureRecognizer(tap6)
-        resideShow.isUserInteractionEnabled = true
-        resideShow.addGestureRecognizer(tap7)
-        nacionShow.isUserInteractionEnabled = true
-        nacionShow.addGestureRecognizer(tap8)
-        provShow.isUserInteractionEnabled = true
-        provShow.addGestureRecognizer(tap9)
-        
+        attachTapHandler(label: idenShow)
+        attachTapHandler(label: empleadoShow)
+        attachTapHandler(label: tipoIdentShow)
+        attachTapHandler(label: estCivilShow)
+        attachTapHandler(label: generoShow)
+        attachTapHandler(label: nivEduShow)
+        attachTapHandler(label: empleadoShow)
+        attachTapHandler(label: resideShow)
+        attachTapHandler(label: nacionShow)
+        attachTapHandler(label: provShow)
         //generoSelector.delegate = self
         
+    }
+    
+    //Agrega el manejador de tap al label
+    func attachTapHandler(label: UILabel)->Void{
+        let tap = UITapGestureRecognizer(target: self, action: #selector(DenunciasController.tapFunction))
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(tap)
     }
     
     // MARK: TextField
