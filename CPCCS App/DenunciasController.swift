@@ -157,7 +157,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     func textFieldDidEndEditing(_ textField: UITextField) {
         
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -212,8 +212,48 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         } else {
             // the URL was bad!
         }
+        let urlString = "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/provincias/?limit=30&offset=0"
+        
+        let url = URL(string: urlString)
+        URLSession.shared.dataTask(with:url!) { (data, response, error) in
+            if error != nil {
+                print(error)
+            } else {
+                do {
+                    
+                    let parsedData = try JSONSerialization.jsonObject(with: data!, options: []) as! [String:Any]
+                    //print(parsedData)
+                    /*let currentConditions = parsedData["nombre"] as! [String:Any]
+                    
+                    print(currentConditions)
+                    
+                    let currentTemperatureF = currentConditions["id"] as! Int
+                    print(currentTemperatureF)*/
+                } catch let error as NSError {
+                    print(error)
+                }
+            }
+            
+            }.resume()
+        if let url = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/provincias/?limit=30&offset=0") {
+            do {
+                let provOnline = try String(contentsOf: url)
+                let provDepurado = provOnline.components(separatedBy: "\"")
                 
-        getProvincias()
+                provOpciones.remove(at: 0)
+                for i in 0...25{
+                    //provOpciones.append(provDepurado[11 + 6*i])
+                }
+            } catch {
+                // contents could not be loaded
+            }
+        } else {
+            // the URL was bad!
+        }
+        
+        getProvincias(){
+            debugPrint(self.provOpciones)
+        }
         
         // TextFields delegates assignment
         nombreTextField.delegate = self
@@ -300,12 +340,8 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         //self.provSelector.isHidden = false
     }
     
-    @IBAction func grabNewImage(_ sender: AnyObject) {
-        
-    }
-    
     // MARK: Make Network Request
-    private func getProvincias(){
+    private func getProvincias(completionHandler: @escaping ()->()){
         let methodParameters = [
             "limit": "30",
         ]
@@ -315,10 +351,9 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         let urlString = Constants.Cpccs.APIBaseURL + Constants.Requests.getProvincias + escapedParameters(methodParameters as [String:AnyObject])
         let url = URL(string: urlString)!
         let request = URLRequest(url: url)
-    
         
         // create network request
-        let task = session.dataTask(with: request) { (data, response, error) in
+        let task = session.dataTask(with: request) { [weak weakSelf = self] (data, response, error) in
             
             // if an error occurs, print it and re-enable the UI
             func displayError(_ error: String) {
@@ -359,7 +394,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 return
             }
             
-            print(estadosArray)
+            //print(estadosArray)
             // select a random photo
             //let randomPhotoIndex = Int(arc4random_uniform(UInt32(estadosArray.count)))
             //let estadoDictionary = estadosArray[randomPhotoIndex] as [String:AnyObject]
@@ -371,15 +406,13 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             
             // if an image exists at the url, set the image and title
             //if let Data = try? Data(contentsOf: nombreString) {
-            /*performUIUpdatesOnMain {
-                self.provShow.text = nombreString
-            }*/
+            
             
             class Provincias {
                 var Nombres: [String] = []
                 var Ids: [Int] = []
             }
-            
+        
             let estadosCiviles = Provincias()
             for estadoCivil in estadosArray{
                 guard let nombreString = estadoCivil[Constants.CpccsResponseKeys.Nombre] as? String else {
@@ -392,9 +425,6 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 }
                 self.provOpciones.append(nombreString)
             }
-            //print("\(idInt): \(nombreString)")
-            //print(self.provOpciones[4])
-            print(self.provOpciones.count)
         }
         
         // start the task!
@@ -402,7 +432,6 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     // MARK: Helper for Escaping Parameters in URL
-    
     private func escapedParameters(_ parameters: [String:AnyObject]) -> String {
         
         if parameters.isEmpty {
