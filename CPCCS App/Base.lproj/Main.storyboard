@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="bottom" id="eiW-Px-evA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6tg-vh-L4L">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fondo.png" translatesAutoresizingMaskIntoConstraints="NO" id="KEg-BL-Ohy">
@@ -97,7 +97,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zQ6-RI-exf">
-                                <rect key="frame" x="-260" y="20" width="250" height="647"/>
+                                <rect key="frame" x="-260" y="20" width="250" height="1080"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUq-cu-53o">
                                         <rect key="frame" x="25" y="90" width="120" height="30"/>
@@ -539,6 +539,8 @@
                     <connections>
                         <outlet property="apellidosTextField" destination="POw-oq-5lL" id="2Jz-cj-2MY"/>
                         <outlet property="cargoTextField" destination="BHN-gT-RQd" id="ALf-Ur-qjJ"/>
+                        <outlet property="ciuSelector" destination="lm4-r9-Vze" id="5h1-v6-mE5"/>
+                        <outlet property="ciuShow" destination="92u-eU-xwj" id="Gno-7h-14g"/>
                         <outlet property="direccionTextField" destination="Ke1-PJ-eaJ" id="aOr-D2-ZoW"/>
                         <outlet property="edadTextField" destination="hld-jh-ay6" id="wTL-1C-t9c"/>
                         <outlet property="emailTextField" destination="oyz-aJ-yOx" id="jMr-L5-90n"/>
@@ -721,6 +723,6 @@
         <image name="preguntasfrecuentes.png" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5Uc-fi-rL6"/>
+        <segue reference="P3k-uP-DLG"/>
     </inferredMetricsTieBreakers>
 </document>

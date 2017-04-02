@@ -60,6 +60,11 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     var provOpciones = [""]
     var provID = [0]
     
+    @IBOutlet weak var ciuShow: UILabel!
+    @IBOutlet weak var ciuSelector: UIPickerView!
+    var ciuOpciones = [""]
+    var ciuID = [0]
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -85,6 +90,8 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             countrows = self.resideOpciones.count
         } else if (pickerView == provSelector){
             countrows = self.provOpciones.count
+        }  else if (pickerView == ciuSelector){
+            countrows = self.ciuOpciones.count
         }
         return countrows
     }
@@ -117,6 +124,10 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             return titlerow
         } else if(pickerView == provSelector){
             let titlerow = provOpciones[row]
+            //getCiuidad(id: provID[row])
+            return titlerow
+        }  else if(pickerView == ciuSelector){
+            let titlerow = ciuOpciones[row]
             return titlerow
         }
         return ""
@@ -150,7 +161,11 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             self.resideSelector.isHidden = true
         } else if (pickerView == provSelector){
             self.provShow.text = self.provOpciones[row]
+            self.getCiuidad(id: provID[row])
             self.provSelector.isHidden = true
+        } else if (pickerView == ciuSelector){
+            self.ciuShow.text = self.ciuOpciones[row]
+            self.ciuSelector.isHidden = true
         }
     }
     
@@ -217,6 +232,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                     }
                 }
             }
+            self.getCiuidad(id: self.provID[0])
         }
         task1.resume()
         
@@ -279,8 +295,45 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         attachTapHandler(label: resideShow)
         attachTapHandler(label: nacionShow)
         attachTapHandler(label: provShow)
+        attachTapHandler(label: ciuShow)
         //generoSelector.delegate = self
         
+    }
+    
+    func getCiuidad(id: Int){
+        let urlCiudad = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/ciudades/?provincia=" + String(id))
+        let task1 = URLSession.shared.dataTask(with: urlCiudad!) { (data, response, error) in
+            self.ciuOpciones.removeAll()
+            self.ciuID.removeAll()
+            if error != nil {
+                print(error)
+            } else {
+                if let content = data{
+                    do {
+                        let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                        if let items = myJson["results"] as? NSArray {
+                            for values in items {
+                                if let item = values as? NSDictionary {
+                                    let nombre = item["nombre"] as! String
+                                    self.ciuOpciones.append(nombre)
+                                    let id = item["id"] as! Int
+                                    self.ciuID.append(id)
+                                }
+                            }
+                            DispatchQueue.main.async {
+                                self.ciuShow.text = self.ciuOpciones[0]
+                                self.ciuSelector.isHidden = true
+                                self.ciuSelector.reloadAllComponents()
+                            }
+                        }
+                    } catch {
+                        
+                    }
+                }
+                print(self.ciuOpciones)
+            }
+        }
+        task1.resume()
     }
     
     //Agrega el manejador de tap al label
@@ -338,6 +391,9 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         } else if(sender.view == provShow){
             nombreTextField.resignFirstResponder()
             self.provSelector.isHidden = false
+        } else if(sender.view == ciuShow){
+            nombreTextField.resignFirstResponder()
+            self.ciuSelector.isHidden = false
         }
         //nombreTextField.resignFirstResponder()
         //self.provSelector.isHidden = false
