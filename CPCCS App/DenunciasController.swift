@@ -41,7 +41,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var estCivilShow: UILabel!
     @IBOutlet weak var estCivilSelector: UIPickerView!
     var estCivilOpciones = [""]
-    var estCivilIndex = [0]
+    var estCivilID = [0]
     
     @IBOutlet weak var nivEduShow: UILabel!
     @IBOutlet weak var nivEduSelector: UIPickerView!
@@ -58,6 +58,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var provShow: UILabel!
     @IBOutlet weak var provSelector: UIPickerView!
     var provOpciones = [""]
+    var provID = [0]
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -160,24 +161,64 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        /*if let url = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/estados-civiles/") {
-            do {
-                let estCivilOnline = try String(contentsOf: url)
-                let estCivilDepurado = estCivilOnline.components(separatedBy: "\"")
-                
-                estCivilOpciones.remove(at: 0)
-                for i in 0...4{
-                    estCivilOpciones.append(estCivilDepurado[11 + 6*i])
-                    //estCivilIndex.append(Int(estCivilDepurado[14])!)
+        
+        //Leyendo estados civiles
+        let urlEstCivil = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/estados-civiles/")
+        let task = URLSession.shared.dataTask(with: urlEstCivil!) { (data, response, error) in
+            self.estCivilOpciones.remove(at: 0)
+            self.estCivilID.remove(at: 0)
+            if error != nil {
+                print(error)
+            } else {
+                if let content = data{
+                    do {
+                        let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                        if let items = myJson["results"] as? NSArray {
+                            for values in items {
+                                if let item = values as? NSDictionary {
+                                    let nombre = item["nombre"] as! String
+                                    self.estCivilOpciones.append(nombre)
+                                    let id = item["id"] as! Int
+                                    self.estCivilID.append(id)
+                                }
+                            }
+                        }
+                    } catch {
+                        
+                    }
                 }
-
-            } catch {
-                // contents could not be loaded
             }
-        } else {
-            // the URL was bad!
-        }*/
+        }
+        task.resume()
+        
+        //Leyendo provincias
+        let urlProvincias = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/provincias/?limit=30")
+        let task1 = URLSession.shared.dataTask(with: urlProvincias!) { (data, response, error) in
+            self.provOpciones.remove(at: 0)
+            self.provID.remove(at: 0)
+            if error != nil {
+                print(error)
+            } else {
+                if let content = data{
+                    do {
+                        let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                        if let items = myJson["results"] as? NSArray {
+                            for values in items {
+                                if let item = values as? NSDictionary {
+                                    let nombre = item["nombre"] as! String
+                                    self.provOpciones.append(nombre)
+                                    let id = item["id"] as! Int
+                                    self.provID.append(id)
+                                }
+                            }
+                        }
+                    } catch {
+                        
+                    }
+                }
+            }
+        }
+        task1.resume()
         
         if let url = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/niveles-educacion/") {
             do {
@@ -212,48 +253,10 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         } else {
             // the URL was bad!
         }
-        let urlString = "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/provincias/?limit=30&offset=0"
         
-        let url = URL(string: urlString)
-        URLSession.shared.dataTask(with:url!) { (data, response, error) in
-            if error != nil {
-                print(error)
-            } else {
-                do {
-                    
-                    let parsedData = try JSONSerialization.jsonObject(with: data!, options: []) as! [String:Any]
-                    //print(parsedData)
-                    /*let currentConditions = parsedData["nombre"] as! [String:Any]
-                    
-                    print(currentConditions)
-                    
-                    let currentTemperatureF = currentConditions["id"] as! Int
-                    print(currentTemperatureF)*/
-                } catch let error as NSError {
-                    print(error)
-                }
-            }
-            
-            }.resume()
-        if let url = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/provincias/?limit=30&offset=0") {
-            do {
-                let provOnline = try String(contentsOf: url)
-                let provDepurado = provOnline.components(separatedBy: "\"")
-                
-                provOpciones.remove(at: 0)
-                for i in 0...25{
-                    //provOpciones.append(provDepurado[11 + 6*i])
-                }
-            } catch {
-                // contents could not be loaded
-            }
-        } else {
-            // the URL was bad!
-        }
-        
-        getProvincias(){
-            debugPrint(self.provOpciones)
-        }
+        //getProvincias(){
+        //    debugPrint(self.provOpciones)
+        //}
         
         // TextFields delegates assignment
         nombreTextField.delegate = self
