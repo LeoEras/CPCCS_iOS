@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="bottom" id="eiW-Px-evA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6tg-vh-L4L">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="920"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fondo.png" translatesAutoresizingMaskIntoConstraints="NO" id="KEg-BL-Ohy">
@@ -30,7 +30,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Denuncias"/>
                                 <connections>
-                                    <segue destination="BbN-v2-ycD" kind="show" id="0gb-XZ-B4X"/>
+                                    <segue destination="tdM-WV-yVU" kind="show" id="Fah-Ij-qOM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VX2-e8-zqX">
@@ -97,7 +97,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zQ6-RI-exf">
-                                <rect key="frame" x="-260" y="20" width="250" height="1080"/>
+                                <rect key="frame" x="-260" y="20" width="250" height="900"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUq-cu-53o">
                                         <rect key="frame" x="25" y="90" width="120" height="30"/>
@@ -166,13 +166,13 @@
         <!--Denuncias Controller-->
         <scene sceneID="tvf-rh-HqP">
             <objects>
-                <viewController id="BbN-v2-ycD" customClass="DenunciasController" customModule="CPCCS_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Denuncias1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BbN-v2-ycD" customClass="DenunciasController" customModule="CPCCS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2ha-Nj-ipl"/>
                         <viewControllerLayoutGuide type="bottom" id="brj-Qh-g2s"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cfH-xV-GBF">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="920"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ltz-s2-A9X">
@@ -198,10 +198,10 @@
                                 <color key="backgroundColor" red="0.35695909009999999" green="0.22856674330000001" blue="0.71148397019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Q4-Yn-EEY">
-                                <rect key="frame" x="0.0" y="98" width="375" height="1100"/>
+                                <rect key="frame" x="0.0" y="98" width="375" height="820"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nC4-4H-g3O">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="902"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="820"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombres" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bgt-rL-yc7">
                                                 <rect key="frame" x="20" y="93" width="380" height="30"/>
@@ -529,13 +529,13 @@
                         <constraints>
                             <constraint firstItem="nC4-4H-g3O" firstAttribute="width" secondItem="cfH-xV-GBF" secondAttribute="width" id="3Zl-qM-ifw"/>
                             <constraint firstItem="4Q4-Yn-EEY" firstAttribute="leading" secondItem="cfH-xV-GBF" secondAttribute="leading" id="9ha-sH-PUb"/>
-                            <constraint firstItem="4Q4-Yn-EEY" firstAttribute="top" secondItem="2ha-Nj-ipl" secondAttribute="bottom" constant="78" id="Ows-K1-UfB"/>
+                            <constraint firstItem="4Q4-Yn-EEY" firstAttribute="top" secondItem="2ha-Nj-ipl" secondAttribute="bottom" constant="78" id="Bjc-ri-aae"/>
+                            <constraint firstItem="brj-Qh-g2s" firstAttribute="top" secondItem="4Q4-Yn-EEY" secondAttribute="bottom" id="IrU-10-c79"/>
                             <constraint firstAttribute="trailing" secondItem="4Q4-Yn-EEY" secondAttribute="trailing" id="XU2-Ig-YGV"/>
-                            <constraint firstItem="brj-Qh-g2s" firstAttribute="top" secondItem="4Q4-Yn-EEY" secondAttribute="bottom" id="Zap-iP-YlS"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="1100"/>
+                    <size key="freeformSize" width="375" height="920"/>
                     <connections>
                         <outlet property="apellidosTextField" destination="POw-oq-5lL" id="2Jz-cj-2MY"/>
                         <outlet property="cargoTextField" destination="BHN-gT-RQd" id="ALf-Ur-qjJ"/>
@@ -570,7 +570,54 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7FR-pl-nPc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1284" y="1200.8995502248877"/>
+            <point key="canvasLocation" x="478" y="1391"/>
+        </scene>
+        <!--Denuncias View Controller-->
+        <scene sceneID="s54-U8-2rj">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="tdM-WV-yVU" customClass="DenunciasViewController" customModule="CPCCS_App" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oEa-SU-CnW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1436" y="1391"/>
+        </scene>
+        <!--Denuncias Controller-->
+        <scene sceneID="aEV-FN-WuW">
+            <objects>
+                <viewController storyboardIdentifier="Denuncias2" id="EMC-ge-hc1" customClass="DenunciasController" customModule="CPCCS_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hR7-DI-mJF"/>
+                        <viewControllerLayoutGuide type="bottom" id="09s-b3-dT9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yeN-9g-J8f">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ahg-LT-yCp">
+                                <rect key="frame" x="0.0" y="0.0" width="420" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DENUNCIAS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QN6-Tr-Jjd">
+                                        <rect key="frame" x="56" y="27" width="109" height="27"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="textColor" red="0.97657464179999998" green="1" blue="0.96961100219999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PXl-TV-COE">
+                                        <rect key="frame" x="23" y="29" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="back_button.png"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.35695909009999999" green="0.22856674330000001" blue="0.71148397019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FdM-Fq-x0C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2155" y="1309"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Scx-wh-g3d">
@@ -581,7 +628,7 @@
                         <viewControllerLayoutGuide type="bottom" id="b9k-O0-H0l"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aLg-zI-Wjg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="920"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h0D-XV-nkD">
@@ -640,7 +687,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pqG-Gp-qv2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2070" y="841"/>
+            <point key="canvasLocation" x="2926" y="841"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="B2R-df-bv7">
@@ -651,7 +698,7 @@
                         <viewControllerLayoutGuide type="bottom" id="9uP-Mz-1IM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4Tv-l6-9sS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="920"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MISIÓN.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="9DI-AV-OcV">
@@ -705,7 +752,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vsj-c4-uGh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2056.8000000000002" y="132.68365817091455"/>
+            <point key="canvasLocation" x="2326" y="23"/>
         </scene>
     </scenes>
     <resources>

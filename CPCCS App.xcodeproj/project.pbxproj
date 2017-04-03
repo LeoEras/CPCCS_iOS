@@ -32,6 +32,7 @@
 		A74D2B261E89ED3B00871635 /* preguntasfrecuentes.png in Resources */ = {isa = PBXBuildFile; fileRef = A74D2B1A1E89ED3B00871635 /* preguntasfrecuentes.png */; };
 		A74D2B2B1E8A0A1B00871635 /* back_button.png in Resources */ = {isa = PBXBuildFile; fileRef = A74D2B291E8A0A1B00871635 /* back_button.png */; };
 		A74D2B2E1E8A0B0900871635 /* hamburger.png in Resources */ = {isa = PBXBuildFile; fileRef = A74D2B2D1E8A0B0900871635 /* hamburger.png */; };
+		A77FD2FB1E91CA11003C27E5 /* DenunciasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77FD2FA1E91CA11003C27E5 /* DenunciasViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		A74D2B1A1E89ED3B00871635 /* preguntasfrecuentes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = preguntasfrecuentes.png; path = Icons/preguntasfrecuentes.png; sourceTree = "<group>"; };
 		A74D2B291E8A0A1B00871635 /* back_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back_button.png; path = Icons/back_button.png; sourceTree = "<group>"; };
 		A74D2B2D1E8A0B0900871635 /* hamburger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hamburger.png; path = Icons/hamburger.png; sourceTree = "<group>"; };
+		A77FD2FA1E91CA11003C27E5 /* DenunciasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DenunciasViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				309B09B41E905710009E4C5F /* Constants.swift */,
 				A73CF7C91E7A1E3B00741F82 /* Info.plist */,
 				A735C9391E8ACDFF006295D6 /* DenunciasController.swift */,
+				A77FD2FA1E91CA11003C27E5 /* DenunciasViewController.swift */,
 			);
 			path = "CPCCS App";
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 				A73CF7BE1E7A1E3A00741F82 /* AppDelegate.swift in Sources */,
 				309B09B51E905710009E4C5F /* Constants.swift in Sources */,
 				309B09B71E90572D009E4C5F /* GCDBlackBox.swift in Sources */,
+				A77FD2FB1E91CA11003C27E5 /* DenunciasViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
