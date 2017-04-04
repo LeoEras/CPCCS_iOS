@@ -183,7 +183,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             self.estCivilOpciones.remove(at: 0)
             self.estCivilID.remove(at: 0)
             if error != nil {
-                print(error)
+                print(error ?? "Error")
             } else {
                 if let content = data{
                     do {
@@ -196,6 +196,11 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                                     let id = item["id"] as! Int
                                     self.estCivilID.append(id)
                                 }
+                            }
+                            DispatchQueue.main.async {
+                                self.estCivilShow.text = self.estCivilOpciones[0]
+                                self.estCivilSelector.isHidden = true
+                                self.estCivilSelector.reloadAllComponents()
                             }
                         }
                     } catch {
@@ -212,7 +217,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             self.provOpciones.remove(at: 0)
             self.provID.remove(at: 0)
             if error != nil {
-                print(error)
+                print(error ?? "Error")
             } else {
                 if let content = data{
                     do {
@@ -225,6 +230,11 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                                     let id = item["id"] as! Int
                                     self.provID.append(id)
                                 }
+                            }
+                            DispatchQueue.main.async {
+                                self.provShow.text = self.provOpciones[0]
+                                self.provSelector.isHidden = true
+                                self.provSelector.reloadAllComponents()
                             }
                         }
                     } catch {
@@ -306,7 +316,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             self.ciuOpciones.removeAll()
             self.ciuID.removeAll()
             if error != nil {
-                print(error)
+                print(error ?? "Error")
             } else {
                 if let content = data{
                     do {
@@ -330,7 +340,6 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                         
                     }
                 }
-                print(self.ciuOpciones)
             }
         }
         task1.resume()
@@ -365,38 +374,41 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     func tapFunction(sender:UITapGestureRecognizer) {
         if(sender.view == idenShow){
-            nombreTextField.resignFirstResponder()
             self.identidadSelector.isHidden = false
         } else if(sender.view == empleadoShow){
-            nombreTextField.resignFirstResponder()
             self.empleadoSelector.isHidden = false
         } else if(sender.view == tipoIdentShow){
-            nombreTextField.resignFirstResponder()
             self.tipoIdentSelector.isHidden = false
         } else if(sender.view == generoShow){
-            nombreTextField.resignFirstResponder()
             self.generoSelector.isHidden = false
         } else if(sender.view == estCivilShow){
-            nombreTextField.resignFirstResponder()
             self.estCivilSelector.isHidden = false
         } else if(sender.view == nivEduShow){
-            nombreTextField.resignFirstResponder()
             self.nivEduSelector.isHidden = false
         } else if(sender.view == resideShow){
-            nombreTextField.resignFirstResponder()
             self.resideSelector.isHidden = false
         } else if(sender.view == nacionShow){
-            nombreTextField.resignFirstResponder()
             self.nacionSelector.isHidden = false
         } else if(sender.view == provShow){
-            nombreTextField.resignFirstResponder()
             self.provSelector.isHidden = false
         } else if(sender.view == ciuShow){
-            nombreTextField.resignFirstResponder()
             self.ciuSelector.isHidden = false
         }
+        hideAllKeyboards()
         //nombreTextField.resignFirstResponder()
         //self.provSelector.isHidden = false
+    }
+    
+    func hideAllKeyboards(){
+        nombreTextField.resignFirstResponder()
+        apellidosTextField.resignFirstResponder()
+        edadTextField.resignFirstResponder()
+        emailTextField.resignFirstResponder()
+        telefonoTextField.resignFirstResponder()
+        direccionTextField.resignFirstResponder()
+        organizacionTextField.resignFirstResponder()
+        identificacionTextField.resignFirstResponder()
+        cargoTextField.resignFirstResponder()
     }
     
     // MARK: Make Network Request
