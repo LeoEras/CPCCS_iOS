@@ -9,7 +9,7 @@ import UIKit
 
 class DenunciasViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
-    let pages = ["Denuncias1", "Denuncias2", "Denuncias3"]
+    let pages = ["Denuncias1", "Denuncias2", "Denuncias3", "Denuncias4"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
