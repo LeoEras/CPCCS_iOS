@@ -583,7 +583,7 @@
         <!--Denuncias2 Controller-->
         <scene sceneID="aEV-FN-WuW">
             <objects>
-                <viewController storyboardIdentifier="Denuncias2" id="EMC-ge-hc1" customClass="Denuncias2Controller" customModule="CPCCS_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Denuncias2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EMC-ge-hc1" customClass="Denuncias2Controller" customModule="CPCCS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hR7-DI-mJF"/>
                         <viewControllerLayoutGuide type="bottom" id="09s-b3-dT9"/>
@@ -809,7 +809,7 @@
         <!--Denuncias3 Controller-->
         <scene sceneID="Ffd-Kx-GCJ">
             <objects>
-                <viewController storyboardIdentifier="Denuncias3" id="q9b-0H-PTJ" customClass="Denuncias3Controller" customModule="CPCCS_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Denuncias3" useStoryboardIdentifierAsRestorationIdentifier="YES" id="q9b-0H-PTJ" customClass="Denuncias3Controller" customModule="CPCCS_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ndh-1p-QbG"/>
                         <viewControllerLayoutGuide type="bottom" id="j57-gG-HAx"/>
