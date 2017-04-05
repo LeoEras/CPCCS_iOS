@@ -169,11 +169,117 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
     }
     
+    // MARK: Textfield
     //Al dejar de seleccionar el textfield
     func textFieldDidEndEditing(_ textField: UITextField) {
         
     }
+
+    func checkEmail(candidate: String) -> Bool {
+        let regex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: candidate)
+    }
     
+    func checkTextNumber(text: String) -> Bool {
+        let regex = "[A-Za-zá-ú]+"
+        return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: text)
+    }
+    
+    func checkLength(text: String) -> Bool {
+        let regex = "[A-Za-zá-ú]{1,24}"
+        return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: text)
+    }
+    
+    func checkOnlyNumbers(text: String) -> Bool {
+        let regex = "[0-9]+"
+        return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: text)
+    }
+    func checkIdentificacionLength(text: String) -> Bool {
+        let regex = "[0-9]{10,11}"
+        return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: text)
+    }
+    func checkTelefonoLength(text: String) -> Bool {
+        let regex = "[0-9]{7,12}"
+        return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: text)
+    }
+    
+    func checkEdadLength(text: String) -> Bool {
+        let regex = "[0-9]{1,3}"
+        return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: text)
+    }
+    
+    func changeTextFieldColor(value: Bool, textField: UITextField) {
+        if (!value){
+            textField.layer.borderColor = UIColor.red.cgColor
+            textField.textColor = UIColor.red
+        } else {
+            textField.layer.borderColor = UIColor.black.cgColor
+            textField.textColor = UIColor.black
+        }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let newString = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
+        if textField == nombreTextField {
+            let existOrNotNumber = checkTextNumber(text: newString)
+            changeTextFieldColor(value: existOrNotNumber, textField: nombreTextField)
+        } else if textField == apellidosTextField {
+            let existOrNotNumber = checkTextNumber(text: newString)
+            changeTextFieldColor(value: existOrNotNumber, textField: apellidosTextField)
+        } else if textField == emailTextField {
+            let emailValidated = checkEmail(candidate: newString)
+            changeTextFieldColor(value: emailValidated, textField: emailTextField)
+        } else if textField == edadTextField {
+            let onlyNumbers = checkOnlyNumbers(text: newString)
+            changeTextFieldColor(value: onlyNumbers, textField: edadTextField)
+            let length = checkEdadLength(text: newString)
+            changeTextFieldColor(value: length, textField: edadTextField)
+            
+        } else if textField == telefonoTextField {
+            let onlyNumbers = checkOnlyNumbers(text: newString)
+            changeTextFieldColor(value: onlyNumbers, textField: telefonoTextField)
+            let length = checkTelefonoLength(text: newString)
+            changeTextFieldColor(value: length, textField: telefonoTextField)
+            
+        } else if textField == direccionTextField {
+            
+        } else if textField == identificacionTextField {
+            let onlyNumbers = checkOnlyNumbers(text: newString)
+            changeTextFieldColor(value: onlyNumbers, textField: identificacionTextField)
+            let length = checkIdentificacionLength(text: newString)
+            changeTextFieldColor(value: length, textField: identificacionTextField)
+            
+        } else if textField == cargoTextField {
+            let existOrNotNumber = checkTextNumber(text: newString)
+            changeTextFieldColor(value: existOrNotNumber, textField: cargoTextField)
+            let length = checkIdentificacionLength(text: newString)
+            changeTextFieldColor(value: length, textField: cargoTextField)
+            
+        }
+        return true
+    }
+    
+    
+    // MARK: TextField
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let nextTag: Int = textField.tag + 1
+        
+        let nextResponder: UIResponder? = textField.superview?.superview?.viewWithTag(nextTag)
+        
+        if let nextR = nextResponder
+        {
+            // Found next responder, so set it.
+            nextR.becomeFirstResponder()
+        }
+        else
+        {
+            // Not found, so remove keyboard.
+            textField.resignFirstResponder()
+        }
+        
+        return false
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -209,7 +315,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 }
             }
         }
-        task.resume()
+        //task.resume()
         
         //Leyendo provincias
         let urlProvincias = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/provincias/?limit=30")
@@ -244,7 +350,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             }
             self.getCiuidad(id: self.provID[0])
         }
-        task1.resume()
+        //task1.resume()
         
         if let url = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/niveles-educacion/") {
             do {
@@ -307,6 +413,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         attachTapHandler(label: provShow)
         attachTapHandler(label: ciuShow)
         //generoSelector.delegate = self
+
         
     }
     
@@ -350,26 +457,6 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         let tap = UITapGestureRecognizer(target: self, action: #selector(DenunciasController.tapFunction))
         label.isUserInteractionEnabled = true
         label.addGestureRecognizer(tap)
-    }
-    
-    // MARK: TextField
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let nextTag: Int = textField.tag + 1
-        
-        let nextResponder: UIResponder? = textField.superview?.superview?.viewWithTag(nextTag)
-        
-        if let nextR = nextResponder
-        {
-            // Found next responder, so set it.
-            nextR.becomeFirstResponder()
-        }
-        else
-        {
-            // Not found, so remove keyboard.
-            textField.resignFirstResponder()
-        }
-        
-        return false
     }
     
     func tapFunction(sender:UITapGestureRecognizer) {
