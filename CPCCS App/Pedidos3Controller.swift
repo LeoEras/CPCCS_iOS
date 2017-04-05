@@ -94,76 +94,78 @@ class Pedidos3Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //Leyendo ocupacion
-        let urlOcupaciones = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/ocupaciones")
-        let task = URLSession.shared.dataTask(with: urlOcupaciones!) { (data, response, error) in
-            self.ocupacionOpciones.remove(at: 0)
-            self.ocupacionID.remove(at: 0)
-            if error != nil {
-                print(error ?? "Error")
-            } else {
-                if let content = data{
-                    do {
+        DispatchQueue.global(qos: .userInitiated).async { () -> Void in
+            //Leyendo ocupacion
+            let urlOcupaciones = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/ocupaciones")
+            let task = URLSession.shared.dataTask(with: urlOcupaciones!) { (data, response, error) in
+                self.ocupacionOpciones.remove(at: 0)
+                self.ocupacionID.remove(at: 0)
+                if error != nil {
+                    print(error ?? "Error")
+                } else {
+                    if let content = data{
+                        do {
                         let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
                         if let items = myJson["results"] as? NSArray {
-                            for values in items {
-                                if let item = values as? NSDictionary {
-                                    let nombre = item["nombre"] as! String
-                                    self.ocupacionOpciones.append(nombre)
-                                    let id = item["id"] as! Int
-                                    self.ocupacionID.append(id)
+                                for values in items {
+                                    if let item = values as? NSDictionary {
+                                        let nombre = item["nombre"] as! String
+                                        self.ocupacionOpciones.append(nombre)
+                                        let id = item["id"] as! Int
+                                        self.ocupacionID.append(id)
+                                    }
+                                }
+                                DispatchQueue.main.async {
+                                    self.ocupacionShow.text = self.ocupacionOpciones[0]
+                                    self.ocupacionSelector.isHidden = true
+                                    self.ocupacionSelector.reloadAllComponents()
                                 }
                             }
-                            DispatchQueue.main.async {
-                                self.ocupacionShow.text = self.ocupacionOpciones[0]
-                                self.ocupacionSelector.isHidden = true
-                                self.ocupacionSelector.reloadAllComponents()
-                            }
-                        }
-                    } catch {
+                        } catch {
                         
+                        }
                     }
                 }
             }
+            task.resume()
         }
-        task.resume()
         
-        //Leyendo provincias
-        let urlProvincias = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/provincias/?limit=30")
-        let task1 = URLSession.shared.dataTask(with: urlProvincias!) { (data, response, error) in
-            self.provOpciones.remove(at: 0)
-            self.provID.remove(at: 0)
-            if error != nil {
-                print(error ?? "Error")
-            } else {
-                if let content = data{
-                    do {
-                        let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                        if let items = myJson["results"] as? NSArray {
-                            for values in items {
-                                if let item = values as? NSDictionary {
-                                    let nombre = item["nombre"] as! String
-                                    self.provOpciones.append(nombre)
-                                    let id = item["id"] as! Int
-                                    self.provID.append(id)
+        DispatchQueue.global(qos: .userInitiated).async { () -> Void in
+            //Leyendo provincias
+            let urlProvincias = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/provincias/?limit=30")
+            let task1 = URLSession.shared.dataTask(with: urlProvincias!) { (data, response, error) in
+                self.provOpciones.remove(at: 0)
+                self.provID.remove(at: 0)
+                if error != nil {
+                    print(error ?? "Error")
+                } else {
+                    if let content = data{
+                        do {
+                            let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                            if let items = myJson["results"] as? NSArray {
+                                for values in items {
+                                    if let item = values as? NSDictionary {
+                                        let nombre = item["nombre"] as! String
+                                        self.provOpciones.append(nombre)
+                                        let id = item["id"] as! Int
+                                        self.provID.append(id)
+                                    }
+                                }
+                                DispatchQueue.main.async {
+                                    self.provShow.text = self.provOpciones[0]
+                                    self.provSelector.isHidden = true
+                                    self.provSelector.reloadAllComponents()
                                 }
                             }
-                            DispatchQueue.main.async {
-                                self.provShow.text = self.provOpciones[0]
-                                self.provSelector.isHidden = true
-                                self.provSelector.reloadAllComponents()
-                            }
-                        }
-                    } catch {
+                        } catch {
                         
+                        }
                     }
                 }
+                self.getCiuidad(id: self.provID[0])
             }
-            self.getCiuidad(id: self.provID[0])
+            task1.resume()
         }
-        task1.resume()
-        
         // TextFields delegates assignment
         nombreTextField.delegate = self
         apellidosTextField.delegate = self
@@ -179,6 +181,7 @@ class Pedidos3Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func getCiuidad(id: Int){
+        
         let urlCiudad = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/ciudades/?provincia=" + String(id))
         let task1 = URLSession.shared.dataTask(with: urlCiudad!) { (data, response, error) in
             self.ciuOpciones.removeAll()
