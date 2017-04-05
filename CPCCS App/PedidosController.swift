@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     @IBOutlet weak var nombreTextField: UITextField!
     @IBOutlet weak var apellidosTextField: UITextField!
@@ -283,17 +283,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //let overlayButton = UIButton(type: .custom)
-        //overlayButton.setImage(UIImage(named: ""), for: .normal)
-       // overlayButton.addTarget(self, action: #selector(displayBookmarks(_:)), for: .touchUpInside)
-       // overlayButton = CGRectMake(0, 0, 28, 28)
-        
-        //self.nombreTextField.leftView = overlayButton
-        //self.nombreTextField.leftViewMode = UITextFieldViewModeAlways
-        
-        
         //Leyendo estados civiles
-        DispatchQueue.global(qos: .userInitiated).async { () -> Void in
         let urlEstCivil = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/estados-civiles/")
         let task = URLSession.shared.dataTask(with: urlEstCivil!) { (data, response, error) in
             self.estCivilOpciones.remove(at: 0)
@@ -325,13 +315,9 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 }
             }
         }
-            task.resume()
-            
-        }
+        task.resume()
         
         //Leyendo provincias
-        DispatchQueue.global(qos: .userInitiated).async { () -> Void in
-           
         let urlProvincias = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/provincias/?limit=30")
         let task1 = URLSession.shared.dataTask(with: urlProvincias!) { (data, response, error) in
             self.provOpciones.remove(at: 0)
@@ -365,20 +351,17 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             self.getCiuidad(id: self.provID[0])
         }
         task1.resume()
-            
-        }
-        DispatchQueue.global(qos: .userInitiated).async { () -> Void in
-            
+        
         if let url = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/niveles-educacion/") {
             do {
                 let nivEduOnline = try String(contentsOf: url)
                 let nivEduDepurado = nivEduOnline.components(separatedBy: "\"")
                 
-                self.nivEduOpciones.remove(at: 0)
-                self.nivEduOpciones.append(nivEduDepurado[11])
-                self.nivEduOpciones.append(nivEduDepurado[19])
-                self.nivEduOpciones.append(nivEduDepurado[27])
-                self.nivEduOpciones.append(nivEduDepurado[35])
+                nivEduOpciones.remove(at: 0)
+                nivEduOpciones.append(nivEduDepurado[11])
+                nivEduOpciones.append(nivEduDepurado[19])
+                nivEduOpciones.append(nivEduDepurado[27])
+                nivEduOpciones.append(nivEduDepurado[35])
                 
             } catch {
                 // contents could not be loaded
@@ -392,17 +375,17 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 let nacionOnline = try String(contentsOf: url)
                 let nacionDepurado = nacionOnline.components(separatedBy: "\"")
                 
-                self.nacionOpciones.remove(at: 0)
-                self.nacionOpciones.append(nacionDepurado[11])
-                self.nacionOpciones.append(nacionDepurado[17])
- 
+                nacionOpciones.remove(at: 0)
+                nacionOpciones.append(nacionDepurado[11])
+                nacionOpciones.append(nacionDepurado[17])
+                
             } catch {
                 // contents could not be loaded
             }
         } else {
             // the URL was bad!
         }
-        }
+        
         //getProvincias(){
         //    debugPrint(self.provOpciones)
         //}
