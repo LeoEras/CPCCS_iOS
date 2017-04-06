@@ -10,21 +10,15 @@ import UIKit
 
 class Pedidos3Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
+    @IBOutlet weak var institucionTextField: UITextField!
     @IBOutlet weak var nombreTextField: UITextField!
     @IBOutlet weak var apellidosTextField: UITextField!
-    @IBOutlet weak var institucionTextField: UITextField!
-    @IBOutlet weak var cargoTextField: UITextField!
-    @IBOutlet weak var cantPerTextField: UITextField!
-    @IBOutlet weak var uniDirTextField: UITextField!
     
     @IBOutlet weak var generoShow: UILabel!
     @IBOutlet weak var generoSelector: UIPickerView!
     var generoOpciones = ["FEMENINO", "MASCULINO"]
     
-    @IBOutlet weak var ocupacionShow: UILabel!
-    var ocupacionOpciones = [""]
-    var ocupacionID = [0]
-    @IBOutlet weak var ocupacionSelector: UIPickerView!
+    @IBOutlet weak var cargoTextField: UITextField!
     
     @IBOutlet weak var provShow: UILabel!
     @IBOutlet weak var provSelector: UIPickerView!
@@ -45,8 +39,6 @@ class Pedidos3Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         var countrows : Int = 1
         if (pickerView == generoSelector){
             countrows = self.generoOpciones.count
-        } else if (pickerView == ocupacionSelector){
-            countrows = self.ocupacionOpciones.count
         } else if (pickerView == provSelector){
             countrows = self.provOpciones.count
         }  else if (pickerView == ciuSelector){
@@ -59,9 +51,6 @@ class Pedidos3Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if (pickerView == generoSelector){
             let titlerow = generoOpciones[row]
-            return titlerow
-        } else if(pickerView == ocupacionSelector){
-            let titlerow = ocupacionOpciones[row]
             return titlerow
         } else if(pickerView == provSelector){
             let titlerow = provOpciones[row]
@@ -79,9 +68,6 @@ class Pedidos3Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         if (pickerView == generoSelector){
             self.generoShow.text = self.generoOpciones[row]
             self.generoSelector.isHidden = true
-        } else if (pickerView == ocupacionSelector){
-            self.ocupacionShow.text = self.ocupacionOpciones[row]
-            self.ocupacionSelector.isHidden = true
         } else if (pickerView == provSelector){
             self.provShow.text = self.provOpciones[row]
             self.getCiuidad(id: provID[row])
@@ -94,41 +80,6 @@ class Pedidos3Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        DispatchQueue.global(qos: .userInitiated).async { () -> Void in
-            //Leyendo ocupacion
-            let urlOcupaciones = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/ocupaciones")
-            let task = URLSession.shared.dataTask(with: urlOcupaciones!) { (data, response, error) in
-                self.ocupacionOpciones.remove(at: 0)
-                self.ocupacionID.remove(at: 0)
-                if error != nil {
-                    print(error ?? "Error")
-                } else {
-                    if let content = data{
-                        do {
-                        let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
-                        if let items = myJson["results"] as? NSArray {
-                                for values in items {
-                                    if let item = values as? NSDictionary {
-                                        let nombre = item["nombre"] as! String
-                                        self.ocupacionOpciones.append(nombre)
-                                        let id = item["id"] as! Int
-                                        self.ocupacionID.append(id)
-                                    }
-                                }
-                                DispatchQueue.main.async {
-                                    self.ocupacionShow.text = self.ocupacionOpciones[0]
-                                    self.ocupacionSelector.isHidden = true
-                                    self.ocupacionSelector.reloadAllComponents()
-                                }
-                            }
-                        } catch {
-                        
-                        }
-                    }
-                }
-            }
-            task.resume()
-        }
         
         DispatchQueue.global(qos: .userInitiated).async { () -> Void in
             //Leyendo provincias
@@ -171,11 +122,8 @@ class Pedidos3Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         apellidosTextField.delegate = self
         institucionTextField.delegate = self
         cargoTextField.delegate = self
-        cantPerTextField.delegate = self
-        uniDirTextField.delegate = self
         
         attachTapHandler(label: generoShow)
-        attachTapHandler(label: ocupacionShow)
         attachTapHandler(label: provShow)
         attachTapHandler(label: ciuShow)
     }
@@ -246,8 +194,6 @@ class Pedidos3Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     func tapFunction(sender:UITapGestureRecognizer) {
         if(sender.view == generoShow){
             self.generoSelector.isHidden = false
-        } else if(sender.view == ocupacionShow){
-            self.ocupacionSelector.isHidden = false
         } else if(sender.view == provShow){
             self.provSelector.isHidden = false
         } else if(sender.view == ciuShow){
@@ -261,8 +207,6 @@ class Pedidos3Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         apellidosTextField.resignFirstResponder()
         institucionTextField.resignFirstResponder()
         cargoTextField.resignFirstResponder()
-        cantPerTextField.resignFirstResponder()
-        uniDirTextField.resignFirstResponder()
     }
 }
 

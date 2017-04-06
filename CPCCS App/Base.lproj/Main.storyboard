@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="bottom" id="eiW-Px-evA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6tg-vh-L4L">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="780"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fondo.png" translatesAutoresizingMaskIntoConstraints="NO" id="KEg-BL-Ohy">
@@ -103,7 +103,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zQ6-RI-exf">
-                                <rect key="frame" x="-260" y="20" width="250" height="647"/>
+                                <rect key="frame" x="-260" y="20" width="250" height="760"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUq-cu-53o">
                                         <rect key="frame" x="25" y="90" width="120" height="30"/>
@@ -831,6 +831,9 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="780"/>
+                    <connections>
+                        <outlet property="nombre" destination="hDJ-rX-PcS" id="l4j-C7-6Kt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8m6-fh-oR0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -976,7 +979,7 @@
                         <viewControllerLayoutGuide type="bottom" id="b9k-O0-H0l"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aLg-zI-Wjg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="780"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h0D-XV-nkD">
@@ -1046,7 +1049,7 @@
                         <viewControllerLayoutGuide type="bottom" id="9uP-Mz-1IM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4Tv-l6-9sS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="780"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MISIÓN.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="9DI-AV-OcV">
@@ -2776,6 +2779,6 @@
         <image name="preguntasfrecuentes.png" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="8hJ-iI-PaJ"/>
+        <segue reference="465-93-iCw"/>
     </inferredMetricsTieBreakers>
 </document>
