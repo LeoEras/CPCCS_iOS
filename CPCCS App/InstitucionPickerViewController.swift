@@ -332,13 +332,10 @@ class InstitucionPickerViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-            print("prepare")
-        
     }
     
     // MARK: Dismissals
     func handleSingleTap(_ recognizer: UITapGestureRecognizer) {
-        print("viewdidendediting")
         view.endEditing(true)
     }
     
@@ -418,12 +415,8 @@ extension InstitucionPickerViewController: UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let institucion = instituciones[(indexPath as NSIndexPath).row]
-        //let controller = storyboard!.instantiateViewController(withIdentifier: "DenunciasController") as! DenunciasController
-        print(institucion)
         self.institucion = institucion
-        //navigationController!.pushViewController(controller, animated: true)
-        //_ = navigationController?.popViewController(animated: true)
-        
+        performSegue(withIdentifier: "UnwindToDenunciaID", sender: self)
     }
 }
 

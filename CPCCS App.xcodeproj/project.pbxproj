@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		30355CF81E97171100E0DA33 /* InstitucionPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30355CF71E97171100E0DA33 /* InstitucionPickerViewController.swift */; };
+		30355CFC1E9AD91A00E0DA33 /* InstitucionPedidos3Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30355CFB1E9AD91A00E0DA33 /* InstitucionPedidos3Controller.swift */; };
 		309B09B51E905710009E4C5F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B09B41E905710009E4C5F /* Constants.swift */; };
 		309B09B71E90572D009E4C5F /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B09B61E90572D009E4C5F /* GCDBlackBox.swift */; };
 		A72692081E90A3DD0024EB33 /* MISIÓN.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A72692061E90A3DD0024EB33 /* MISIÓN.jpg */; };
@@ -59,6 +60,7 @@
 
 /* Begin PBXFileReference section */
 		30355CF71E97171100E0DA33 /* InstitucionPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstitucionPickerViewController.swift; sourceTree = "<group>"; };
+		30355CFB1E9AD91A00E0DA33 /* InstitucionPedidos3Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstitucionPedidos3Controller.swift; sourceTree = "<group>"; };
 		309B09B41E905710009E4C5F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		309B09B61E90572D009E4C5F /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
 		A72692061E90A3DD0024EB33 /* MISIÓN.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "MISIÓN.jpg"; path = "Icons/MISIÓN.jpg"; sourceTree = "<group>"; };
@@ -159,8 +161,9 @@
 		A73CF7BC1E7A1E3A00741F82 /* CPCCS App */ = {
 			isa = PBXGroup;
 			children = (
-				30355CF71E97171100E0DA33 /* InstitucionPickerViewController.swift */,
 				A7F4D1AD1E947B4B00CEBCB7 /* FAQController.swift */,
+				30355CF71E97171100E0DA33 /* InstitucionPickerViewController.swift */,
+				30355CFB1E9AD91A00E0DA33 /* InstitucionPedidos3Controller.swift */,
 				A7D8B03C1E93471000E6EA18 /* Denuncias4Controller.swift */,
 				A73CF7BD1E7A1E3A00741F82 /* AppDelegate.swift */,
 				309B09B61E90572D009E4C5F /* GCDBlackBox.swift */,
@@ -322,6 +325,7 @@
 				309B09B71E90572D009E4C5F /* GCDBlackBox.swift in Sources */,
 				A7F4D1BC1E94A1BF00CEBCB7 /* Pedidos4Controller.swift in Sources */,
 				A7F4D1B61E94A09500CEBCB7 /* PedidosController.swift in Sources */,
+				30355CFC1E9AD91A00E0DA33 /* InstitucionPedidos3Controller.swift in Sources */,
 				A7F4D1AE1E947B4B00CEBCB7 /* FAQController.swift in Sources */,
 				A7D8B03D1E93471000E6EA18 /* Denuncias4Controller.swift in Sources */,
 				A79C52941E9315E000A5C7D5 /* Denuncias3Controller.swift in Sources */,

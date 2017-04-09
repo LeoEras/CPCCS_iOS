@@ -36,6 +36,11 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
     var ciuOpciones = [""]
     var ciuID = [0]
     
+    // MARK: Helper variables
+    var institucion: Institucion?
+    var cleared: Bool?
+    
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -92,9 +97,49 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
     
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField == institucionTextField {
+            if self.cleared! {
+                self.cleared = false
+                print("cleared1")
+                return false
+            }
+            print("cleared2")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "InstitucionPickerViewController") as! InstitucionPickerViewController
+            self.present(controller, animated: true, completion: nil)
+            return false
+            
+        }
+        return true
+    }
+    
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        if textField == institucionTextField {
+            self.cleared = true
+            print("cleared3")
+            return true
+        }
+        print("cleared4")
+        return false
+    }
+    
+    
+    @IBAction func unwindToDenuncia(segue: UIStoryboardSegue){
+        if let sourceViewController = segue.source as? InstitucionPickerViewController, let institucion = sourceViewController.institucion
+        {
+            DispatchQueue.main.async {
+                self.institucionTextField.text = institucion.nombre
+                self.institucion = institucion
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.cleared = false
         DispatchQueue.global(qos: .userInitiated).async { () -> Void in
             //Leyendo ocupacion
             let urlOcupaciones = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/ocupaciones")

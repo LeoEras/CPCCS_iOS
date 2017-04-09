@@ -18,7 +18,7 @@
                         <viewControllerLayoutGuide type="bottom" id="eiW-Px-evA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="6tg-vh-L4L">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="980"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fondo.png" translatesAutoresizingMaskIntoConstraints="NO" id="KEg-BL-Ohy">
@@ -103,7 +103,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zQ6-RI-exf">
-                                <rect key="frame" x="-260" y="20" width="250" height="960"/>
+                                <rect key="frame" x="-260" y="20" width="250" height="647"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUq-cu-53o">
                                         <rect key="frame" x="25" y="90" width="120" height="30"/>
@@ -298,7 +298,7 @@
                                                     <outlet property="delegate" destination="BbN-v2-ycD" id="DkZ-7H-V0d"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Organización Social" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tfp-11-3e1">
+                                            <textField opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Organización Social" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Tfp-11-3e1">
                                                 <rect key="frame" x="20" y="372" width="380" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <nil key="textColor"/>
@@ -979,7 +979,7 @@
                         <viewControllerLayoutGuide type="bottom" id="b9k-O0-H0l"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aLg-zI-Wjg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="980"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h0D-XV-nkD">
@@ -1049,7 +1049,7 @@
                         <viewControllerLayoutGuide type="bottom" id="9uP-Mz-1IM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4Tv-l6-9sS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="980"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MISIÓN.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="9DI-AV-OcV">
@@ -1195,7 +1195,7 @@
                                             <outlet property="delegate" destination="q9b-0H-PTJ" id="ZK7-ZA-MJw"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Institución" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aQd-yC-tGR">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Institución" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="aQd-yC-tGR">
                                         <rect key="frame" x="20" y="185" width="380" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
@@ -1871,7 +1871,7 @@
                                                     <outlet property="delegate" destination="P5y-q1-g0v" id="HUr-2W-JoR"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Organización Social" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eza-mB-hEV">
+                                            <textField opaque="NO" clipsSubviews="YES" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Organización Social" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="eza-mB-hEV">
                                                 <rect key="frame" x="20" y="372" width="380" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <nil key="textColor"/>
@@ -2625,7 +2625,7 @@
                                 <rect key="frame" x="0.0" y="100" width="375" height="657"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Institución" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mCo-4F-hWq">
+                                    <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Institución" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="mCo-4F-hWq">
                                         <rect key="frame" x="20" y="53" width="380" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
@@ -2774,7 +2774,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="FdM-0l-bK5" userLabel="Institucion Search Bar">
-                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="375" id="Qyx-hJ-WG4"/>
                                 </constraints>
@@ -2784,7 +2784,7 @@
                                 </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="EgW-Ro-xe7" userLabel="Institucion Table View">
-                                <rect key="frame" x="0.0" y="108" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="InstitucionSearchCell" id="qPf-4l-Ghc" userLabel="InstitucionSearchCell">
@@ -2797,9 +2797,6 @@
                                         <accessibility key="accessibilityConfiguration" identifier="InstitucionSearchCell">
                                             <bool key="isElement" value="YES"/>
                                         </accessibility>
-                                        <connections>
-                                            <segue destination="Wmh-oq-i6F" kind="unwind" unwindAction="unwindToDenunciaWithSegue:" id="awd-Ca-QUd"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -2807,6 +2804,14 @@
                                     <outlet property="delegate" destination="H4a-bY-Xpp" id="Kap-8k-rej"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Jx-jW-z7E">
+                                <rect key="frame" x="273" y="26" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Regresar"/>
+                                <connections>
+                                    <segue destination="Wmh-oq-i6F" kind="unwind" identifier="UnwindToDenunciaID" unwindAction="unwindToDenunciaWithSegue:" id="hdw-HO-lqd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -2830,6 +2835,80 @@
             </objects>
             <point key="canvasLocation" x="1223.2" y="-24.7376311844078"/>
         </scene>
+        <!--Institucion Pedidos 3 Controller-->
+        <scene sceneID="NYI-Cq-ANC">
+            <objects>
+                <viewController storyboardIdentifier="InstitucionPedidos3Controller" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EBF-ox-D2I" userLabel="Institucion Pedidos 3 Controller" customClass="InstitucionPedidos3Controller" customModule="CPCCS_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UL7-Gz-Bzc"/>
+                        <viewControllerLayoutGuide type="bottom" id="7oT-4D-13U"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Eyy-uJ-Ltl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="D3Z-48-QuH" userLabel="Institucion Search Bar">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="p04-WM-JgS"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="EBF-ox-D2I" id="7bi-LU-xAe"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="akY-W6-wLG" userLabel="Institucion Table View">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="InstitucionSearchCell" id="sTr-o3-DqS" userLabel="InstitucionSearchCell">
+                                        <rect key="frame" x="0.0" y="22" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sTr-o3-DqS" id="aTD-KB-bFI">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" identifier="InstitucionSearchCell">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="EBF-ox-D2I" id="Dfm-xr-duk"/>
+                                    <outlet property="delegate" destination="EBF-ox-D2I" id="Uff-2m-w64"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHY-1r-U7r">
+                                <rect key="frame" x="273" y="26" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Regresar"/>
+                                <connections>
+                                    <segue destination="N30-H2-JK0" kind="unwind" identifier="UnwindToPedido3ID" unwindAction="unwindToPedidoWithSegue:" id="ONn-TL-EIe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="D3Z-48-QuH" firstAttribute="leading" secondItem="akY-W6-wLG" secondAttribute="leading" id="6Jv-Ax-ZsV"/>
+                            <constraint firstItem="akY-W6-wLG" firstAttribute="top" secondItem="D3Z-48-QuH" secondAttribute="bottom" id="C58-in-OE7"/>
+                            <constraint firstItem="D3Z-48-QuH" firstAttribute="trailing" secondItem="akY-W6-wLG" secondAttribute="trailing" id="Ofm-ij-FgD"/>
+                            <constraint firstItem="akY-W6-wLG" firstAttribute="leading" secondItem="Eyy-uJ-Ltl" secondAttribute="leading" id="QhF-cA-gTa"/>
+                            <constraint firstItem="D3Z-48-QuH" firstAttribute="top" secondItem="UL7-Gz-Bzc" secondAttribute="bottom" id="TGz-uu-mcR"/>
+                            <constraint firstAttribute="trailing" secondItem="D3Z-48-QuH" secondAttribute="trailing" id="fn0-L0-aXS"/>
+                            <constraint firstItem="akY-W6-wLG" firstAttribute="bottom" secondItem="7oT-4D-13U" secondAttribute="top" id="lqX-CL-IH2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="AbN-ov-WcP"/>
+                    <connections>
+                        <outlet property="institucionSearchBar" destination="D3Z-48-QuH" id="3nK-Ag-tVd"/>
+                        <outlet property="institucionTableView" destination="akY-W6-wLG" id="0lC-Cv-5yz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aQg-E0-lgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="N30-H2-JK0" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1223.2" y="-24.7376311844078"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Bar.png" width="56" height="6"/>
@@ -2848,6 +2927,6 @@
         <image name="preguntasfrecuentes.png" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zda-u1-v7d"/>
+        <segue reference="23o-22-wYS"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -66,6 +66,10 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     var ciuOpciones = [""]
     var ciuID = [0]
     
+    var institucion: Institucion?
+    
+    var cleared: Bool?
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -283,33 +287,42 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField == organizacionTextField {
+            if self.cleared! {
+                self.cleared = false
+                return false
+            }
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "InstitucionPickerViewController") as! InstitucionPickerViewController
-            //let controller = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
-            //controller.institucion = institucion
-            //navigationController!.pushViewController(controller, animated: true)
             self.present(controller, animated: true, completion: nil)
             return false
+            
         }
         return true
     }
     
-    @IBAction func unwindToDenuncia(segue: UIStoryboardSegue){
-        if let sourceViewController = segue.source as? InstitucionPickerViewController
-            //, let institucion = sourceViewController.institucion 
-            {
-                let institucion = sourceViewController.institucion
-                print("HOA")
-                /*DispatchQueue.main.async {
-                    self.organizacionTextField.text = institucion.nombre
-                }*/
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        if textField == organizacionTextField {
+            self.cleared = true
+            return true
         }
-        
+        return false
+    }
+    
+    
+    @IBAction func unwindToDenuncia(segue: UIStoryboardSegue){
+        if let sourceViewController = segue.source as? InstitucionPickerViewController, let institucion = sourceViewController.institucion
+            {
+                DispatchQueue.main.async {
+                    self.organizacionTextField.text = institucion.nombre
+                    self.institucion = institucion
+                }
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.cleared = false
         //let overlayButton = UIButton(type: .custom)
         //overlayButton.setImage(UIImage(named: ""), for: .normal)
         // overlayButton.addTarget(self, action: #selector(displayBookmarks(_:)), for: .touchUpInside)

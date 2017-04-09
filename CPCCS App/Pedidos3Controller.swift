@@ -30,6 +30,10 @@ class Pedidos3Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     var ciuOpciones = [""]
     var ciuID = [0]
     
+    // MARK: Helper variables
+    var institucion: Institucion?
+    var cleared: Bool?
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -78,8 +82,44 @@ class Pedidos3Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         }
     }
     
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField == institucionTextField {
+            if self.cleared! {
+                self.cleared = false
+                return false
+            }
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "InstitucionPedidos3Controller") as! InstitucionPedidos3Controller
+            self.present(controller, animated: true, completion: nil)
+            return false
+            
+        }
+        return true
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        if textField == institucionTextField {
+            self.cleared = true
+            return true
+        }
+        return false
+    }
+    
+    
+    @IBAction func unwindToPedido(segue: UIStoryboardSegue){
+        if let sourceViewController = segue.source as? InstitucionPedidos3Controller, let institucion = sourceViewController.institucion
+        {
+            DispatchQueue.main.async {
+                self.institucionTextField.text = institucion.nombre
+                self.institucion = institucion
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.cleared = false
         
         DispatchQueue.global(qos: .userInitiated).async { () -> Void in
             //Leyendo provincias
