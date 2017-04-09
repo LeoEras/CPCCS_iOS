@@ -9,7 +9,6 @@
 import UIKit
 
 class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
-    
     @IBOutlet weak var nombreTextField: UITextField!
     @IBOutlet weak var apellidosTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -46,10 +45,12 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var nivEduShow: UILabel!
     @IBOutlet weak var nivEduSelector: UIPickerView!
     var nivEduOpciones = [""]
+    var nivEduID = [0]
     
     @IBOutlet weak var nacionShow: UILabel!
     @IBOutlet weak var nacionSelector: UIPickerView!
     var nacionOpciones = [""]
+    var nacionID = [0]
     
     @IBOutlet weak var resideShow: UILabel!
     @IBOutlet weak var resideSelector: UIPickerView!
@@ -357,7 +358,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         //Leyendo provincias
         DispatchQueue.global(qos: .userInitiated).async { () -> Void in
             let urlProvincias = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/provincias/?limit=30")
-            let task1 = URLSession.shared.dataTask(with: urlProvincias!) { (data, response, error) in
+            let task = URLSession.shared.dataTask(with: urlProvincias!) { (data, response, error) in
                 self.provOpciones.remove(at: 0)
                 self.provID.remove(at: 0)
                 if error != nil {
@@ -388,46 +389,80 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 }
                 self.getCiuidad(id: self.provID[0])
             }
-            task1.resume()
+            task.resume()
         }
         
+        //get Niveles de educacion
         DispatchQueue.global(qos: .userInitiated).async { () -> Void in
-            if let url = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/niveles-educacion/") {
-                do {
-                    let nivEduOnline = try String(contentsOf: url)
-                    let nivEduDepurado = nivEduOnline.components(separatedBy: "\"")
-                
-                    self.nivEduOpciones.remove(at: 0)
-                    self.nivEduOpciones.append(nivEduDepurado[11])
-                    self.nivEduOpciones.append(nivEduDepurado[19])
-                    self.nivEduOpciones.append(nivEduDepurado[27])
-                    self.nivEduOpciones.append(nivEduDepurado[35])
-                
-                } catch {
-                    // contents could not be loaded
+            let urlNivEdu = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/niveles-educacion/")
+            let task = URLSession.shared.dataTask(with: urlNivEdu!) { (data, response, error) in
+                self.nivEduOpciones.remove(at: 0)
+                self.nivEduID.remove(at: 0)
+                if error != nil {
+                    print(error ?? "Error")
+                } else {
+                    if let content = data{
+                        do {
+                            let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                            if let items = myJson["results"] as? NSArray {
+                                for values in items {
+                                    if let item = values as? NSDictionary {
+                                        let nombre = item["nombre"] as! String
+                                        self.nivEduOpciones.append(nombre)
+                                        let id = item["id"] as! Int
+                                        self.nivEduID.append(id)
+                                    }
+                                }
+                                DispatchQueue.main.async {
+                                    self.nivEduShow.text = self.nivEduOpciones[0]
+                                    self.nivEduSelector.isHidden = true
+                                    self.nivEduSelector.reloadAllComponents()
+                                }
+                            }
+                        } catch {
+                            
+                        }
+                    }
                 }
-            } else {
-                // the URL was bad!
             }
-        
-            if let url = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/nacionalidades/") {
-                do {
-                    let nacionOnline = try String(contentsOf: url)
-                    let nacionDepurado = nacionOnline.components(separatedBy: "\"")
-                
-                    self.nacionOpciones.remove(at: 0)
-                    self.nacionOpciones.append(nacionDepurado[11])
-                    self.nacionOpciones.append(nacionDepurado[17])
-                } catch {
-                    // contents could not be loaded
-                }
-            } else {
-                // the URL was bad!
-            }
+            task.resume()
         }
-        //getProvincias(){
-        //    debugPrint(self.provOpciones)
-        //}
+        
+        //get nacionalidades
+        DispatchQueue.global(qos: .userInitiated).async { () -> Void in
+            let urlNac = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/nacionalidades/")
+            let task = URLSession.shared.dataTask(with: urlNac!) { (data, response, error) in
+                self.nacionOpciones.remove(at: 0)
+                self.nacionID.remove(at: 0)
+                if error != nil {
+                    print(error ?? "Error")
+                } else {
+                    if let content = data{
+                        do {
+                            let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                            if let items = myJson["results"] as? NSArray {
+                                for values in items {
+                                    if let item = values as? NSDictionary {
+                                        let nombre = item["nombre"] as! String
+                                        self.nacionOpciones.append(nombre)
+                                        let id = item["id"] as! Int
+                                        self.nacionID.append(id)
+                                    }
+                                }
+                                DispatchQueue.main.async {
+                                    self.nacionShow.text = self.nacionOpciones[0]
+                                    self.nacionSelector.isHidden = true
+                                    self.nacionSelector.reloadAllComponents()
+                                }
+                            }
+                        } catch {
+                            
+                        }
+                    }
+                }
+            }
+            task.resume()
+        }
         
         // TextFields delegates assignment
         nombreTextField.delegate = self
