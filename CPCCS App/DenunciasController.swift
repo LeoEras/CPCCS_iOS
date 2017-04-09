@@ -280,13 +280,39 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         return false
     }
     
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField == organizacionTextField {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "InstitucionPickerViewController") as! InstitucionPickerViewController
+            //let controller = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+            //controller.institucion = institucion
+            //navigationController!.pushViewController(controller, animated: true)
+            self.present(controller, animated: true, completion: nil)
+            return false
+        }
+        return true
+    }
+    
+    @IBAction func unwindToDenuncia(segue: UIStoryboardSegue){
+        if let sourceViewController = segue.source as? InstitucionPickerViewController
+            //, let institucion = sourceViewController.institucion 
+            {
+                let institucion = sourceViewController.institucion
+                print("HOA")
+                /*DispatchQueue.main.async {
+                    self.organizacionTextField.text = institucion.nombre
+                }*/
+        }
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //let overlayButton = UIButton(type: .custom)
         //overlayButton.setImage(UIImage(named: ""), for: .normal)
-       // overlayButton.addTarget(self, action: #selector(displayBookmarks(_:)), for: .touchUpInside)
-       // overlayButton = CGRectMake(0, 0, 28, 28)
+        // overlayButton.addTarget(self, action: #selector(displayBookmarks(_:)), for: .touchUpInside)
+        //overlayButton = CGRectMake(0, 0, 28, 28)
         
         //self.nombreTextField.leftView = overlayButton
         //self.nombreTextField.leftViewMode = UITextFieldViewModeAlways
@@ -427,8 +453,9 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         attachTapHandler(label: ciuShow)
         //generoSelector.delegate = self
         
-        
     }
+    
+
     
     func getCiuidad(id: Int){
         let urlCiudad = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/ciudades/?provincia=" + String(id))

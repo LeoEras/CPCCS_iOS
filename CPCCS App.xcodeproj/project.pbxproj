@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30355CF81E97171100E0DA33 /* InstitucionPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30355CF71E97171100E0DA33 /* InstitucionPickerViewController.swift */; };
 		309B09B51E905710009E4C5F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B09B41E905710009E4C5F /* Constants.swift */; };
 		309B09B71E90572D009E4C5F /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B09B61E90572D009E4C5F /* GCDBlackBox.swift */; };
 		A72692081E90A3DD0024EB33 /* MISIÓN.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A72692061E90A3DD0024EB33 /* MISIÓN.jpg */; };
@@ -57,6 +58,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		30355CF71E97171100E0DA33 /* InstitucionPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstitucionPickerViewController.swift; sourceTree = "<group>"; };
 		309B09B41E905710009E4C5F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		309B09B61E90572D009E4C5F /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
 		A72692061E90A3DD0024EB33 /* MISIÓN.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "MISIÓN.jpg"; path = "Icons/MISIÓN.jpg"; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 		A73CF7BC1E7A1E3A00741F82 /* CPCCS App */ = {
 			isa = PBXGroup;
 			children = (
+				30355CF71E97171100E0DA33 /* InstitucionPickerViewController.swift */,
 				A7F4D1AD1E947B4B00CEBCB7 /* FAQController.swift */,
 				A7D8B03C1E93471000E6EA18 /* Denuncias4Controller.swift */,
 				A73CF7BD1E7A1E3A00741F82 /* AppDelegate.swift */,
@@ -323,6 +326,7 @@
 				A7D8B03D1E93471000E6EA18 /* Denuncias4Controller.swift in Sources */,
 				A79C52941E9315E000A5C7D5 /* Denuncias3Controller.swift in Sources */,
 				A7F4D1B41E949F4C00CEBCB7 /* PedidosViewController.swift in Sources */,
+				30355CF81E97171100E0DA33 /* InstitucionPickerViewController.swift in Sources */,
 				A77FD2FB1E91CA11003C27E5 /* DenunciasViewController.swift in Sources */,
 				A7F4D1B81E94A12200CEBCB7 /* Pedidos2Controller.swift in Sources */,
 			);
