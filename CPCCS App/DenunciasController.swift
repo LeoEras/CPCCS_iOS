@@ -143,34 +143,44 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     //Oculta el Picker View cuando una opcion es seleccionada
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if (pickerView == identidadSelector){
+            denuncia.setIdentidad(opcion: row)
             self.idenShow.text = self.identidadOpciones[row]
             self.identidadSelector.isHidden = true
         } else if (pickerView == empleadoSelector){
+            denuncia.setOcupacion(opcion: row)
             self.empleadoShow.text = self.empleadoOpciones[row]
             self.empleadoSelector.isHidden = true
         } else if (pickerView == tipoIdentSelector){
+            denuncia.setTipoIden(opcion: row)
             self.tipoIdentShow.text = self.tipoIdentOpciones[row]
             self.tipoIdentSelector.isHidden = true
         } else if (pickerView == generoSelector){
+            denuncia.setGenero(opcion: row)
             self.generoShow.text = self.generoOpciones[row]
             self.generoSelector.isHidden = true
         } else if (pickerView == estCivilSelector){
+            denuncia.setEstCivil(opcion: row)
             self.estCivilShow.text = self.estCivilOpciones[row]
             self.estCivilSelector.isHidden = true
         } else if (pickerView == nivEduSelector){
+            denuncia.setNivEdu(opcion: row)
             self.nivEduShow.text = self.nivEduOpciones[row]
             self.nivEduSelector.isHidden = true
         } else if (pickerView == nacionSelector){
+            denuncia.setNacion(opcion: row)
             self.nacionShow.text = self.nacionOpciones[row]
             self.nacionSelector.isHidden = true
         } else if (pickerView == resideSelector){
+            denuncia.setReside(opcion: row)
             self.resideShow.text = self.resideOpciones[row]
             self.resideSelector.isHidden = true
         } else if (pickerView == provSelector){
+            denuncia.setProvincia(opcion: row)
             self.provShow.text = self.provOpciones[row]
             self.getCiuidad(id: provID[row])
             self.provSelector.isHidden = true
         } else if (pickerView == ciuSelector){
+            denuncia.setCiudad(opcion: row)
             self.ciuShow.text = self.ciuOpciones[row]
             self.ciuSelector.isHidden = true
         }
@@ -329,7 +339,16 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         //Caso en que la ventana ya haya sido completada
         if(denuncia.getPrimeraVentana()){
+            idenShow.text = identidadOpciones[denuncia.getIdentidad()]
             nombreTextField.text = denuncia.getNombres()
+            apellidosTextField.text = denuncia.getApellidos()
+            edadTextField.text = String(denuncia.getEdad())
+            emailTextField.text = denuncia.getCorreo()
+            telefonoTextField.text = denuncia.getTelefono()
+            direccionTextField.text = denuncia.getDireccion()
+            organizacionTextField.text = denuncia.getOrgSocial()
+            identificacionTextField.text = denuncia.getIdentificacion()
+            cargoTextField.text = denuncia.getCargo()
         }
         
         //Leyendo estados civiles
@@ -354,7 +373,11 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                                     }
                                 }
                                 DispatchQueue.main.async {
-                                    self.estCivilShow.text = self.estCivilOpciones[0]
+                                    if(self.denuncia.getPrimeraVentana()){
+                                        self.estCivilShow.text = self.estCivilOpciones[self.denuncia.getEstCivil()]
+                                    } else {
+                                        self.estCivilShow.text = self.estCivilOpciones[0]
+                                    }
                                     self.estCivilSelector.isHidden = true
                                     self.estCivilSelector.reloadAllComponents()
                                 }
@@ -390,7 +413,11 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                                     }
                                 }
                                 DispatchQueue.main.async {
-                                    self.provShow.text = self.provOpciones[0]
+                                    if(self.denuncia.getPrimeraVentana()){
+                                        self.provShow.text = self.provOpciones[self.denuncia.getProvincia()]
+                                    } else {
+                                        self.provShow.text = self.provOpciones[0]
+                                    }
                                     self.provSelector.isHidden = true
                                     self.provSelector.reloadAllComponents()
                                 }
@@ -427,7 +454,11 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                                     }
                                 }
                                 DispatchQueue.main.async {
-                                    self.nivEduShow.text = self.nivEduOpciones[0]
+                                    if(self.denuncia.getPrimeraVentana()){
+                                        self.nivEduShow.text = self.nivEduOpciones[self.denuncia.getNivEdu()]
+                                    } else {
+                                        self.nivEduShow.text = self.nivEduOpciones[0]
+                                    }
                                     self.nivEduSelector.isHidden = true
                                     self.nivEduSelector.reloadAllComponents()
                                 }
@@ -463,7 +494,11 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                                     }
                                 }
                                 DispatchQueue.main.async {
-                                    self.nacionShow.text = self.nacionOpciones[0]
+                                    if(self.denuncia.getPrimeraVentana()){
+                                        self.nacionShow.text = self.nacionOpciones[self.denuncia.getNacion()]
+                                    } else {
+                                        self.nacionShow.text = self.nacionOpciones[0]
+                                    }
                                     self.nacionSelector.isHidden = true
                                     self.nacionSelector.reloadAllComponents()
                                 }

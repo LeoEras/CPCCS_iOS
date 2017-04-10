@@ -13,17 +13,32 @@ final class Denuncia{
     private var primeraVentana: Bool = false
     private var segundaVentana: Bool = false
     private var terceraVentana: Bool = false
-    private var cuartaVentana: Bool = false
     static let shared = Denuncia()
     
-    public func getPrimeraVentana() -> Bool{
-        return primeraVentana
-    }
-    
     public func setPrimeraVentana(boolean: Bool){
-        primeraVentana = boolean
+        Denuncia.shared.primeraVentana = boolean
     }
     
+    public func getPrimeraVentana() -> Bool{
+        return Denuncia.shared.primeraVentana
+    }
+    
+    public func setSegundaVentana(boolean: Bool){
+        Denuncia.shared.segundaVentana = boolean
+    }
+    
+    public func getSegundaVentana() -> Bool{
+        return Denuncia.shared.segundaVentana
+    }
+    
+    public func setTerceraVentana(boolean: Bool){
+        Denuncia.shared.terceraVentana = boolean
+    }
+    
+    public func getTerceraVentana() -> Bool{
+        return Denuncia.shared.terceraVentana
+    }
+
     //No mas instancias accidentales
     private init(){
         
@@ -69,6 +84,10 @@ final class Denuncia{
     
     public func setApellidos(lname: String) {
         Denuncia.shared.apellidos = lname
+    }
+    
+    public func getApellidos() -> String {
+        return Denuncia.shared.apellidos
     }
     
     public func setEdad(age: Int) {
@@ -126,6 +145,80 @@ final class Denuncia{
     public func getTipoIden() -> Int {
         return Denuncia.shared.tipoIdenChoice
     }
+    
+    public func setIdentificacion(identification: String) {
+        Denuncia.shared.identificacion = identificacion
+    }
+    
+    public func getIdentificacion() -> String {
+        return Denuncia.shared.identificacion
+    }
+    
+    public func setGenero(opcion: Int) {
+        Denuncia.shared.generoChoice = opcion
+    }
+    
+    public func getGenero() -> Int {
+        return Denuncia.shared.generoChoice
+    }
+    
+    public func setEstCivil(opcion: Int) {
+        Denuncia.shared.estCivilChoice = opcion
+    }
+    
+    public func getEstCivil() -> Int {
+        return Denuncia.shared.estCivilChoice
+    }
+    
+    public func setNivEdu(opcion: Int) {
+        Denuncia.shared.nivEduChoice = opcion
+    }
+    
+    public func getNivEdu() -> Int {
+        return Denuncia.shared.nivEduChoice
+    }
+    
+    public func setCargo(position: String) {
+        Denuncia.shared.cargo = position
+    }
+    
+    public func getCargo() -> String {
+        return Denuncia.shared.cargo
+    }
+    
+    public func setNacion(opcion: Int) {
+        Denuncia.shared.nacionChoice = opcion
+    }
+    
+    public func getNacion() -> Int {
+        return Denuncia.shared.nacionChoice
+    }
+    
+    public func setReside(opcion: Int) {
+        Denuncia.shared.resideChoice = opcion
+    }
+    
+    public func getReside() -> Int {
+        return Denuncia.shared.resideChoice
+    }
+    
+    public func setProvincia(opcion: Int) {
+        Denuncia.shared.provChoice = opcion
+    }
+    
+    public func getProvincia() -> Int {
+        return Denuncia.shared.provChoice
+    }
+    
+    public func setCiudad(opcion: Int) {
+        Denuncia.shared.ciuChoice = opcion
+    }
+    
+    public func getCiudad() -> Int {
+        return Denuncia.shared.ciuChoice
+    }
+    
+    //Variables de la segunda ventana
     
     public func resetData() {
         Denuncia.shared.nombres = ""
