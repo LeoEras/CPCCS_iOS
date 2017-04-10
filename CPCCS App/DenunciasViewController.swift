@@ -10,6 +10,7 @@ import UIKit
 class DenunciasViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     
     let pages = ["Denuncias1", "Denuncias2", "Denuncias3", "Denuncias4"]
+    var denuncia = Denuncia.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,8 +49,10 @@ class DenunciasViewController: UIPageViewController, UIPageViewControllerDelegat
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         if let identifier = viewController.restorationIdentifier {
             if let index = pages.index(of: identifier) {
-                if index < pages.count - 1 {
-                    return self.storyboard?.instantiateViewController(withIdentifier: pages[index+1])
+                if index == 0 {
+                    if denuncia.getPrimeraVentana(){
+                        return self.storyboard?.instantiateViewController(withIdentifier: pages[1])
+                    }
                 }
             }
         }

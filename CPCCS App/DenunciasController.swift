@@ -9,6 +9,8 @@
 import UIKit
 
 class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+    var denuncia = Denuncia.shared
+    
     @IBOutlet weak var nombreTextField: UITextField!
     @IBOutlet weak var apellidosTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -261,6 +263,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             changeTextFieldColor(value: length, textField: cargoTextField)
             
         }
+        
         return true
     }
     
@@ -281,7 +284,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             // Not found, so remove keyboard.
             textField.resignFirstResponder()
         }
-        
+        denuncia.setNombres(name: nombreTextField.text!)
         return false
     }
     
@@ -323,14 +326,11 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         super.viewDidLoad()
         
         self.cleared = false
-        //let overlayButton = UIButton(type: .custom)
-        //overlayButton.setImage(UIImage(named: ""), for: .normal)
-        // overlayButton.addTarget(self, action: #selector(displayBookmarks(_:)), for: .touchUpInside)
-        //overlayButton = CGRectMake(0, 0, 28, 28)
         
-        //self.nombreTextField.leftView = overlayButton
-        //self.nombreTextField.leftViewMode = UITextFieldViewModeAlways
-        
+        //Caso en que la ventana ya haya sido completada
+        if(denuncia.getPrimeraVentana()){
+            nombreTextField.text = denuncia.getNombres()
+        }
         
         //Leyendo estados civiles
         DispatchQueue.global(qos: .userInitiated).async { () -> Void in
@@ -500,7 +500,6 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         attachTapHandler(label: provShow)
         attachTapHandler(label: ciuShow)
         //generoSelector.delegate = self
-        
     }
     
 

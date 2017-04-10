@@ -11,10 +11,11 @@ import UIKit
 class Denuncias4Controller: UIViewController {
 
     @IBOutlet weak var nombre: UILabel!
-    //var den = DenunciasController()
+    var denu = Denuncia.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        nombre.text = denu.getNombres()
         //DenunciasController.nombre
         // Do any additional setup after loading the view.
     }
