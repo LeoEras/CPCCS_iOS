@@ -105,35 +105,71 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     //Que va en cada fila del Picker View
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if(pickerView == identidadSelector){
-            let titlerow = identidadOpciones[row]
-            return titlerow
-        } else if(pickerView == empleadoSelector){
-            let titlerow = empleadoOpciones[row]
-            return titlerow
-        } else if(pickerView == tipoIdentSelector){
-            let titlerow = tipoIdentOpciones[row]
-            return titlerow
-        } else if(pickerView == generoSelector){
-            let titlerow = generoOpciones[row]
-            return titlerow
-        } else if(pickerView == estCivilSelector){
+        
+        if(denuncia.getPrimeraVentana()){
+            if(pickerView == identidadSelector){
+                let titlerow = identidadOpciones[row]
+                idenShow.text = identidadOpciones[denuncia.getIdentidad()]
+                return titlerow
+            } else if(pickerView == empleadoSelector){
+                let titlerow = empleadoOpciones[row]
+                empleadoShow.text = empleadoOpciones[denuncia.getOcupacion()]
+                return titlerow
+            } else if(pickerView == tipoIdentSelector){
+                let titlerow = tipoIdentOpciones[row]
+                tipoIdentShow.text = tipoIdentOpciones[denuncia.getTipoIden()]
+                return titlerow
+            } else if(pickerView == generoSelector){
+                let titlerow = generoOpciones[row]
+                generoShow.text = generoOpciones[denuncia.getGenero()]
+                return titlerow
+            } else if(pickerView == resideSelector){
+                let titlerow = resideOpciones[row]
+                resideShow.text = resideOpciones[denuncia.getReside()]
+                return titlerow
+            }
+        } else {
+            if(pickerView == identidadSelector){
+                denuncia.setIdentidad(opcion: row)
+                let titlerow = identidadOpciones[row]
+                return titlerow
+            } else if(pickerView == empleadoSelector){
+                denuncia.setOcupacion(opcion: row)
+                let titlerow = empleadoOpciones[row]
+                return titlerow
+            } else if(pickerView == tipoIdentSelector){
+                denuncia.setTipoIden(opcion: row)
+                let titlerow = tipoIdentOpciones[row]
+                return titlerow
+            } else if(pickerView == generoSelector){
+                denuncia.setGenero(opcion: row)
+                let titlerow = generoOpciones[row]
+                return titlerow
+            } else if(pickerView == resideSelector){
+                denuncia.setReside(opcion: row)
+                let titlerow = resideOpciones[row]
+                return titlerow
+            }
+        }
+        
+        if(pickerView == estCivilSelector){
+            //denuncia.setEstCivil(opcion: row)
             let titlerow = estCivilOpciones[row]
             return titlerow
         } else if(pickerView == nivEduSelector){
+            //denuncia.setNivEdu(opcion: row)
             let titlerow = nivEduOpciones[row]
             return titlerow
         } else if(pickerView == nacionSelector){
+            //denuncia.setNacion(opcion: row)
             let titlerow = nacionOpciones[row]
             return titlerow
-        } else if(pickerView == resideSelector){
-            let titlerow = resideOpciones[row]
-            return titlerow
         } else if(pickerView == provSelector){
+            //denuncia.setProvincia(opcion: row)
             let titlerow = provOpciones[row]
-            //getCiuidad(id: provID[row])
             return titlerow
-        }  else if(pickerView == ciuSelector){
+        } else if(pickerView == ciuSelector){
+            //enuncia.setCiudad(opcion: row)
             let titlerow = ciuOpciones[row]
             return titlerow
         }
@@ -298,6 +334,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         return false
     }
     
+    /*
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         if textField == organizacionTextField {
             if self.cleared! {
@@ -330,7 +367,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                     self.institucion = institucion
                 }
         }
-    }
+    }*/
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -339,7 +376,6 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         //Caso en que la ventana ya haya sido completada
         if(denuncia.getPrimeraVentana()){
-            idenShow.text = identidadOpciones[denuncia.getIdentidad()]
             nombreTextField.text = denuncia.getNombres()
             apellidosTextField.text = denuncia.getApellidos()
             edadTextField.text = String(denuncia.getEdad())
@@ -373,13 +409,13 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                                     }
                                 }
                                 DispatchQueue.main.async {
+                                    self.estCivilSelector.isHidden = true
+                                    self.estCivilSelector.reloadAllComponents()
                                     if(self.denuncia.getPrimeraVentana()){
                                         self.estCivilShow.text = self.estCivilOpciones[self.denuncia.getEstCivil()]
                                     } else {
                                         self.estCivilShow.text = self.estCivilOpciones[0]
                                     }
-                                    self.estCivilSelector.isHidden = true
-                                    self.estCivilSelector.reloadAllComponents()
                                 }
                             }
                         } catch {
@@ -413,13 +449,13 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                                     }
                                 }
                                 DispatchQueue.main.async {
+                                    self.provSelector.isHidden = true
+                                    self.provSelector.reloadAllComponents()
                                     if(self.denuncia.getPrimeraVentana()){
                                         self.provShow.text = self.provOpciones[self.denuncia.getProvincia()]
                                     } else {
                                         self.provShow.text = self.provOpciones[0]
                                     }
-                                    self.provSelector.isHidden = true
-                                    self.provSelector.reloadAllComponents()
                                 }
                             }
                         } catch {
@@ -454,13 +490,13 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                                     }
                                 }
                                 DispatchQueue.main.async {
+                                    self.nivEduSelector.isHidden = true
+                                    self.nivEduSelector.reloadAllComponents()
                                     if(self.denuncia.getPrimeraVentana()){
                                         self.nivEduShow.text = self.nivEduOpciones[self.denuncia.getNivEdu()]
                                     } else {
                                         self.nivEduShow.text = self.nivEduOpciones[0]
                                     }
-                                    self.nivEduSelector.isHidden = true
-                                    self.nivEduSelector.reloadAllComponents()
                                 }
                             }
                         } catch {
@@ -494,13 +530,13 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                                     }
                                 }
                                 DispatchQueue.main.async {
+                                    self.nacionSelector.isHidden = true
+                                    self.nacionSelector.reloadAllComponents()
                                     if(self.denuncia.getPrimeraVentana()){
                                         self.nacionShow.text = self.nacionOpciones[self.denuncia.getNacion()]
                                     } else {
                                         self.nacionShow.text = self.nacionOpciones[0]
                                     }
-                                    self.nacionSelector.isHidden = true
-                                    self.nacionSelector.reloadAllComponents()
                                 }
                             }
                         } catch {
@@ -560,9 +596,13 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                                 }
                             }
                             DispatchQueue.main.async {
-                                self.ciuShow.text = self.ciuOpciones[0]
                                 self.ciuSelector.isHidden = true
                                 self.ciuSelector.reloadAllComponents()
+                                if(self.denuncia.getPrimeraVentana()){
+                                    self.ciuShow.text = self.ciuOpciones[self.denuncia.getCiudad()]
+                                } else {
+                                    self.ciuShow.text = self.ciuOpciones[0]
+                                }
                             }
                         }
                     } catch {
@@ -604,8 +644,6 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             self.ciuSelector.isHidden = false
         }
         hideAllKeyboards()
-        //nombreTextField.resignFirstResponder()
-        //self.provSelector.isHidden = false
     }
     
     func hideAllKeyboards(){
@@ -618,123 +656,28 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         organizacionTextField.resignFirstResponder()
         identificacionTextField.resignFirstResponder()
         cargoTextField.resignFirstResponder()
+        nextView()
     }
     
-    // MARK: Make Network Request
-    private func getProvincias(completionHandler: @escaping ()->()){
-        let methodParameters = [
-            "limit": "30",
-            ]
-        
-        // create url and request
-        let session = URLSession.shared
-        let urlString = Constants.Cpccs.APIBaseURL + Constants.Requests.getProvincias + escapedParameters(methodParameters as [String:AnyObject])
-        let url = URL(string: urlString)!
-        let request = URLRequest(url: url)
-        
-        // create network request
-        let task = session.dataTask(with: request) { [weak weakSelf = self] (data, response, error) in
-            
-            // if an error occurs, print it and re-enable the UI
-            func displayError(_ error: String) {
-                print(error)
-                print("URL at time of error: \(url)")
-            }
-            
-            /* GUARD: Was there an error? */
-            guard (error == nil) else {
-                displayError("There was an error with your request: \(error)")
-                return
-            }
-            
-            /* GUARD: Did we get a successful 2XX response? */
-            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-                displayError("Your request returned a status code other than 2xx!")
-                return
-            }
-            
-            /* GUARD: Was there any data returned? */
-            guard let data = data else {
-                displayError("No data was returned by the request!")
-                return
-            }
-            
-            // parse the data
-            let parsedResult: [String:AnyObject]!
-            do {
-                parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:AnyObject]
-            } catch {
-                displayError("Could not parse the data as JSON: '\(data)'")
-                return
-            }
-            
-            /* GUARD: Are the "provincias" and "provincias" keys in our result? */
-            guard let estadosArray = parsedResult[Constants.CpccsResponseKeys.Results] as? [[String:AnyObject]] else {
-                displayError("Cannot find keys '\(Constants.CpccsResponseKeys.Results)' in \(parsedResult)")
-                return
-            }
-            
-            //print(estadosArray)
-            // select a random photo
-            //let randomPhotoIndex = Int(arc4random_uniform(UInt32(estadosArray.count)))
-            //let estadoDictionary = estadosArray[randomPhotoIndex] as [String:AnyObject]
-            /* GUARD: Does our photo have a key for 'url_m'? */
-            /*guard let nombreString = estadoDictionary[Constants.CpccsResponseKeys.Nombre] as? String else {
-             displayError("Cannot find key '\(Constants.CpccsResponseKeys.Nombre)' in \(estadoDictionary)")
-             return
-             }*/
-            
-            // if an image exists at the url, set the image and title
-            //if let Data = try? Data(contentsOf: nombreString) {
-            
-            
-            class Provincias {
-                var Nombres: [String] = []
-                var Ids: [Int] = []
-            }
-            
-            let estadosCiviles = Provincias()
-            for estadoCivil in estadosArray{
-                guard let nombreString = estadoCivil[Constants.CpccsResponseKeys.Nombre] as? String else {
-                    displayError("Cannot find key '\(Constants.CpccsResponseKeys.Nombre)' in \(estadosArray)")
-                    return
-                }
-                guard let idInt = estadoCivil[Constants.CpccsResponseKeys.Id] as? Int else {
-                    displayError("Cannot find key '\(Constants.CpccsResponseKeys.Id)' in \(estadosArray)")
-                    return
-                }
-                self.provOpciones.append(nombreString)
-            }
+    func nextView(){
+        if(nombreTextField.text != "" && apellidosTextField.text != "" &&
+            edadTextField.text != "" && emailTextField.text != "" &&
+            telefonoTextField.text != "" && direccionTextField.text != "" &&
+            organizacionTextField.text != "" && identificacionTextField.text != "" &&
+            cargoTextField.text != ""){
+            denuncia.setNombres(name: nombreTextField.text!)
+            denuncia.setApellidos(lname: apellidosTextField.text!)
+            denuncia.setEdad(age: Int(edadTextField.text!)!)
+            denuncia.setCorreo(email: emailTextField.text!)
+            denuncia.setTelefono(phone: telefonoTextField.text!)
+            denuncia.setDireccion(address: direccionTextField.text!)
+            denuncia.setOrgSocial(social: organizacionTextField.text!)
+            denuncia.setIdentificacion(identification: identificacionTextField.text!)
+            denuncia.setCargo(position: cargoTextField.text!)
+            denuncia.setPrimeraVentana(boolean: true)
         }
-        
-        // start the task!
-        task.resume()
     }
     
-    // MARK: Helper for Escaping Parameters in URL
-    private func escapedParameters(_ parameters: [String:AnyObject]) -> String {
-        
-        if parameters.isEmpty {
-            return ""
-        } else {
-            var keyValuePairs = [String]()
-            
-            for (key, value) in parameters {
-                
-                // make sure that it is a string value
-                let stringValue = "\(value)"
-                
-                // escape it
-                let escapedValue = stringValue.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-                
-                // append it
-                keyValuePairs.append(key + "=" + "\(escapedValue!)")
-                
-            }
-            
-            return "?\(keyValuePairs.joined(separator: "&"))"
-        }
-    }
 }
 
 

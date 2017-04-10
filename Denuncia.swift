@@ -10,7 +10,7 @@ import Foundation
 
 final class Denuncia{
     //Variables generales
-    private var primeraVentana: Bool = false
+    private var primeraVentana: Bool = true
     private var segundaVentana: Bool = false
     private var terceraVentana: Bool = false
     static let shared = Denuncia()
@@ -45,7 +45,7 @@ final class Denuncia{
     }
     
     //Variables de la primera ventana
-    private var identidadChoice: Int = -1
+    private var identidadChoice: Int = 0
     private var nombres: String = ""
     private var apellidos: String = ""
     private var edad: Int = 0
@@ -53,17 +53,17 @@ final class Denuncia{
     private var telefono: String = ""
     private var direccion: String = ""
     private var orgSocial: String = ""
-    private var ocupacionChoice: Int = -1
-    private var tipoIdenChoice: Int = -1
+    private var ocupacionChoice: Int = 0
+    private var tipoIdenChoice: Int = 0
     private var identificacion: String = ""
-    private var generoChoice: Int = -1
-    private var estCivilChoice: Int = -1
-    private var nivEduChoice: Int = -1
+    private var generoChoice: Int = 0
+    private var estCivilChoice: Int = 0
+    private var nivEduChoice: Int = 0
     private var cargo: String = ""
-    private var nacionChoice: Int = -1
-    private var resideChoice: Int = -1
-    private var provChoice: Int = -1
-    private var ciuChoice: Int = -1
+    private var nacionChoice: Int = 0
+    private var resideChoice: Int = 0
+    private var provChoice: Int = 0
+    private var ciuChoice: Int = 0
     
     
     public func setIdentidad(opcion: Int) {
@@ -147,7 +147,7 @@ final class Denuncia{
     }
     
     public func setIdentificacion(identification: String) {
-        Denuncia.shared.identificacion = identificacion
+        Denuncia.shared.identificacion = identification
     }
     
     public func getIdentificacion() -> String {
@@ -219,9 +219,46 @@ final class Denuncia{
     }
     
     //Variables de la segunda ventana
+    private var motivoDenuncia: String = ""
+    private var compareceChoice: Int = 0
+    
+    public func setMotivo(motive: String) {
+        Denuncia.shared.motivoDenuncia = motive
+    }
+    
+    public func getMotivo() -> String {
+        return Denuncia.shared.motivoDenuncia
+    }
+    
+    public func setComparece(opcion: Int) {
+        Denuncia.shared.compareceChoice = opcion
+    }
+    
+    public func getComparece() -> Int {
+        return Denuncia.shared.compareceChoice
+    }
     
     public func resetData() {
-        Denuncia.shared.nombres = ""
+        setIdentidad(opcion: 0)
+        setNombres(name: "")
+        setApellidos(lname: "")
+        setEdad(age: 0)
+        setCorreo(email: "")
+        setTelefono(phone: "")
+        setDireccion(address: "")
+        setOrgSocial(social: "")
+        setOcupacion(opcion: 0)
+        setTipoIden(opcion: 0)
+        setIdentificacion(identification: "")
+        setGenero(opcion: 0)
+        setEstCivil(opcion: 0)
+        setNivEdu(opcion: 0)
+        setCargo(position: "")
+        setNacion(opcion: 0)
+        setProvincia(opcion: 0)
+        setCiudad(opcion: 0)
+        setMotivo(motive: "")
+        setComparece(opcion: 0)
     }
 }
 

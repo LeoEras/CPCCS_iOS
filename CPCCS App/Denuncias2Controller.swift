@@ -9,6 +9,7 @@
 import UIKit
 
 class Denuncias2Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate {
+    var denuncia = Denuncia.shared
     
     @IBOutlet weak var denunciaText: UITextView!
     @IBOutlet weak var compareceShow: UILabel!
@@ -30,9 +31,17 @@ class Denuncias2Controller: UIViewController, UIPickerViewDelegate, UIPickerView
     
     //Que va en cada fila del Picker View
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if(pickerView == compareceSelector){
-            let titlerow = compareceOpciones[row]
-            return titlerow
+        if(denuncia.getSegundaVentana()){
+            if(pickerView == compareceSelector){
+                let titlerow = compareceOpciones[row]
+                compareceShow.text = compareceOpciones[denuncia.getComparece()]
+                return titlerow
+            }
+        } else {
+            if(pickerView == compareceSelector){
+                let titlerow = compareceOpciones[row]
+                return titlerow
+            }
         }
         return ""
     }
@@ -40,6 +49,7 @@ class Denuncias2Controller: UIViewController, UIPickerViewDelegate, UIPickerView
     //Oculta el Picker View cuando una opcion es seleccionada
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if (pickerView == compareceSelector){
+            denuncia.setComparece(opcion: row)
             self.compareceShow.text = self.compareceOpciones[row]
             self.compareceSelector.isHidden = true
         }
@@ -48,6 +58,10 @@ class Denuncias2Controller: UIViewController, UIPickerViewDelegate, UIPickerView
     override func viewDidLoad() {
         super.viewDidLoad()
         denunciaText.delegate = self
+        
+        if(denuncia.getSegundaVentana()){
+            denunciaText.text = denuncia.getMotivo()
+        }
         attachTapHandler(label: compareceShow)
     }
     
@@ -70,6 +84,20 @@ class Denuncias2Controller: UIViewController, UIPickerViewDelegate, UIPickerView
         if(sender.view == compareceShow){
             denunciaText.resignFirstResponder()
             self.compareceSelector.isHidden = false
+        }
+        hideAllKeyboards()
+        print(denuncia.getSegundaVentana())
+    }
+    
+    func hideAllKeyboards(){
+        denunciaText.resignFirstResponder()
+        nextView()
+    }
+    
+    func nextView(){
+        if(denunciaText.text != ""){
+            denuncia.setMotivo(motive: denunciaText.text!)
+            denuncia.setSegundaVentana(boolean: true)
         }
     }
 }
