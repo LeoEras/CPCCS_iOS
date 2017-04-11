@@ -112,10 +112,6 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 let titlerow = identidadOpciones[row]
                 idenShow.text = identidadOpciones[denuncia.getIdentidad()]
                 return titlerow
-            } else if(pickerView == empleadoSelector){
-                let titlerow = empleadoOpciones[row]
-                empleadoShow.text = empleadoOpciones[denuncia.getOcupacion()]
-                return titlerow
             } else if(pickerView == tipoIdentSelector){
                 let titlerow = tipoIdentOpciones[row]
                 tipoIdentShow.text = tipoIdentOpciones[denuncia.getTipoIden()]
@@ -133,10 +129,6 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             if(pickerView == identidadSelector){
                 denuncia.setIdentidad(opcion: row)
                 let titlerow = identidadOpciones[row]
-                return titlerow
-            } else if(pickerView == empleadoSelector){
-                denuncia.setOcupacion(opcion: row)
-                let titlerow = empleadoOpciones[row]
                 return titlerow
             } else if(pickerView == tipoIdentSelector){
                 denuncia.setTipoIden(opcion: row)
@@ -160,6 +152,9 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         } else if(pickerView == nivEduSelector){
             //denuncia.setNivEdu(opcion: row)
             let titlerow = nivEduOpciones[row]
+            return titlerow
+        } else if(pickerView == empleadoSelector){
+            let titlerow = empleadoOpciones[row]
             return titlerow
         } else if(pickerView == nacionSelector){
             //denuncia.setNacion(opcion: row)
