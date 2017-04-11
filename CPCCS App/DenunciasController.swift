@@ -25,7 +25,8 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var telefonoTextField: UITextField!
     
     @IBOutlet weak var empleadoShow: UILabel!
-    var empleadoOpciones = ["EMPLEADO PUBLICO", "EMPLEADO PRIVADO"]
+    var empleadoOpciones = [""]
+    var empleadoID = [0]
     @IBOutlet weak var empleadoSelector: UIPickerView!
     
     @IBOutlet weak var identificacionTextField: UITextField!
@@ -334,41 +335,6 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         return false
     }
     
-    /*
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if textField == organizacionTextField {
-            if self.cleared! {
-                self.cleared = false
-                return false
-            }
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "InstitucionPickerViewController") as! InstitucionPickerViewController
-            self.present(controller, animated: true, completion: nil)
-            return false
-            
-        }
-        return true
-    }
-    
-    func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        if textField == organizacionTextField {
-            self.cleared = true
-            return true
-        }
-        return false
-    }
-    
-    
-    @IBAction func unwindToDenuncia(segue: UIStoryboardSegue){
-        if let sourceViewController = segue.source as? InstitucionPickerViewController, let institucion = sourceViewController.institucion
-            {
-                DispatchQueue.main.async {
-                    self.organizacionTextField.text = institucion.nombre
-                    self.institucion = institucion
-                }
-        }
-    }*/
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -463,7 +429,11 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                         }
                     }
                 }
-                self.getCiuidad(id: self.provID[0])
+                if(self.denuncia.getPrimeraVentana()){
+                    self.getCiuidad(id: self.provID[self.denuncia.getProvincia()])
+                } else {
+                    self.getCiuidad(id: self.provID[0])
+                }
             }
             task.resume()
         }
@@ -547,6 +517,47 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             }
             task.resume()
         }
+        
+        DispatchQueue.global(qos: .userInitiated).async { () -> Void in
+            //Leyendo ocupacion
+            let urlOcupaciones = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/ocupaciones")
+            let task = URLSession.shared.dataTask(with: urlOcupaciones!) { (data, response, error) in
+                self.empleadoOpciones.remove(at: 0)
+                self.empleadoID.remove(at: 0)
+                if error != nil {
+                    print(error ?? "Error")
+                } else {
+                    if let content = data{
+                        do {
+                            let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                            if let items = myJson["results"] as? NSArray {
+                                for values in items {
+                                    if let item = values as? NSDictionary {
+                                        let nombre = item["nombre"] as! String
+                                        self.empleadoOpciones.append(nombre)
+                                        let id = item["id"] as! Int
+                                        self.empleadoID.append(id)
+                                    }
+                                }
+                                DispatchQueue.main.async {
+                                    self.empleadoSelector.isHidden = true
+                                    self.empleadoSelector.reloadAllComponents()
+                                    if(self.denuncia.getPrimeraVentana()){
+                                        self.empleadoShow.text = self.empleadoOpciones[self.denuncia.getOcupacion()]
+                                    } else {
+                                        self.empleadoShow.text = self.empleadoOpciones[0]
+                                    }
+                                }
+                            }
+                        } catch {
+                            
+                        }
+                    }
+                }
+            }
+            task.resume()
+        }
+
         
         // TextFields delegates assignment
         nombreTextField.delegate = self

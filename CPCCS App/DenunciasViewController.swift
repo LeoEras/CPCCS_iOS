@@ -48,13 +48,28 @@ class DenunciasViewController: UIPageViewController, UIPageViewControllerDelegat
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         if let identifier = viewController.restorationIdentifier {
-            if denuncia.getTerceraVentana(){
+            /*
+            if let index = pages.index(of: identifier) {
+                if index < pages.count - 1 {
+                    return self.storyboard?.instantiateViewController(withIdentifier: pages[index+1])
+                }
+            }*/
+            if let index = pages.index(of: identifier) {
+                if(index == 0 && denuncia.getPrimeraVentana()){
+                    return self.storyboard?.instantiateViewController(withIdentifier: pages[1])
+                } else if(index == 1 && denuncia.getSegundaVentana()){
+                    return self.storyboard?.instantiateViewController(withIdentifier: pages[2])
+                } else if(index == 2 && denuncia.getTerceraVentana()){
+                    return self.storyboard?.instantiateViewController(withIdentifier: pages[3])
+                }
+            }
+            /*if denuncia.getTerceraVentana(){
                 return self.storyboard?.instantiateViewController(withIdentifier: pages[3])
             } else if denuncia.getSegundaVentana(){
                 return self.storyboard?.instantiateViewController(withIdentifier: pages[2])
             } else if denuncia.getPrimeraVentana(){
                 return self.storyboard?.instantiateViewController(withIdentifier: pages[1])
-            }
+            }*/
         }
         return nil
     }

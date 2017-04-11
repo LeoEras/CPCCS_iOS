@@ -10,7 +10,7 @@ import Foundation
 
 final class Denuncia{
     //Variables generales
-    private var primeraVentana: Bool = true
+    private var primeraVentana: Bool = false
     private var segundaVentana: Bool = false
     private var terceraVentana: Bool = false
     static let shared = Denuncia()
@@ -238,6 +238,107 @@ final class Denuncia{
         return Denuncia.shared.compareceChoice
     }
     
+    //Variables de la tercera ventana
+    private var nombresDenunciado: String = ""
+    private var apellidosDenunciado: String = ""
+    private var generoDenunciadoChoice: Int = 0
+    private var institucionNombre: String = ""
+    private var institucionChoice: Int = 0
+    private var cargoDenunciado: String = ""
+    private var ocupacionDenunciadoChoice: Int = 0
+    private var provinciaDenunciadoChoice: Int = 0
+    private var ciudadDenunciadoChoice: Int = 0
+    private var cantidadPerjudicados: Int = 0
+    private var unidadDireccion: String = ""
+    
+    public func setNombresDenunciado(name: String) {
+        Denuncia.shared.nombresDenunciado = name
+    }
+    
+    public func getNombresDenunciado() -> String {
+        return Denuncia.shared.nombresDenunciado
+    }
+    
+    public func setApellidosDenunciado(lname: String) {
+        Denuncia.shared.apellidosDenunciado = lname
+    }
+    
+    public func getApellidosDenunciado() -> String {
+        return Denuncia.shared.apellidosDenunciado
+    }
+    
+    public func setGeneroDenunciado(opcion: Int) {
+        Denuncia.shared.generoDenunciadoChoice = opcion
+    }
+    
+    public func getGeneroDenunciado() -> Int {
+        return Denuncia.shared.generoDenunciadoChoice
+    }
+    
+    public func setInstitucionNombre(iname: String) {
+        Denuncia.shared.institucionNombre = iname
+    }
+    
+    public func getInstitucionNombre() -> String {
+        return Denuncia.shared.institucionNombre
+    }
+    
+    public func setInstitucion(opcion: Int) {
+        Denuncia.shared.institucionChoice = opcion
+    }
+    
+    public func getInstitucion() -> Int {
+        return Denuncia.shared.institucionChoice
+    }
+    
+    public func setCargoDenunciado(string: String) {
+        Denuncia.shared.cargoDenunciado = string
+    }
+    
+    public func getCargoDenunciado() -> String {
+        return Denuncia.shared.cargoDenunciado
+    }
+    
+    public func setOcupacionDenunciado(opcion: Int) {
+        Denuncia.shared.ocupacionDenunciadoChoice = opcion
+    }
+    
+    public func getOcupacionDenunciado() -> Int {
+        return Denuncia.shared.ocupacionDenunciadoChoice
+    }
+    
+    public func setProvinciaDenunciado(opcion: Int) {
+        Denuncia.shared.provinciaDenunciadoChoice = opcion
+    }
+    
+    public func getProvinciaDenunciado() -> Int {
+        return Denuncia.shared.provinciaDenunciadoChoice
+    }
+    
+    public func setCiudadDenunciado(opcion: Int) {
+        Denuncia.shared.ciudadDenunciadoChoice = opcion
+    }
+    
+    public func getCiudadDenunciado() -> Int {
+        return Denuncia.shared.ciudadDenunciadoChoice
+    }
+    
+    public func setCantPerjudicados(opcion: Int) {
+        Denuncia.shared.cantidadPerjudicados = opcion
+    }
+    
+    public func getCantPerjudicados() -> Int {
+        return Denuncia.shared.cantidadPerjudicados
+    }
+    
+    public func setUnidadDireccion(string: String) {
+        Denuncia.shared.unidadDireccion = string
+    }
+    
+    public func getUnidadDireccion() -> String {
+        return Denuncia.shared.unidadDireccion
+    }
+    
     public func resetData() {
         setIdentidad(opcion: 0)
         setNombres(name: "")
@@ -259,6 +360,17 @@ final class Denuncia{
         setCiudad(opcion: 0)
         setMotivo(motive: "")
         setComparece(opcion: 0)
+        setNombresDenunciado(name: "")
+        setApellidosDenunciado(lname: "")
+        setGeneroDenunciado(opcion: 0)
+        setInstitucionNombre(iname: "")
+        setInstitucion(opcion: 0)
+        setCargoDenunciado(string: "")
+        setOcupacionDenunciado(opcion: 0)
+        setProvinciaDenunciado(opcion: 0)
+        setCiudadDenunciado(opcion: 0)
+        setCantPerjudicados(opcion: 0)
+        setUnidadDireccion(string: "")
     }
 }
 

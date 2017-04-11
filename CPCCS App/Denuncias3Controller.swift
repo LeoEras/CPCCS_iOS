@@ -9,6 +9,7 @@
 import UIKit
 
 class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+    var denuncia = Denuncia.shared
     
     @IBOutlet weak var nombreTextField: UITextField!
     @IBOutlet weak var apellidosTextField: UITextField!
@@ -62,6 +63,18 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
     
     //Que va en cada fila del Picker View
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if(denuncia.getTerceraVentana()) {
+            if (pickerView == generoSelector){
+                let titlerow = generoOpciones[row]
+                generoShow.text = generoOpciones[denuncia.getGeneroDenunciado()]
+                return titlerow
+            }
+        } else {
+            if (pickerView == generoSelector){
+                let titlerow = generoOpciones[row]
+                return titlerow
+            }
+        }
         if (pickerView == generoSelector){
             let titlerow = generoOpciones[row]
             return titlerow
@@ -70,7 +83,6 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
             return titlerow
         } else if(pickerView == provSelector){
             let titlerow = provOpciones[row]
-            //getCiuidad(id: provID[row])
             return titlerow
         }  else if(pickerView == ciuSelector){
             let titlerow = ciuOpciones[row]
@@ -82,16 +94,20 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
     //Oculta el Picker View cuando una opcion es seleccionada
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if (pickerView == generoSelector){
+            denuncia.setGeneroDenunciado(opcion: row)
             self.generoShow.text = self.generoOpciones[row]
             self.generoSelector.isHidden = true
         } else if (pickerView == ocupacionSelector){
+            denuncia.setOcupacionDenunciado(opcion: row)
             self.ocupacionShow.text = self.ocupacionOpciones[row]
             self.ocupacionSelector.isHidden = true
         } else if (pickerView == provSelector){
+            denuncia.setProvinciaDenunciado(opcion: row)
             self.provShow.text = self.provOpciones[row]
             self.getCiuidad(id: provID[row])
             self.provSelector.isHidden = true
         } else if (pickerView == ciuSelector){
+            denuncia.setCiudadDenunciado(opcion: row)
             self.ciuShow.text = self.ciuOpciones[row]
             self.ciuSelector.isHidden = true
         }
@@ -139,6 +155,16 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if(denuncia.getTerceraVentana()){
+            nombreTextField.text = denuncia.getNombresDenunciado()
+            apellidosTextField.text = denuncia.getApellidosDenunciado()
+            institucionTextField.text = denuncia.getInstitucionNombre()
+            cargoTextField.text = denuncia.getCargoDenunciado()
+            cantPerTextField.text = String(denuncia.getCantPerjudicados())
+            uniDirTextField.text = denuncia.getUnidadDireccion()
+            cargoTextField.text = denuncia.getCargoDenunciado()
+        }
+        
         self.cleared = false
         DispatchQueue.global(qos: .userInitiated).async { () -> Void in
             //Leyendo ocupacion
@@ -162,9 +188,13 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
                                     }
                                 }
                                 DispatchQueue.main.async {
-                                    self.ocupacionShow.text = self.ocupacionOpciones[0]
                                     self.ocupacionSelector.isHidden = true
                                     self.ocupacionSelector.reloadAllComponents()
+                                    if(self.denuncia.getTerceraVentana()){
+                                        self.ocupacionShow.text = self.ocupacionOpciones[self.denuncia.getOcupacionDenunciado()]
+                                    } else {
+                                        self.ocupacionShow.text = self.ocupacionOpciones[0]
+                                    }
                                 }
                             }
                         } catch {
@@ -198,9 +228,13 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
                                     }
                                 }
                                 DispatchQueue.main.async {
-                                    self.provShow.text = self.provOpciones[0]
                                     self.provSelector.isHidden = true
                                     self.provSelector.reloadAllComponents()
+                                    if(self.denuncia.getTerceraVentana()){
+                                        self.provShow.text = self.provOpciones[self.denuncia.getProvinciaDenunciado()]
+                                    } else {
+                                        self.provShow.text = self.provOpciones[0]
+                                    }
                                 }
                             }
                         } catch {
@@ -208,7 +242,11 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
                         }
                     }
                 }
-                self.getCiuidad(id: self.provID[0])
+                if(self.denuncia.getTerceraVentana()){
+                    self.getCiuidad(id: self.provID[self.denuncia.getProvinciaDenunciado()])
+                } else {
+                    self.getCiuidad(id: self.provID[0])
+                }
             }
             task1.resume()
         }
@@ -248,9 +286,13 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
                                 }
                             }
                             DispatchQueue.main.async {
-                                self.ciuShow.text = self.ciuOpciones[0]
                                 self.ciuSelector.isHidden = true
                                 self.ciuSelector.reloadAllComponents()
+                                if(self.denuncia.getTerceraVentana()){
+                                    self.ciuShow.text = self.ciuOpciones[self.denuncia.getCiudadDenunciado()]
+                                } else {
+                                    self.ciuShow.text = self.ciuOpciones[0]
+                                }
                             }
                         }
                     } catch {
@@ -309,6 +351,24 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
         cargoTextField.resignFirstResponder()
         cantPerTextField.resignFirstResponder()
         uniDirTextField.resignFirstResponder()
+        nextView()
+    }
+    
+    func nextView(){
+        if(nombreTextField.text != "" && apellidosTextField.text != "" &&
+            institucionTextField.text != "" && cargoTextField.text != "" &&
+            cantPerTextField.text != "" && uniDirTextField.text != ""){
+            denuncia.setNombresDenunciado(name: nombreTextField.text!)
+            denuncia.setApellidosDenunciado(lname: apellidosTextField.text!)
+            denuncia.setInstitucionNombre(iname: institucionTextField.text!)
+            if(institucion?.id != nil){
+                denuncia.setInstitucion(opcion: institucion!.id)
+            }
+            denuncia.setCargoDenunciado(string: cargoTextField.text!)
+            denuncia.setCantPerjudicados(opcion: Int(cantPerTextField.text!)!)
+            denuncia.setUnidadDireccion(string: uniDirTextField.text!)
+            denuncia.setTerceraVentana(boolean: true)
+        }
     }
 }
 
