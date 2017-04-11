@@ -48,5 +48,20 @@ class Denuncias4Controller: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    /*
+    let predenuncia = PreDenuncia(tipo: "0", genero1: "1", descripcion: "Fernando descripcion", genero2: "0", funcionario: "", nivelEdu: 1, ocupacion: 1, nacionalidad: 1, estadoCivil: 0, institucionImpl: 1)
+    _ = CPCCSClient.sharedInstance().postToPreDenuncia(predenuncia) { (statusCode, error) in
+    if let error = error {
+        print(error)
+        } else {
+            if statusCode == 1 || statusCode == 12 || statusCode == 13 {
+                print("Done")
+            } else {
+                print("Unexpected status code \(statusCode)")
+            }
+        }
+    }*/
+
 
 }

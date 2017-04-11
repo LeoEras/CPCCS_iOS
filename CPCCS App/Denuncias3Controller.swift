@@ -117,10 +117,8 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
         if textField == institucionTextField {
             if self.cleared! {
                 self.cleared = false
-                print("cleared1")
                 return false
             }
-            print("cleared2")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "InstitucionPickerViewController") as! InstitucionPickerViewController
             self.present(controller, animated: true, completion: nil)
@@ -134,10 +132,8 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         if textField == institucionTextField {
             self.cleared = true
-            print("cleared3")
             return true
         }
-        print("cleared4")
         return false
     }
     
