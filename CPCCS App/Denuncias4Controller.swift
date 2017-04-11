@@ -11,12 +11,25 @@ import UIKit
 class Denuncias4Controller: UIViewController {
 
     @IBOutlet weak var nombre: UILabel!
-    var denu = Denuncia.shared
+    @IBOutlet weak var apellidos: UILabel!
+    @IBOutlet weak var correo: UILabel!
+    @IBOutlet weak var identificacion: UILabel!
+    @IBOutlet weak var nombreDenunciado: UILabel!
+    @IBOutlet weak var apellidoDenunciado: UILabel!
+    @IBOutlet weak var descDenuncia: UITextView!
+    
+    var denuncia = Denuncia.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        nombre.text = denu.getNombres()
-        //DenunciasController.nombre
+        nombre.text = denuncia.getNombres()
+        apellidos.text = denuncia.getApellidos()
+        correo.text = denuncia.getCorreo()
+        identificacion.text = denuncia.getIdentificacion()
+        nombreDenunciado.text = denuncia.getNombresDenunciado()
+        apellidoDenunciado.text = denuncia.getApellidosDenunciado()
+        descDenuncia.text = denuncia.getMotivo()
+
         // Do any additional setup after loading the view.
     }
 
