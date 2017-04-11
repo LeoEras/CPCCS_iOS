@@ -9,7 +9,8 @@
 import UIKit
 
 class Denuncias4Controller: UIViewController {
-
+    var denuncia = Denuncia.shared
+    
     @IBOutlet weak var nombre: UILabel!
     @IBOutlet weak var apellidos: UILabel!
     @IBOutlet weak var correo: UILabel!
@@ -18,7 +19,32 @@ class Denuncias4Controller: UIViewController {
     @IBOutlet weak var apellidoDenunciado: UILabel!
     @IBOutlet weak var descDenuncia: UITextView!
     
-    var denuncia = Denuncia.shared
+    @IBAction func sendAction(_ sender: Any) {
+        print("DATA IN")
+        print(String(denuncia.getGenero()))
+        print(denuncia.getMotivo())
+        print(String(denuncia.getGeneroDenunciado()))
+        print(denuncia.getNivEdu())
+        print(denuncia.getOcupacion())
+        print(denuncia.getNacion())
+        print(denuncia.getEstCivil())
+        print(denuncia.getInstitucion())
+        print("DATA OUT")
+        
+        let predenuncia = PreDenuncia(tipo: "0", genero1: String(denuncia.getGenero()), descripcion: denuncia.getMotivo(), genero2: String(denuncia.getGeneroDenunciado()), funcionario: "a", nivelEdu: denuncia.getNivEdu(), ocupacion: denuncia.getOcupacion(), nacionalidad: denuncia.getNacion(), estadoCivil: denuncia.getEstCivil(), institucionImpl: denuncia.getInstitucion())
+        _ = CPCCSClient.sharedInstance().postToPreDenuncia(predenuncia) { (statusCode, error) in
+            if let error = error {
+                print(error)
+            } else {
+                if statusCode == 1 || statusCode == 12 || statusCode == 13 {
+                    print("Done")
+                } else {
+                    print("Unexpected status code \(statusCode)")
+                }
+            }
+        }
+        //self.performSegue(withIdentifier: "backToMain", sender: self)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,19 +75,8 @@ class Denuncias4Controller: UIViewController {
     }
     */
     
-    /*
-    let predenuncia = PreDenuncia(tipo: "0", genero1: "1", descripcion: "Fernando descripcion", genero2: "0", funcionario: "", nivelEdu: 1, ocupacion: 1, nacionalidad: 1, estadoCivil: 0, institucionImpl: 1)
-    _ = CPCCSClient.sharedInstance().postToPreDenuncia(predenuncia) { (statusCode, error) in
-    if let error = error {
-        print(error)
-        } else {
-            if statusCode == 1 || statusCode == 12 || statusCode == 13 {
-                print("Done")
-            } else {
-                print("Unexpected status code \(statusCode)")
-            }
-        }
-    }*/
+    
+    
 
 
 }

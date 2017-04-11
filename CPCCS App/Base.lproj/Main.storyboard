@@ -801,6 +801,9 @@
                                                 <state key="normal" title="ENVIAR">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="sendAction:" destination="mKU-Mr-ABI" eventType="touchUpInside" id="Wev-BL-HHg"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -839,6 +842,7 @@
                         <outlet property="identificacion" destination="NiG-Rb-2JA" id="IQ7-cb-wCm"/>
                         <outlet property="nombre" destination="hDJ-rX-PcS" id="l4j-C7-6Kt"/>
                         <outlet property="nombreDenunciado" destination="c4G-Eb-pzS" id="MYV-jC-qCt"/>
+                        <segue destination="pdE-db-C3B" kind="show" identifier="backToMain" id="Fp6-kk-H6g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8m6-fh-oR0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1044,7 +1048,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pqG-Gp-qv2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2326" y="800"/>
+            <point key="canvasLocation" x="3871" y="1015"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="B2R-df-bv7">
@@ -2933,6 +2937,6 @@
         <image name="preguntasfrecuentes.png" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="465-93-iCw"/>
+        <segue reference="Fp6-kk-H6g"/>
     </inferredMetricsTieBreakers>
 </document>
