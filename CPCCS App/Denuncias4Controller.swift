@@ -43,6 +43,20 @@ class Denuncias4Controller: UIViewController {
                 }
             }
         }
+        
+        let reclamo = Reclamo(nombApelDenunciante: "Leonardo", tipoIdentificacion: 	"Cédula", numIdentificacion: "091231232123", direccion: "direccion", email: "leo@gmail.com", nombApelDenunciado: "Carlos", telefono: "23232322323", cargo: "ayudante", comparecer: true, documentores: true, identidadReservada: true, resideExtranjero: true, ciudadDelDenunciante: 1, ciudadDelDenunciado: 1, institucionImplicadaReclamo: 1, provinciaDenunciante: 1, provinciaDenunciado: 1)
+        _ = CPCCSClient.sharedInstance().postToReclamo(reclamo) { (statusCode, error) in
+            if let error = error {
+                print(error)
+            } else {
+                if statusCode == 1 || statusCode == 12 || statusCode == 13 {
+                    print("Done")
+                } else {
+                    print("Unexpected status code \(statusCode)")
+                }
+            }
+        }
+        
         //self.performSegue(withIdentifier: "backToMain", sender: self)
     }
 
