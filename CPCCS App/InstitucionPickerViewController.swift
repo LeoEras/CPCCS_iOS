@@ -252,7 +252,7 @@ extension CPCCSClient {
         
         print(jsonBody)
         /* 2. Make the request */
-        let _ = taskForPOSTMethod(CPCCSClient.Methods.CreatePredenuncia, parameters: parameters as [String:AnyObject], jsonBody: jsonBody) { (results, error) in
+        let _ = taskForPOSTMethod(CPCCSClient.Methods.CreateReclamo, parameters: parameters as [String:AnyObject], jsonBody: jsonBody) { (results, error) in
             
             /* 3. Send the desired value(s) to completion handler */
             if let error = error {
