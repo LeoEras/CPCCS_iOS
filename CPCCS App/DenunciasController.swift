@@ -371,19 +371,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             self.present(alert, animated:true, completion:nil)
         }*/
         
-        let reclamo = Reclamo(nombApelDenunciante: "Leonardo", tipoIdentificacion: 	"Cédula", numIdentificacion: "091231232123", direccion: "direccion", email: "leo@gmail.com", nombApelDenunciado: "Carlos", telefono: "23232322323", cargo: "ayudante", comparecer: true, documentores: true, identidadReservada: true, resideExtranjero: true, ciudadDelDenunciante: 115, ciudadDelDenunciado: 115, institucionImplicadaReclamo: 1, provinciaDenunciante: 1, provinciaDenunciado: 1)
-        CPCCSClient.sharedInstance().postToReclamo(reclamo) { (statusCode, error) in
-            print(statusCode)
-            if let error = error {
-                print(error)
-            } else {
-                if statusCode == 1 || statusCode == 12 || statusCode == 13 {
-                    print("Done")
-                } else {
-                    print("Unexpected status code \(statusCode)")
-                }
-            }
-        }
+        
         
         //Caso en que la ventana ya haya sido completada
         if(denuncia.getPrimeraVentana()){

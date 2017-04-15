@@ -257,7 +257,7 @@ extension CPCCSClient {
             if let error = error {
                 completionHandlerForReclamo(nil, error)
             } else {
-                if let results = results?[CPCCSClient.JSONResponseKeys.StatusCode] as? Int {
+                if let results = results?["id"] as? Int {
                     completionHandlerForReclamo(results, nil)
                 } else {
                     completionHandlerForReclamo(nil, NSError(domain: "postToReclamo parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse postToReclamo"]))

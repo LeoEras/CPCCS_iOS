@@ -44,19 +44,29 @@ class Denuncias4Controller: UIViewController {
             }
         }
         
-        let reclamo = Reclamo(nombApelDenunciante: "Leonardo", tipoIdentificacion: 	"Cédula", numIdentificacion: "091231232123", direccion: "direccion", email: "leo@gmail.com", nombApelDenunciado: "Carlos", telefono: "23232322323", cargo: "ayudante", comparecer: true, documentores: true, identidadReservada: true, resideExtranjero: true, ciudadDelDenunciante: 1, ciudadDelDenunciado: 1, institucionImplicadaReclamo: 1, provinciaDenunciante: 1, provinciaDenunciado: 1)
-        _ = CPCCSClient.sharedInstance().postToReclamo(reclamo) { (statusCode, error) in
+        let reclamo = Reclamo(nombApelDenunciante: "Leonardo", tipoIdentificacion: 	"Cédula", numIdentificacion: "091231232123", direccion: "direccion", email: "leo@gmail.com", nombApelDenunciado: "Carlos", telefono: "23232322323", cargo: "ayudante", comparecer: true, documentores: true, identidadReservada: true, resideExtranjero: true, ciudadDelDenunciante: 115, ciudadDelDenunciado: 115, institucionImplicadaReclamo: 1, provinciaDenunciante: 1, provinciaDenunciado: 1)
+        CPCCSClient.sharedInstance().postToReclamo(reclamo) /*{ (statusCode, error) in
+             if let error = error {
+             print(error)
+             } else {
+             if statusCode == 1 || statusCode == 12 || statusCode == 13 {
+             print("Done")
+             } else {
+             print("Unexpected status code \(statusCode)")
+             // Si existe el id
+             }
+             }*/
+            // Si la respuesta le retorna un id, significa que se inserto correctamente
+        { (id, error) in
             if let error = error {
                 print(error)
             } else {
-                if statusCode == 1 || statusCode == 12 || statusCode == 13 {
-                    print("Done")
-                } else {
-                    print("Unexpected status code \(statusCode)")
-                }
+                print("Reclamo insertado correctamente")
+                print("Reclamo id: \(id)")
+                // Colocar por aqui un self.present(ViewController, animated:true, nil)
+                // o algun AlertView y retornar al menu principal
             }
         }
-        
         //self.performSegue(withIdentifier: "backToMain", sender: self)
     }
 
