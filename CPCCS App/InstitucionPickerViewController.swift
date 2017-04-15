@@ -99,7 +99,6 @@ class CPCCSClient : NSObject {
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
             
             func sendError(_ error: String) {
-                print(error)
                 let userInfo = [NSLocalizedDescriptionKey : error]
                 completionHandlerForPOST(nil, NSError(domain: "taskForPostTMethod", code: 1, userInfo: userInfo))
             }
@@ -120,7 +119,7 @@ class CPCCSClient : NSObject {
                 return sendError("Invalid response: \(response)")
             }
             
-            guard httpResponse.statusCode == 200 else {
+            guard httpResponse.statusCode >= 200 && httpResponse.statusCode <= 299 else {
                 return sendError("Recieved the following status code: \(httpResponse.statusCode)")
             }
             
@@ -132,6 +131,7 @@ class CPCCSClient : NSObject {
             
             /* 5/6. Parse the data and use the data (happens in completion handler) */
             self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForPOST)
+            
         }
         
         /* 7. Start the request */
@@ -250,7 +250,6 @@ extension CPCCSClient {
         
         let jsonBody = "{\"\(CPCCSClient.JSONBodyKeys.nombApelDenunciante)\": \"\(reclamo.nombApelDenunciante)\",\"\(CPCCSClient.JSONBodyKeys.tipoIdentificacion)\": \"\(reclamo.tipoIdentificacion)\",\"\(CPCCSClient.JSONBodyKeys.numIdentificacion)\": \"\(reclamo.numIdentificacion)\",\"\(CPCCSClient.JSONBodyKeys.direccion)\": \"\(reclamo.direccion)\",\"\(CPCCSClient.JSONBodyKeys.email)\": \"\(reclamo.email)\",\"\(CPCCSClient.JSONBodyKeys.nombApelDenunciado)\": \"\(reclamo.nombApelDenunciado )\",\"\(CPCCSClient.JSONBodyKeys.telefono)\": \"\(reclamo.telefono)\",\"\(CPCCSClient.JSONBodyKeys.cargo)\": \"\(reclamo.cargo)\",\"\(CPCCSClient.JSONBodyKeys.comparecer)\": \(reclamo.comparecer),\"\(CPCCSClient.JSONBodyKeys.documentores)\": \(reclamo.documentores),\"\(CPCCSClient.JSONBodyKeys.identidadReservada)\": \(reclamo.identidadReservada),\"\(CPCCSClient.JSONBodyKeys.resideExtranjero)\": \(reclamo.resideExtranjero),\"\(CPCCSClient.JSONBodyKeys.ciudadDelDenunciante)\": \(reclamo.ciudadDelDenunciante),\"\(CPCCSClient.JSONBodyKeys.ciudadDelDenunciado)\": \(reclamo.ciudadDelDenunciado),\"\(CPCCSClient.JSONBodyKeys.institucionImplicadaReclamo)\": \(reclamo.institucionImplicadaReclamo),\"\(CPCCSClient.JSONBodyKeys.provinciaDenunciante)\": \(reclamo.provinciaDenunciante),\"\(CPCCSClient.JSONBodyKeys.provinciaDenunciado)\": \(reclamo.provinciaDenunciado)}"
         
-        print(jsonBody)
         /* 2. Make the request */
         let _ = taskForPOSTMethod(CPCCSClient.Methods.CreateReclamo, parameters: parameters as [String:AnyObject], jsonBody: jsonBody) { (results, error) in
             

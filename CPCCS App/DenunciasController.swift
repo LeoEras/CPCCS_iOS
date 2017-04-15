@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UIPopoverPresentationControllerDelegate {
     var denuncia = Denuncia.shared
     
     @IBOutlet weak var nombreTextField: UITextField!
@@ -70,8 +70,6 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     var ciuID = [0]
     
     var institucion: Institucion?
-    
-    var cleared: Bool?
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -330,13 +328,52 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         return false
     }
     
+    // Alert View
+    func alertHandler(action: UIAlertAction) -> Void {
+        print("Perfectirijillo")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        print(currentReachabilityStatus != .notReachable)
+        if (currentReachabilityStatus != .notReachable){
+            //true connected
+            let alert = UIAlertController(title: "My Alert", message: "This is an alert.", preferredStyle: UIAlertControllerStyle.alert)
+            let defaultAction = UIAlertAction(title:"OK", style:UIAlertActionStyle.default,                                              handler: alertHandler)
+            
+            alert.addAction(defaultAction)
+            self.present(alert, animated:true, completion:nil)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.cleared = false
+        // Present the view controller using the popover style.
+        /*myPopoverViewController.modalPresentationStyle = UIModalPresentationPopover
+        [self presentViewController:myPopoverViewController animated: YES completion: nil]
+        
+        // Get the popover presentation controller and configure it.
+        UIPopoverPresentationController *presentationController =
+            [myPopoverViewController popoverPresentationController]
+        presentationController.permittedArrowDirections =
+            UIPopoverArrowDirectionLeft | UIPopoverArrowDirectionRight
+        presentationController.sourceView = myView
+        presentationController.sourceRect = sourceRect*/
+        
+        //print(currentReachabilityStatus != .notReachable)
+        /*if (currentReachabilityStatus != .notReachable){
+            //true connected
+            let alert = UIAlertController(title: "My Alert", message: "This is an alert.", preferredStyle: UIAlertControllerStyle.alert)
+            let defaultAction = UIAlertAction(title:"OK", style:UIAlertActionStyle.default,                                              handler: alertHandler)
+            
+            alert.addAction(defaultAction)
+            self.present(alert, animated:true, completion:nil)
+        }*/
         
         let reclamo = Reclamo(nombApelDenunciante: "Leonardo", tipoIdentificacion: 	"Cédula", numIdentificacion: "091231232123", direccion: "direccion", email: "leo@gmail.com", nombApelDenunciado: "Carlos", telefono: "23232322323", cargo: "ayudante", comparecer: true, documentores: true, identidadReservada: true, resideExtranjero: true, ciudadDelDenunciante: 115, ciudadDelDenunciado: 115, institucionImplicadaReclamo: 1, provinciaDenunciante: 1, provinciaDenunciado: 1)
-        _ = CPCCSClient.sharedInstance().postToReclamo(reclamo) { (statusCode, error) in
+        CPCCSClient.sharedInstance().postToReclamo(reclamo) { (statusCode, error) in
+            print(statusCode)
             if let error = error {
                 print(error)
             } else {
@@ -697,6 +734,29 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
     }
     
+    @IBAction func buttonTap(_ sender: UIButton) {
+        // get a reference to the view controller for the popover
+        let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popoverID")
+        popController.preferredContentSize = CGSize(width: 250, height: 50)
+        popController.view.frame = CGRect(x: 30, y: 20, width: 10, height: 10)
+        // set the presentation style
+        popController.modalPresentationStyle = UIModalPresentationStyle.popover
+        
+        // set up the popover presentation controller
+        popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+        popController.popoverPresentationController?.delegate = self
+        popController.popoverPresentationController?.sourceView = sender // button
+        popController.popoverPresentationController?.sourceRect = sender.bounds
+        //popController.popoverPresentationController?.sourceRect = CGRect(x: 30, y: 20, width: 10, height: 10)
+        
+        // present the popover
+        self.present(popController, animated: true, completion: nil)
+    }
+    // UIPopoverPresentationControllerDelegate method
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        // Force popover style
+        return UIModalPresentationStyle.popover
+    }
 }
 
 

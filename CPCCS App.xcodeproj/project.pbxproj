@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3004A4971EA108F00095FD32 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004A4961EA108F00095FD32 /* PopoverViewController.swift */; };
+		3004A49B1EA187F00095FD32 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004A49A1EA187F00095FD32 /* Utilities.swift */; };
 		30355CF81E97171100E0DA33 /* InstitucionPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30355CF71E97171100E0DA33 /* InstitucionPickerViewController.swift */; };
 		30355CFC1E9AD91A00E0DA33 /* InstitucionPedidos3Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30355CFB1E9AD91A00E0DA33 /* InstitucionPedidos3Controller.swift */; };
 		309B09B51E905710009E4C5F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309B09B41E905710009E4C5F /* Constants.swift */; };
@@ -60,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3004A4961EA108F00095FD32 /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
+		3004A49A1EA187F00095FD32 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		30355CF71E97171100E0DA33 /* InstitucionPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstitucionPickerViewController.swift; sourceTree = "<group>"; };
 		30355CFB1E9AD91A00E0DA33 /* InstitucionPedidos3Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstitucionPedidos3Controller.swift; sourceTree = "<group>"; };
 		309B09B41E905710009E4C5F /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				A7F4D1AD1E947B4B00CEBCB7 /* FAQController.swift */,
+				3004A4961EA108F00095FD32 /* PopoverViewController.swift */,
 				30355CF71E97171100E0DA33 /* InstitucionPickerViewController.swift */,
 				30355CFB1E9AD91A00E0DA33 /* InstitucionPedidos3Controller.swift */,
 				A7D8B03C1E93471000E6EA18 /* Denuncias4Controller.swift */,
@@ -185,6 +190,7 @@
 				A77FD2FA1E91CA11003C27E5 /* DenunciasViewController.swift */,
 				A7F4D1B31E949F4C00CEBCB7 /* PedidosViewController.swift */,
 				A79C52931E9315E000A5C7D5 /* Denuncias3Controller.swift */,
+				3004A49A1EA187F00095FD32 /* Utilities.swift */,
 			);
 			path = "CPCCS App";
 			sourceTree = "<group>";
@@ -324,6 +330,7 @@
 				A735C93A1E8ACDFF006295D6 /* DenunciasController.swift in Sources */,
 				A79C528E1E92FE1200A5C7D5 /* Denuncias2Controller.swift in Sources */,
 				A73CF7BE1E7A1E3A00741F82 /* AppDelegate.swift in Sources */,
+				3004A4971EA108F00095FD32 /* PopoverViewController.swift in Sources */,
 				309B09B51E905710009E4C5F /* Constants.swift in Sources */,
 				309B09B71E90572D009E4C5F /* GCDBlackBox.swift in Sources */,
 				A7F4D1BC1E94A1BF00CEBCB7 /* Pedidos4Controller.swift in Sources */,
@@ -336,6 +343,7 @@
 				A7F4D1B41E949F4C00CEBCB7 /* PedidosViewController.swift in Sources */,
 				30355CF81E97171100E0DA33 /* InstitucionPickerViewController.swift in Sources */,
 				A77FD2FB1E91CA11003C27E5 /* DenunciasViewController.swift in Sources */,
+				3004A49B1EA187F00095FD32 /* Utilities.swift in Sources */,
 				A7F4D1B81E94A12200CEBCB7 /* Pedidos2Controller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
