@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
    
     @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
     
@@ -38,7 +38,6 @@ class ViewController: UIViewController {
         
         menuShowing = !menuShowing
     }
-    
     
 }
 

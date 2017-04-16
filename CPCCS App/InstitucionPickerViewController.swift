@@ -99,7 +99,6 @@ class CPCCSClient : NSObject {
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
             
             func sendError(_ error: String) {
-                print(error)
                 let userInfo = [NSLocalizedDescriptionKey : error]
                 completionHandlerForPOST(nil, NSError(domain: "taskForPostTMethod", code: 1, userInfo: userInfo))
             }
@@ -120,7 +119,7 @@ class CPCCSClient : NSObject {
                 return sendError("Invalid response: \(response)")
             }
             
-            guard httpResponse.statusCode == 200 else {
+            guard httpResponse.statusCode >= 200 && httpResponse.statusCode <= 299 else {
                 return sendError("Recieved the following status code: \(httpResponse.statusCode)")
             }
             
@@ -132,6 +131,7 @@ class CPCCSClient : NSObject {
             
             /* 5/6. Parse the data and use the data (happens in completion handler) */
             self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForPOST)
+            
         }
         
         /* 7. Start the request */
@@ -220,14 +220,11 @@ extension CPCCSClient {
         return task
     }
     
-    
     func postToPreDenuncia(_ predenuncia: PreDenuncia, completionHandlerForPreDenuncia: @escaping (_ result: Int?, _ error: NSError?) -> Void) {
         
         /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
         let parameters = [ :] as [String:AnyObject]
-        // [TMDBClient.ParameterKeys.SessionID : TMDBClient.sharedInstance().sessionID!]
-        //var mutableMethod: String = Methods.AccountIDFavorite
-        //mutableMethod = substituteKeyInMethod(mutableMethod, key: TMDBClient.URLKeys.UserID, value: String(TMDBClient.sharedInstance().userID!))!
+    
         let jsonBody = "{\"\(CPCCSClient.JSONBodyKeys.tipo)\": \"\(predenuncia.tipo)\",\"\(CPCCSClient.JSONBodyKeys.generoDenunciante)\": \"\(predenuncia.genero_denunciante)\",\"\(CPCCSClient.JSONBodyKeys.descripcionInvestigacion)\": \"\(predenuncia.descripcion_investigacion)\",\"\(CPCCSClient.JSONBodyKeys.generoDenunciado)\": \"\(predenuncia.genero_denunciado)\",\"\(CPCCSClient.JSONBodyKeys.funcionarioPublico)\": \"\(predenuncia.funcionario_publico)\",\"\(CPCCSClient.JSONBodyKeys.nivelEducacionDenunciante)\": \(predenuncia.nivel_educacion_denunciante),\"\(CPCCSClient.JSONBodyKeys.ocupacionDenunciante)\": \(predenuncia.ocupacion_denunciante),\"\(CPCCSClient.JSONBodyKeys.nacionalidadDenunciante)\": \(predenuncia.nacionalidad_denunciante),\"\(CPCCSClient.JSONBodyKeys.estadoCivilDenunciante)\": \(predenuncia.estado_civil_denunciante),\"\(CPCCSClient.JSONBodyKeys.institucionImplicada)\": \(predenuncia.institucion_implicada)}"
         
         /* 2. Make the request */
@@ -245,6 +242,30 @@ extension CPCCSClient {
             }
         }
     }
+    
+    func postToReclamo(_ reclamo: Reclamo, completionHandlerForReclamo: @escaping (_ result: Int?, _ error: NSError?) -> Void) {
+        
+        /* 1. Specify parameters, method (if has {key}), and HTTP body (if POST) */
+        let parameters = [ :] as [String:AnyObject]
+        
+        let jsonBody = "{\"\(CPCCSClient.JSONBodyKeys.nombApelDenunciante)\": \"\(reclamo.nombApelDenunciante)\",\"\(CPCCSClient.JSONBodyKeys.tipoIdentificacion)\": \"\(reclamo.tipoIdentificacion)\",\"\(CPCCSClient.JSONBodyKeys.numIdentificacion)\": \"\(reclamo.numIdentificacion)\",\"\(CPCCSClient.JSONBodyKeys.direccion)\": \"\(reclamo.direccion)\",\"\(CPCCSClient.JSONBodyKeys.email)\": \"\(reclamo.email)\",\"\(CPCCSClient.JSONBodyKeys.nombApelDenunciado)\": \"\(reclamo.nombApelDenunciado )\",\"\(CPCCSClient.JSONBodyKeys.telefono)\": \"\(reclamo.telefono)\",\"\(CPCCSClient.JSONBodyKeys.cargo)\": \"\(reclamo.cargo)\",\"\(CPCCSClient.JSONBodyKeys.comparecer)\": \(reclamo.comparecer),\"\(CPCCSClient.JSONBodyKeys.documentores)\": \(reclamo.documentores),\"\(CPCCSClient.JSONBodyKeys.identidadReservada)\": \(reclamo.identidadReservada),\"\(CPCCSClient.JSONBodyKeys.resideExtranjero)\": \(reclamo.resideExtranjero),\"\(CPCCSClient.JSONBodyKeys.ciudadDelDenunciante)\": \(reclamo.ciudadDelDenunciante),\"\(CPCCSClient.JSONBodyKeys.ciudadDelDenunciado)\": \(reclamo.ciudadDelDenunciado),\"\(CPCCSClient.JSONBodyKeys.institucionImplicadaReclamo)\": \(reclamo.institucionImplicadaReclamo),\"\(CPCCSClient.JSONBodyKeys.provinciaDenunciante)\": \(reclamo.provinciaDenunciante),\"\(CPCCSClient.JSONBodyKeys.provinciaDenunciado)\": \(reclamo.provinciaDenunciado)}"
+        
+        /* 2. Make the request */
+        let _ = taskForPOSTMethod(CPCCSClient.Methods.CreateReclamo, parameters: parameters as [String:AnyObject], jsonBody: jsonBody) { (results, error) in
+            
+            /* 3. Send the desired value(s) to completion handler */
+            if let error = error {
+                completionHandlerForReclamo(nil, error)
+            } else {
+                if let results = results?["id"] as? Int {
+                    completionHandlerForReclamo(results, nil)
+                } else {
+                    completionHandlerForReclamo(nil, NSError(domain: "postToReclamo parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse postToReclamo"]))
+                }
+            }
+        }
+    }
+
 }
 
 // MARK: - CPCCSClient (Constants)
@@ -265,6 +286,7 @@ extension CPCCSClient {
         // MARK: Search
         static let SearchInstitucion = "/instituciones"
         static let CreatePredenuncia = "/predenuncias/"
+        static let CreateReclamo = "/reclamos/"
     }
     
     // MARK: URL Keys
@@ -281,6 +303,7 @@ extension CPCCSClient {
     }
     
     struct JSONBodyKeys {
+        // Predenuncia
         static let tipo = "tipo"
         static let generoDenunciante = "genero_denunciante"
         static let descripcionInvestigacion = "descripcion_investigacion"
@@ -291,7 +314,26 @@ extension CPCCSClient {
         static let nacionalidadDenunciante = "nacionalidad_denunciante"
         static let estadoCivilDenunciante = "estado_civil_denunciante"
         static let institucionImplicada = "institucion_implicada"
+        static let idReclamo = "id_reclamo"
         
+        //Reclamo
+        static let nombApelDenunciante = "nombres_apellidos_denunciante"
+        static let tipoIdentificacion = "tipo_identificacion"
+        static let numIdentificacion = "numero_identificacion"
+        static let direccion = "direccion"
+        static let email = "email"
+        static let nombApelDenunciado = "nombres_apellidos_denunciado"
+        static let telefono = "telefono"
+        static let cargo = "cargo"
+        static let comparecer = "comparecer"
+        static let documentores = "documentores"
+        static let identidadReservada = "identidad_reservada"
+        static let resideExtranjero = "reside_extranjero"
+        static let ciudadDelDenunciante = "ciudad_del_denunciante"
+        static let ciudadDelDenunciado = "ciudad_del_denunciado"
+        static let institucionImplicadaReclamo = "institucion_implicada"
+        static let provinciaDenunciante = "provincia_denunciante"
+        static let provinciaDenunciado = "provincia_denunciado"
     }
     
     // MARK: JSON Response Keys
@@ -339,7 +381,7 @@ struct Institucion {  // MARK: Properties
 }
 
 
-// MARK: - Institucion Struct
+// MARK: - PreDenuncia Struct
 
 struct PreDenuncia {  // MARK: Properties
     
@@ -368,6 +410,53 @@ struct PreDenuncia {  // MARK: Properties
         self.nacionalidad_denunciante = nacionalidad
         self.estado_civil_denunciante = estadoCivil
         self.institucion_implicada = institucionImpl
+    }
+}
+
+// MARK: -  Reclamo Struct
+
+struct Reclamo {  // MARK: Properties
+    
+    let nombApelDenunciante: String
+    let tipoIdentificacion: String
+    let numIdentificacion: String
+    let direccion: String
+    let email: String
+    let nombApelDenunciado: String
+    let telefono: String
+    let cargo: String
+    let comparecer: Bool
+    let documentores: Bool
+    let identidadReservada: Bool
+    let resideExtranjero: Bool
+    let ciudadDelDenunciante: Int
+    let ciudadDelDenunciado: Int
+    let institucionImplicadaReclamo: Int
+    let provinciaDenunciante: Int
+    let provinciaDenunciado: Int
+    
+    // MARK: Initializers
+    
+    // construct a Institucion from a dictionary
+    init(nombApelDenunciante: String, tipoIdentificacion: String, numIdentificacion: String, direccion: String, email: String, nombApelDenunciado: String, telefono: String, cargo: String, comparecer: Bool,documentores: Bool, identidadReservada: Bool, resideExtranjero: Bool, ciudadDelDenunciante: Int, ciudadDelDenunciado: Int, institucionImplicadaReclamo: Int, provinciaDenunciante: Int, provinciaDenunciado: Int) {
+        
+        self.nombApelDenunciante = nombApelDenunciante
+        self.tipoIdentificacion = tipoIdentificacion
+        self.numIdentificacion = numIdentificacion
+        self.direccion = direccion
+        self.email = email
+        self.nombApelDenunciado = nombApelDenunciado
+        self.telefono = telefono
+        self.cargo = cargo
+        self.comparecer = comparecer
+        self.documentores = documentores
+        self.identidadReservada = identidadReservada
+        self.resideExtranjero = resideExtranjero
+        self.ciudadDelDenunciante = ciudadDelDenunciante
+        self.ciudadDelDenunciado = ciudadDelDenunciado
+        self.institucionImplicadaReclamo = institucionImplicadaReclamo
+        self.provinciaDenunciante = provinciaDenunciante
+        self.provinciaDenunciado = provinciaDenunciado
     }
     
 }

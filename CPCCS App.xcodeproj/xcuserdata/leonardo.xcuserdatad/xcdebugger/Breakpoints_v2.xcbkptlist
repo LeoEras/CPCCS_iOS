@@ -95,7 +95,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "599"
             endingLineNumber = "599"
-            landmarkName = "getCiuidad(id:)"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -111,7 +111,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "684"
             endingLineNumber = "684"
-            landmarkName = "nextView()"
+            landmarkName = "tapFunction(sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
