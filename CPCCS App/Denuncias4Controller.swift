@@ -20,17 +20,7 @@ class Denuncias4Controller: UIViewController {
     @IBOutlet weak var descDenuncia: UITextView!
     
     @IBAction func sendAction(_ sender: Any) {
-        print("DATA IN")
-        print(String(denuncia.getGenero()))
-        print(denuncia.getMotivo())
-        print(String(denuncia.getGeneroDenunciado()))
-        print(denuncia.getNivEdu())
-        print(denuncia.getOcupacion())
-        print(denuncia.getNacion())
-        print(denuncia.getEstCivil())
-        print(denuncia.getInstitucion())
-        print("DATA OUT")
-        
+       
         let predenuncia = PreDenuncia(tipo: "0", genero1: String(denuncia.getGenero()), descripcion: denuncia.getMotivo(), genero2: String(denuncia.getGeneroDenunciado()), funcionario: "a", nivelEdu: denuncia.getNivEdu(), ocupacion: denuncia.getOcupacion(), nacionalidad: denuncia.getNacion(), estadoCivil: denuncia.getEstCivil(), institucionImpl: denuncia.getInstitucion())
         _ = CPCCSClient.sharedInstance().postToPreDenuncia(predenuncia) { (statusCode, error) in
             if let error = error {

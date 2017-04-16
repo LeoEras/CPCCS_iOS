@@ -579,7 +579,21 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         //generoSelector.delegate = self
     }
     
-
+    @IBAction func nextWindow(_ sender: UIButton) {
+        nextView()
+        if (denuncia.getPrimeraVentana()){
+            self.performSegue(withIdentifier: "d1d2", sender: self)
+        } else {
+            // create the alert
+            let alert = UIAlertController(title: "Denuncia", message: "Por favor llene todos los campos", preferredStyle: UIAlertControllerStyle.alert)
+            
+            // add the actions (buttons)
+            alert.addAction(UIAlertAction(title: "Continuar", style: UIAlertActionStyle.default, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
     
     func getCiuidad(id: Int){
         let urlCiudad = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/ciudades/?provincia=" + String(id))
@@ -662,7 +676,6 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         organizacionTextField.resignFirstResponder()
         identificacionTextField.resignFirstResponder()
         cargoTextField.resignFirstResponder()
-        nextView()
     }
     
     func nextView(){

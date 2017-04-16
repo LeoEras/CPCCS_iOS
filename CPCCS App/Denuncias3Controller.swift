@@ -300,6 +300,23 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
         task1.resume()
     }
     
+    @IBAction func nextWindow(_ sender: UIButton) {
+        nextView()
+        if (denuncia.getSegundaVentana()){
+            self.performSegue(withIdentifier: "d3d4", sender: self)
+        } else {
+            // create the alert
+            let alert = UIAlertController(title: "Denuncia", message: "Por favor llene todos los campos", preferredStyle: UIAlertControllerStyle.alert)
+            
+            // add the actions (buttons)
+            alert.addAction(UIAlertAction(title: "Continuar", style: UIAlertActionStyle.default, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    
     //Agrega el manejador de tap al label
     func attachTapHandler(label: UILabel)->Void{
         let tap = UITapGestureRecognizer(target: self, action: #selector(Denuncias3Controller.tapFunction))
@@ -347,7 +364,6 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
         cargoTextField.resignFirstResponder()
         cantPerTextField.resignFirstResponder()
         uniDirTextField.resignFirstResponder()
-        nextView()
     }
     
     func nextView(){
