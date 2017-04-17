@@ -177,7 +177,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             self.idenShow.text = self.identidadOpciones[row]
             self.identidadSelector.isHidden = true
         } else if (pickerView == empleadoSelector){
-            denuncia.setOcupacion(opcion: row)
+            denuncia.setOcupacion(opcion: empleadoID[row])
             self.empleadoShow.text = self.empleadoOpciones[row]
             self.empleadoSelector.isHidden = true
         } else if (pickerView == tipoIdentSelector){
@@ -189,15 +189,15 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             self.generoShow.text = self.generoOpciones[row]
             self.generoSelector.isHidden = true
         } else if (pickerView == estCivilSelector){
-            denuncia.setEstCivil(opcion: row)
+            denuncia.setEstCivil(opcion: estCivilID[row])
             self.estCivilShow.text = self.estCivilOpciones[row]
             self.estCivilSelector.isHidden = true
         } else if (pickerView == nivEduSelector){
-            denuncia.setNivEdu(opcion: row)
+            denuncia.setNivEdu(opcion: nivEduID[row])
             self.nivEduShow.text = self.nivEduOpciones[row]
             self.nivEduSelector.isHidden = true
         } else if (pickerView == nacionSelector){
-            denuncia.setNacion(opcion: row)
+            denuncia.setNacion(opcion: nacionID[row])
             self.nacionShow.text = self.nacionOpciones[row]
             self.nacionSelector.isHidden = true
         } else if (pickerView == resideSelector){
@@ -205,12 +205,12 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             self.resideShow.text = self.resideOpciones[row]
             self.resideSelector.isHidden = true
         } else if (pickerView == provSelector){
-            denuncia.setProvincia(opcion: row)
+            denuncia.setProvincia(opcion: provID[row])
             self.provShow.text = self.provOpciones[row]
             self.getCiuidad(id: provID[row])
             self.provSelector.isHidden = true
         } else if (pickerView == ciuSelector){
-            denuncia.setCiudad(opcion: row)
+            denuncia.setCiudad(opcion: ciuID[row])
             self.ciuShow.text = self.ciuOpciones[row]
             self.ciuSelector.isHidden = true
         }
@@ -269,39 +269,50 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         let newString = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
         if textField == nombreTextField {
             let existOrNotNumber = checkTextNumber(text: newString)
+            let newLength = (nombreTextField.text?.characters.count)! + string.characters.count - range.length
+            return newLength <= 25
             changeTextFieldColor(value: existOrNotNumber, textField: nombreTextField)
         } else if textField == apellidosTextField {
             let existOrNotNumber = checkTextNumber(text: newString)
             changeTextFieldColor(value: existOrNotNumber, textField: apellidosTextField)
+            let newLength = (apellidosTextField.text?.characters.count)! + string.characters.count - range.length
+            return newLength <= 25
         } else if textField == emailTextField {
             let emailValidated = checkEmail(candidate: newString)
             changeTextFieldColor(value: emailValidated, textField: emailTextField)
+            let newLength = (emailTextField.text?.characters.count)! + string.characters.count - range.length
+            return newLength <= 25
         } else if textField == edadTextField {
             let onlyNumbers = checkOnlyNumbers(text: newString)
             changeTextFieldColor(value: onlyNumbers, textField: edadTextField)
             let length = checkEdadLength(text: newString)
             changeTextFieldColor(value: length, textField: edadTextField)
-            
+            let newLength = (edadTextField.text?.characters.count)! + string.characters.count - range.length
+            return newLength <= 2
         } else if textField == telefonoTextField {
             let onlyNumbers = checkOnlyNumbers(text: newString)
             changeTextFieldColor(value: onlyNumbers, textField: telefonoTextField)
             let length = checkTelefonoLength(text: newString)
             changeTextFieldColor(value: length, textField: telefonoTextField)
-            
+            let newLength = (telefonoTextField.text?.characters.count)! + string.characters.count - range.length
+            return newLength <= 10
         } else if textField == direccionTextField {
-            
+            let newLength = (direccionTextField.text?.characters.count)! + string.characters.count - range.length
+            return newLength <= 25
         } else if textField == identificacionTextField {
             let onlyNumbers = checkOnlyNumbers(text: newString)
             changeTextFieldColor(value: onlyNumbers, textField: identificacionTextField)
             let length = checkIdentificacionLength(text: newString)
             changeTextFieldColor(value: length, textField: identificacionTextField)
-            
+            let newLength = (identificacionTextField.text?.characters.count)! + string.characters.count - range.length
+            return newLength <= 11
         } else if textField == cargoTextField {
             let existOrNotNumber = checkTextNumber(text: newString)
             changeTextFieldColor(value: existOrNotNumber, textField: cargoTextField)
             let length = checkIdentificacionLength(text: newString)
             changeTextFieldColor(value: length, textField: cargoTextField)
-            
+            let newLength = (cargoTextField.text?.characters.count)! + string.characters.count - range.length
+            return newLength <= 25
         }
         
         return true
@@ -329,10 +340,12 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     // Alert View
+    /*
     func alertHandler(action: UIAlertAction) -> Void {
         print("Perfectirijillo")
     }
-    
+    */
+    /*
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         print(currentReachabilityStatus != .notReachable)
@@ -344,7 +357,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             alert.addAction(defaultAction)
             self.present(alert, animated:true, completion:nil)
         }
-    }
+    } */
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -370,7 +383,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             alert.addAction(defaultAction)
             self.present(alert, animated:true, completion:nil)
         }*/
-        
+       
         
         
         //Caso en que la ventana ya haya sido completada
@@ -414,6 +427,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                                         self.estCivilShow.text = self.estCivilOpciones[self.denuncia.getEstCivil()]
                                     } else {
                                         self.estCivilShow.text = self.estCivilOpciones[0]
+                                        self.denuncia.setEstCivil(opcion: self.estCivilID[0])
                                     }
                                 }
                             }
@@ -454,6 +468,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                                         self.provShow.text = self.provOpciones[self.denuncia.getProvincia()]
                                     } else {
                                         self.provShow.text = self.provOpciones[0]
+                                        self.denuncia.setProvincia(opcion: self.provID[0])
                                     }
                                 }
                             }
@@ -499,6 +514,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                                         self.nivEduShow.text = self.nivEduOpciones[self.denuncia.getNivEdu()]
                                     } else {
                                         self.nivEduShow.text = self.nivEduOpciones[0]
+                                        self.denuncia.setNivEdu(opcion: self.nivEduID[0])
                                     }
                                 }
                             }
@@ -539,6 +555,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                                         self.nacionShow.text = self.nacionOpciones[self.denuncia.getNacion()]
                                     } else {
                                         self.nacionShow.text = self.nacionOpciones[0]
+                                        self.denuncia.setNacion(opcion: self.nacionID[0])
                                     }
                                 }
                             }
@@ -579,6 +596,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                                         self.empleadoShow.text = self.empleadoOpciones[self.denuncia.getOcupacion()]
                                     } else {
                                         self.empleadoShow.text = self.empleadoOpciones[0]
+                                        self.denuncia.setOcupacion(opcion: self.empleadoID[0])
                                     }
                                 }
                             }
@@ -618,6 +636,31 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     @IBAction func nextWindow(_ sender: UIButton) {
+        let reclamo = Reclamo(nombApelDenunciante: "Leonardo", tipoIdentificacion: 	"Cédula", numIdentificacion: "091231232123", direccion: "direccion", email: "leo@gmail.com", nombApelDenunciado: "Carlos", telefono: "23232322323", cargo: "ayudante", comparecer: true, documentores: true, identidadReservada: true, resideExtranjero: true, ciudadDelDenunciante: 115, ciudadDelDenunciado: 115, institucionImplicadaReclamo: 1, provinciaDenunciante: 1, provinciaDenunciado: 1)
+        CPCCSClient.sharedInstance().postToReclamo(reclamo) /*{ (statusCode, error) in
+             if let error = error {
+             print(error)
+             } else {
+             if statusCode == 1 || statusCode == 12 || statusCode == 13 {
+             print("Done")
+             } else {
+             print("Unexpected status code \(statusCode)")
+             // Si existe el id
+             }
+             }*/
+            // Si la respuesta le retorna un id, significa que se inserto correctamente
+        { (id, error) in
+            if let error = error {
+                print(error)
+            } else {
+                print("Reclamo insertado correctamente")
+                print("Reclamo id: \(id)")
+                // Colocar por aqui un self.present(ViewController, animated:true, nil)
+                // o algun AlertView y retornar al menu principal
+            }
+        }
+        
+        
         nextView()
         if (denuncia.getPrimeraVentana()){
             self.performSegue(withIdentifier: "d1d2", sender: self)
@@ -660,6 +703,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                                     self.ciuShow.text = self.ciuOpciones[self.denuncia.getCiudad()]
                                 } else {
                                     self.ciuShow.text = self.ciuOpciones[0]
+                                    self.denuncia.setCiudad(opcion: self.ciuID[0])
                                 }
                             }
                         }
@@ -670,6 +714,22 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             }
         }
         task1.resume()
+    }
+    
+    //Regreso a Main
+    @IBAction func backToMain(_ sender: UIButton) {
+        // create the alert
+        let alert = UIAlertController(title: "Peticionario", message: "¡Si retrocede se perderán los datos ingresados! ¿Desea regresar?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add the actions (buttons)
+        alert.addAction(UIAlertAction(title: "Sí", style: UIAlertActionStyle.default, handler: { action in
+            self.denuncia.resetData()
+            self.performSegue(withIdentifier: "d1m", sender: self)
+            }))
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
     }
     
     //Agrega el manejador de tap al label
@@ -753,11 +813,13 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         // present the popover
         self.present(popController, animated: true, completion: nil)
     }
+    /*
     // UIPopoverPresentationControllerDelegate method
     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
         // Force popover style
         return UIModalPresentationStyle.popover
     }
+    */
 }
 
 

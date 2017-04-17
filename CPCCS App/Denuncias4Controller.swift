@@ -5,7 +5,6 @@
 //  Created by Leonardo on 4/3/17.
 //  Copyright © 2017 CPCCS. All rights reserved.
 //
-
 import UIKit
 
 class Denuncias4Controller: UIViewController {
@@ -20,6 +19,30 @@ class Denuncias4Controller: UIViewController {
     @IBOutlet weak var descDenuncia: UITextView!
     
     @IBAction func sendAction(_ sender: Any) {
+        var tipoIdent: String = ""
+        var comparece: Bool = true
+        var idenReservada: Bool = true
+        var resExtranjero: Bool = true
+        
+        if(denuncia.getTipoIden() == 0){
+            tipoIdent = "Cédula"
+        } else if(denuncia.getTipoIden() == 1){
+            tipoIdent = "RUC"
+        } else if(denuncia.getTipoIden() == 2){
+            tipoIdent = "Pasaporte"
+        }
+        
+        if(denuncia.getIdentidad() == 1){
+            idenReservada = false
+        }
+        
+        if(denuncia.getComparece() == 1){
+            comparece = false
+        }
+        
+        if(denuncia.getReside() == 1){
+            resExtranjero = false
+        }
        
         let predenuncia = PreDenuncia(tipo: "0", genero1: String(denuncia.getGenero()), descripcion: denuncia.getMotivo(), genero2: String(denuncia.getGeneroDenunciado()), funcionario: "a", nivelEdu: denuncia.getNivEdu(), ocupacion: denuncia.getOcupacion(), nacionalidad: denuncia.getNacion(), estadoCivil: denuncia.getEstCivil(), institucionImpl: denuncia.getInstitucion())
         _ = CPCCSClient.sharedInstance().postToPreDenuncia(predenuncia) { (statusCode, error) in
@@ -34,7 +57,7 @@ class Denuncias4Controller: UIViewController {
             }
         }
         
-        let reclamo = Reclamo(nombApelDenunciante: "Leonardo", tipoIdentificacion: 	"Cédula", numIdentificacion: "091231232123", direccion: "direccion", email: "leo@gmail.com", nombApelDenunciado: "Carlos", telefono: "23232322323", cargo: "ayudante", comparecer: true, documentores: true, identidadReservada: true, resideExtranjero: true, ciudadDelDenunciante: 115, ciudadDelDenunciado: 115, institucionImplicadaReclamo: 1, provinciaDenunciante: 1, provinciaDenunciado: 1)
+        let reclamo = Reclamo(nombApelDenunciante: denuncia.getNombres(), tipoIdentificacion: tipoIdent, numIdentificacion: denuncia.getIdentificacion(), direccion: denuncia.getDireccion(), email: denuncia.getCorreo(), nombApelDenunciado: denuncia.getNombresDenunciado(), telefono: denuncia.getTelefono(), cargo: denuncia.getCargo(), comparecer: comparece, documentores: false, identidadReservada: idenReservada, resideExtranjero: resExtranjero, ciudadDelDenunciante: denuncia.getCiudad(), ciudadDelDenunciado: denuncia.getCiudadDenunciado(), institucionImplicadaReclamo: denuncia.getInstitucion(), provinciaDenunciante: denuncia.getProvincia(), provinciaDenunciado: denuncia.getProvinciaDenunciado())
         CPCCSClient.sharedInstance().postToReclamo(reclamo) /*{ (statusCode, error) in
              if let error = error {
              print(error)
@@ -53,13 +76,14 @@ class Denuncias4Controller: UIViewController {
             } else {
                 print("Reclamo insertado correctamente")
                 print("Reclamo id: \(id)")
+                self.performSegue(withIdentifier: "denunciaPostReturnMain", sender: self)
                 // Colocar por aqui un self.present(ViewController, animated:true, nil)
                 // o algun AlertView y retornar al menu principal
             }
         }
-        //self.performSegue(withIdentifier: "backToMain", sender: self)
+        //
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         nombre.text = denuncia.getNombres()
@@ -69,23 +93,38 @@ class Denuncias4Controller: UIViewController {
         nombreDenunciado.text = denuncia.getNombresDenunciado()
         apellidoDenunciado.text = denuncia.getApellidosDenunciado()
         descDenuncia.text = denuncia.getMotivo()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func backToMain(_ sender: UIButton) {
+        // create the alert
+        let alert = UIAlertController(title: "Peticionario", message: "¡Si retrocede se perderán los datos ingresados! ¿Desea regresar?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add the actions (buttons)
+        alert.addAction(UIAlertAction(title: "Sí", style: UIAlertActionStyle.default, handler: { action in
+            self.denuncia.resetData()
+            self.performSegue(withIdentifier: "d4m", sender: self)
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
     }
-    */
+    
+    
+    
+    /*
+     // MARK: - Navigation
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
 }

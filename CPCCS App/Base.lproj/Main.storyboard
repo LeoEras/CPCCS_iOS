@@ -211,7 +211,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="back_button.png"/>
                                         <connections>
-                                            <segue destination="pdE-db-C3B" kind="show" id="P3k-uP-DLG"/>
+                                            <action selector="backToMain:" destination="BbN-v2-ycD" eventType="touchUpInside" id="23d-cR-6fm"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PETICIONARIO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTY-g6-KfO">
@@ -640,6 +640,7 @@
                         <outlet property="tipoIdentSelector" destination="M1a-E9-FCI" id="ld4-VY-wVn"/>
                         <outlet property="tipoIdentShow" destination="aBp-y5-tcn" id="yHp-Jl-BUJ"/>
                         <segue destination="EMC-ge-hc1" kind="show" identifier="d1d2" id="CS9-Eo-y6i"/>
+                        <segue destination="pdE-db-C3B" kind="show" identifier="d1m" id="UFy-ck-YR0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7FR-pl-nPc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -674,7 +675,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="back_button.png"/>
                                         <connections>
-                                            <segue destination="pdE-db-C3B" kind="show" id="465-93-iCw"/>
+                                            <action selector="backToMain:" destination="mKU-Mr-ABI" eventType="touchUpInside" id="1k1-kw-KOn"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PETICIONARIO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWc-c6-on7">
@@ -892,7 +893,8 @@
                         <outlet property="identificacion" destination="NiG-Rb-2JA" id="IQ7-cb-wCm"/>
                         <outlet property="nombre" destination="hDJ-rX-PcS" id="l4j-C7-6Kt"/>
                         <outlet property="nombreDenunciado" destination="c4G-Eb-pzS" id="MYV-jC-qCt"/>
-                        <segue destination="pdE-db-C3B" kind="show" identifier="backToMain" id="Fp6-kk-H6g"/>
+                        <segue destination="pdE-db-C3B" kind="show" identifier="denunciaPostReturnMain" id="Fp6-kk-H6g"/>
+                        <segue destination="pdE-db-C3B" kind="show" identifier="d4m" id="A5z-cA-zcP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8m6-fh-oR0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -908,7 +910,7 @@
                         <viewControllerLayoutGuide type="bottom" id="09s-b3-dT9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yeN-9g-J8f">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zGS-Ld-8RS">
@@ -927,7 +929,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="back_button.png"/>
                                         <connections>
-                                            <segue destination="pdE-db-C3B" kind="show" id="BIK-HD-2J4"/>
+                                            <action selector="backToMain:" destination="EMC-ge-hc1" eventType="touchUpInside" id="ycA-QV-nx9"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PETICIONARIO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ko7-1i-eKl">
@@ -1045,6 +1047,7 @@
                         <outlet property="compareceShow" destination="Som-kP-v8h" id="5rg-SY-Nvg"/>
                         <outlet property="denunciaText" destination="nvq-iv-Mgw" id="4q4-BJ-ZqD"/>
                         <segue destination="q9b-0H-PTJ" kind="show" identifier="d2d3" id="2A7-BO-aiM"/>
+                        <segue destination="pdE-db-C3B" kind="show" identifier="d2m" id="bTe-y6-6qO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FdM-Fq-x0C" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1214,7 +1217,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="back_button.png"/>
                                         <connections>
-                                            <segue destination="pdE-db-C3B" kind="show" id="23o-22-wYS"/>
+                                            <action selector="backToMain:" destination="q9b-0H-PTJ" eventType="touchUpInside" id="Lli-sK-eCz"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PETICIONARIO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5o7-5i-9Kd">
@@ -1353,7 +1356,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cantidaad de perjudicados estimado" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HQc-EP-G9m">
-                                        <rect key="frame" x="20" y="381" width="380" height="30"/>
+                                        <rect key="frame" x="20" y="424" width="380" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1363,7 +1366,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Unidad dirección afectada" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="648-Ag-Xdi">
-                                        <rect key="frame" x="20" y="424" width="380" height="30"/>
+                                        <rect key="frame" x="20" y="381" width="380" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1463,6 +1466,7 @@
                         <outlet property="provShow" destination="Hgj-dY-vPM" id="qzO-56-Cha"/>
                         <outlet property="uniDirTextField" destination="648-Ag-Xdi" id="uF6-Bk-QUb"/>
                         <segue destination="mKU-Mr-ABI" kind="show" identifier="d3d4" id="BNo-nJ-8th"/>
+                        <segue destination="pdE-db-C3B" kind="show" identifier="d3m" id="G7w-MB-qKM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tb3-Gi-Kj4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3029,9 +3033,9 @@
         <image name="preguntasfrecuentes.png" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="P3k-uP-DLG"/>
-        <segue reference="hkv-J7-uFw"/>
-        <segue reference="CS9-Eo-y6i"/>
+        <segue reference="Fp6-kk-H6g"/>
         <segue reference="gsT-ss-tS7"/>
+        <segue reference="cEv-Jf-Ur9"/>
+        <segue reference="hkv-J7-uFw"/>
     </inferredMetricsTieBreakers>
 </document>

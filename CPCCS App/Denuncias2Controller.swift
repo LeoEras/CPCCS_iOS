@@ -81,6 +81,20 @@ class Denuncias2Controller: UIViewController, UIPickerViewDelegate, UIPickerView
         }
     }
     
+    @IBAction func backToMain(_ sender: UIButton) {
+        // create the alert
+        let alert = UIAlertController(title: "Peticionario", message: "¡Si retrocede se perderán los datos ingresados! ¿Desea regresar?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add the actions (buttons)
+        alert.addAction(UIAlertAction(title: "Sí", style: UIAlertActionStyle.default, handler: { action in
+            self.denuncia.resetData()
+            self.performSegue(withIdentifier: "d2m", sender: self)
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
     
     //Agrega el manejador de tap al label
     func attachTapHandler(label: UILabel)->Void{
