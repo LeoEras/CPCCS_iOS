@@ -8,7 +8,7 @@
 import UIKit
 
 class Denuncias4Controller: UIViewController {
-    var denuncia = Denuncia.shared
+    var denuncia = DataHolder.shared
     
     @IBOutlet weak var nombre: UILabel!
     @IBOutlet weak var apellidos: UILabel!
@@ -104,7 +104,7 @@ class Denuncias4Controller: UIViewController {
     
     @IBAction func backToMain(_ sender: UIButton) {
         // create the alert
-        let alert = UIAlertController(title: "Peticionario", message: "¡Si retrocede se perderán los datos ingresados! ¿Desea regresar?", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Denuncias", message: "¡Si retrocede se perderán los datos ingresados! ¿Desea regresar?", preferredStyle: UIAlertControllerStyle.alert)
         
         // add the actions (buttons)
         alert.addAction(UIAlertAction(title: "Sí", style: UIAlertActionStyle.default, handler: { action in

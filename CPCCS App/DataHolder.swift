@@ -1,5 +1,5 @@
 //
-//  Denuncia.swift
+//  DataHolder.swift
 //  CPCCS App
 //
 //  Created by Leonardo on 4/10/17.
@@ -8,37 +8,37 @@
 
 import Foundation
 
-final class Denuncia{
+final class DataHolder {
     //Variables generales
     private var primeraVentana: Bool = false
     private var segundaVentana: Bool = false
     private var terceraVentana: Bool = false
-    static let shared = Denuncia()
+    static let shared = DataHolder()
     
     public func setPrimeraVentana(boolean: Bool){
-        Denuncia.shared.primeraVentana = boolean
+        DataHolder.shared.primeraVentana = boolean
     }
     
     public func getPrimeraVentana() -> Bool{
-        return Denuncia.shared.primeraVentana
+        return DataHolder.shared.primeraVentana
     }
     
     public func setSegundaVentana(boolean: Bool){
-        Denuncia.shared.segundaVentana = boolean
+        DataHolder.shared.segundaVentana = boolean
     }
     
     public func getSegundaVentana() -> Bool{
-        return Denuncia.shared.segundaVentana
+        return DataHolder.shared.segundaVentana
     }
     
     public func setTerceraVentana(boolean: Bool){
-        Denuncia.shared.terceraVentana = boolean
+        DataHolder.shared.terceraVentana = boolean
     }
     
     public func getTerceraVentana() -> Bool{
-        return Denuncia.shared.terceraVentana
+        return DataHolder.shared.terceraVentana
     }
-
+    
     //No mas instancias accidentales
     private init(){
         
@@ -67,175 +67,184 @@ final class Denuncia{
     
     
     public func setIdentidad(opcion: Int) {
-        Denuncia.shared.identidadChoice = opcion
+        DataHolder.shared.identidadChoice = opcion
     }
     
     public func getIdentidad() -> Int {
-        return Denuncia.shared.identidadChoice
+        return DataHolder.shared.identidadChoice
     }
     
     public func setNombres(name: String) {
-        Denuncia.shared.nombres = name
+        DataHolder.shared.nombres = name
     }
     
     public func getNombres() -> String {
-        return Denuncia.shared.nombres
+        return DataHolder.shared.nombres
     }
     
     public func setApellidos(lname: String) {
-        Denuncia.shared.apellidos = lname
+        DataHolder.shared.apellidos = lname
     }
     
     public func getApellidos() -> String {
-        return Denuncia.shared.apellidos
+        return DataHolder.shared.apellidos
     }
     
     public func setEdad(age: Int) {
-        Denuncia.shared.edad = age
+        DataHolder.shared.edad = age
     }
     
     public func getEdad() -> Int {
-        return Denuncia.shared.edad
+        return DataHolder.shared.edad
     }
     
     public func setCorreo(email: String) {
-        Denuncia.shared.correo = email
+        DataHolder.shared.correo = email
     }
     
     public func getCorreo() -> String {
-        return Denuncia.shared.correo
+        return DataHolder.shared.correo
     }
     
     public func setTelefono(phone: String) {
-        Denuncia.shared.telefono = phone
+        DataHolder.shared.telefono = phone
     }
     
     public func getTelefono() -> String {
-        return Denuncia.shared.telefono
+        return DataHolder.shared.telefono
     }
     
     public func setDireccion(address: String) {
-        Denuncia.shared.direccion = address
+        DataHolder.shared.direccion = address
     }
     
     public func getDireccion() -> String {
-        return Denuncia.shared.direccion
+        return DataHolder.shared.direccion
     }
     
     public func setOrgSocial(social: String){
-        Denuncia.shared.orgSocial = social
+        DataHolder.shared.orgSocial = social
     }
     
     public func getOrgSocial() -> String {
-        return Denuncia.shared.orgSocial
+        return DataHolder.shared.orgSocial
     }
     
     public func setOcupacion(opcion: Int) {
-        Denuncia.shared.ocupacionChoice = opcion
+        DataHolder.shared.ocupacionChoice = opcion
     }
     
     public func getOcupacion() -> Int {
-        return Denuncia.shared.ocupacionChoice
+        return DataHolder.shared.ocupacionChoice
     }
     
     public func setTipoIden(opcion: Int) {
-        Denuncia.shared.tipoIdenChoice = opcion
+        DataHolder.shared.tipoIdenChoice = opcion
     }
     
     public func getTipoIden() -> Int {
-        return Denuncia.shared.tipoIdenChoice
+        return DataHolder.shared.tipoIdenChoice
     }
     
     public func setIdentificacion(identification: String) {
-        Denuncia.shared.identificacion = identification
+        DataHolder.shared.identificacion = identification
     }
     
     public func getIdentificacion() -> String {
-        return Denuncia.shared.identificacion
+        return DataHolder.shared.identificacion
     }
     
     public func setGenero(opcion: Int) {
-        Denuncia.shared.generoChoice = opcion
+        DataHolder.shared.generoChoice = opcion
     }
     
     public func getGenero() -> Int {
-        return Denuncia.shared.generoChoice
+        return DataHolder.shared.generoChoice
     }
     
     public func setEstCivil(opcion: Int) {
-        Denuncia.shared.estCivilChoice = opcion
+        DataHolder.shared.estCivilChoice = opcion
     }
     
     public func getEstCivil() -> Int {
-        return Denuncia.shared.estCivilChoice
+        return DataHolder.shared.estCivilChoice
     }
     
     public func setNivEdu(opcion: Int) {
-        Denuncia.shared.nivEduChoice = opcion
+        DataHolder.shared.nivEduChoice = opcion
     }
     
     public func getNivEdu() -> Int {
-        return Denuncia.shared.nivEduChoice
+        return DataHolder.shared.nivEduChoice
     }
     
     public func setCargo(position: String) {
-        Denuncia.shared.cargo = position
+        DataHolder.shared.cargo = position
     }
     
     public func getCargo() -> String {
-        return Denuncia.shared.cargo
+        return DataHolder.shared.cargo
     }
     
     public func setNacion(opcion: Int) {
-        Denuncia.shared.nacionChoice = opcion
+        DataHolder.shared.nacionChoice = opcion
     }
     
     public func getNacion() -> Int {
-        return Denuncia.shared.nacionChoice
+        return DataHolder.shared.nacionChoice
     }
     
     public func setReside(opcion: Int) {
-        Denuncia.shared.resideChoice = opcion
+        DataHolder.shared.resideChoice = opcion
     }
     
     public func getReside() -> Int {
-        return Denuncia.shared.resideChoice
+        return DataHolder.shared.resideChoice
     }
     
     public func setProvincia(opcion: Int) {
-        Denuncia.shared.provChoice = opcion
+        DataHolder.shared.provChoice = opcion
     }
     
     public func getProvincia() -> Int {
-        return Denuncia.shared.provChoice
+        return DataHolder.shared.provChoice
     }
     
     public func setCiudad(opcion: Int) {
-        Denuncia.shared.ciuChoice = opcion
+        DataHolder.shared.ciuChoice = opcion
     }
     
     public func getCiudad() -> Int {
-        return Denuncia.shared.ciuChoice
+        return DataHolder.shared.ciuChoice
     }
     
     //Variables de la segunda ventana
     private var motivoDenuncia: String = ""
     private var compareceChoice: Int = 0
+    private var documentosChoice: Int = 0
     
     public func setMotivo(motive: String) {
-        Denuncia.shared.motivoDenuncia = motive
+        DataHolder.shared.motivoDenuncia = motive
     }
     
     public func getMotivo() -> String {
-        return Denuncia.shared.motivoDenuncia
+        return DataHolder.shared.motivoDenuncia
     }
     
     public func setComparece(opcion: Int) {
-        Denuncia.shared.compareceChoice = opcion
+        DataHolder.shared.compareceChoice = opcion
     }
     
     public func getComparece() -> Int {
-        return Denuncia.shared.compareceChoice
+        return DataHolder.shared.compareceChoice
+    }
+    
+    public func setDocumentos(opcion: Int) {
+        DataHolder.shared.documentosChoice = opcion
+    }
+    
+    public func getDocumentos() -> Int {
+        return DataHolder.shared.documentosChoice
     }
     
     //Variables de la tercera ventana
@@ -252,94 +261,97 @@ final class Denuncia{
     private var unidadDireccion: String = ""
     
     public func setNombresDenunciado(name: String) {
-        Denuncia.shared.nombresDenunciado = name
+        DataHolder.shared.nombresDenunciado = name
     }
     
     public func getNombresDenunciado() -> String {
-        return Denuncia.shared.nombresDenunciado
+        return DataHolder.shared.nombresDenunciado
     }
     
     public func setApellidosDenunciado(lname: String) {
-        Denuncia.shared.apellidosDenunciado = lname
+        DataHolder.shared.apellidosDenunciado = lname
     }
     
     public func getApellidosDenunciado() -> String {
-        return Denuncia.shared.apellidosDenunciado
+        return DataHolder.shared.apellidosDenunciado
     }
     
     public func setGeneroDenunciado(opcion: Int) {
-        Denuncia.shared.generoDenunciadoChoice = opcion
+        DataHolder.shared.generoDenunciadoChoice = opcion
     }
     
     public func getGeneroDenunciado() -> Int {
-        return Denuncia.shared.generoDenunciadoChoice
+        return DataHolder.shared.generoDenunciadoChoice
     }
     
     public func setInstitucionNombre(iname: String) {
-        Denuncia.shared.institucionNombre = iname
+        DataHolder.shared.institucionNombre = iname
     }
     
     public func getInstitucionNombre() -> String {
-        return Denuncia.shared.institucionNombre
+        return DataHolder.shared.institucionNombre
     }
     
     public func setInstitucion(opcion: Int) {
-        Denuncia.shared.institucionChoice = opcion
+        DataHolder.shared.institucionChoice = opcion
     }
     
     public func getInstitucion() -> Int {
-        return Denuncia.shared.institucionChoice
+        return DataHolder.shared.institucionChoice
     }
     
     public func setCargoDenunciado(string: String) {
-        Denuncia.shared.cargoDenunciado = string
+        DataHolder.shared.cargoDenunciado = string
     }
     
     public func getCargoDenunciado() -> String {
-        return Denuncia.shared.cargoDenunciado
+        return DataHolder.shared.cargoDenunciado
     }
     
     public func setOcupacionDenunciado(opcion: Int) {
-        Denuncia.shared.ocupacionDenunciadoChoice = opcion
+        DataHolder.shared.ocupacionDenunciadoChoice = opcion
     }
     
     public func getOcupacionDenunciado() -> Int {
-        return Denuncia.shared.ocupacionDenunciadoChoice
+        return DataHolder.shared.ocupacionDenunciadoChoice
     }
     
     public func setProvinciaDenunciado(opcion: Int) {
-        Denuncia.shared.provinciaDenunciadoChoice = opcion
+        DataHolder.shared.provinciaDenunciadoChoice = opcion
     }
     
     public func getProvinciaDenunciado() -> Int {
-        return Denuncia.shared.provinciaDenunciadoChoice
+        return DataHolder.shared.provinciaDenunciadoChoice
     }
     
     public func setCiudadDenunciado(opcion: Int) {
-        Denuncia.shared.ciudadDenunciadoChoice = opcion
+        DataHolder.shared.ciudadDenunciadoChoice = opcion
     }
     
     public func getCiudadDenunciado() -> Int {
-        return Denuncia.shared.ciudadDenunciadoChoice
+        return DataHolder.shared.ciudadDenunciadoChoice
     }
     
     public func setCantPerjudicados(opcion: Int) {
-        Denuncia.shared.cantidadPerjudicados = opcion
+        DataHolder.shared.cantidadPerjudicados = opcion
     }
     
     public func getCantPerjudicados() -> Int {
-        return Denuncia.shared.cantidadPerjudicados
+        return DataHolder.shared.cantidadPerjudicados
     }
     
     public func setUnidadDireccion(string: String) {
-        Denuncia.shared.unidadDireccion = string
+        DataHolder.shared.unidadDireccion = string
     }
     
     public func getUnidadDireccion() -> String {
-        return Denuncia.shared.unidadDireccion
+        return DataHolder.shared.unidadDireccion
     }
     
     public func resetData() {
+        setPrimeraVentana(boolean: false)
+        setSegundaVentana(boolean: false)
+        setTerceraVentana(boolean: false)
         setIdentidad(opcion: 0)
         setNombres(name: "")
         setApellidos(lname: "")
@@ -360,6 +372,7 @@ final class Denuncia{
         setCiudad(opcion: 0)
         setMotivo(motive: "")
         setComparece(opcion: 0)
+        setDocumentos(opcion: 0)
         setNombresDenunciado(name: "")
         setApellidosDenunciado(lname: "")
         setGeneroDenunciado(opcion: 0)

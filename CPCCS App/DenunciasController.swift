@@ -9,7 +9,7 @@
 import UIKit
 
 class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UIPopoverPresentationControllerDelegate {
-    var denuncia = Denuncia.shared
+    var denuncia = DataHolder.shared
     
     @IBOutlet weak var nombreTextField: UITextField!
     @IBOutlet weak var apellidosTextField: UITextField!
@@ -104,7 +104,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     //Que va en cada fila del Picker View
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        
+        //Caso en que la ventana ya haya sido completada antes
         if(denuncia.getPrimeraVentana()){
             if(pickerView == identidadSelector){
                 let titlerow = identidadOpciones[row]
@@ -123,7 +123,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 resideShow.text = resideOpciones[denuncia.getReside()]
                 return titlerow
             }
-        } else {
+        } else { //Caso contrario
             if(pickerView == identidadSelector){
                 denuncia.setIdentidad(opcion: row)
                 let titlerow = identidadOpciones[row]
@@ -207,12 +207,14 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         } else if (pickerView == provSelector){
             denuncia.setProvincia(opcion: provID[row])
             self.provShow.text = self.provOpciones[row]
-            self.getCiuidad(id: provID[row])
+            self.searchCiudad(id: provID[row])
             self.provSelector.isHidden = true
         } else if (pickerView == ciuSelector){
-            denuncia.setCiudad(opcion: ciuID[row])
-            self.ciuShow.text = self.ciuOpciones[row]
-            self.ciuSelector.isHidden = true
+            if(ciuOpciones.count != 0){
+                denuncia.setCiudad(opcion: ciuID[row])
+                self.ciuShow.text = self.ciuOpciones[row]
+                self.ciuSelector.isHidden = true
+            }
         }
     }
     
@@ -222,39 +224,49 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
     }
     
+    //Regex para email
     func checkEmail(candidate: String) -> Bool {
         let regex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: candidate)
     }
     
+    //Regex para texto
     func checkTextNumber(text: String) -> Bool {
         let regex = "[A-Za-zá-ú]+"
         return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: text)
     }
     
+    //Control de longitud de caracteres
     func checkLength(text: String) -> Bool {
         let regex = "[A-Za-zá-ú]{1,24}"
         return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: text)
     }
     
+    //Regex para entradas de texto numericas
     func checkOnlyNumbers(text: String) -> Bool {
         let regex = "[0-9]+"
         return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: text)
     }
+    
+    //Regex para identificacion (Cedula, RUC, pasaporte)
     func checkIdentificacionLength(text: String) -> Bool {
         let regex = "[0-9]{10,11}"
         return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: text)
     }
+    
+    //Regex para telefono
     func checkTelefonoLength(text: String) -> Bool {
         let regex = "[0-9]{7,12}"
         return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: text)
     }
     
+    //Regex para edad
     func checkEdadLength(text: String) -> Bool {
         let regex = "[0-9]{1,3}"
         return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: text)
     }
     
+    //Cambia el color del texto cuando encuentra error
     func changeTextFieldColor(value: Bool, textField: UITextField) {
         if (!value){
             textField.layer.borderColor = UIColor.red.cgColor
@@ -265,13 +277,14 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
     }
     
+    //Limitante de entrada de texto, manejo de errores en texto y caracteres permitidos
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let newString = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
         if textField == nombreTextField {
             let existOrNotNumber = checkTextNumber(text: newString)
+            changeTextFieldColor(value: existOrNotNumber, textField: nombreTextField)
             let newLength = (nombreTextField.text?.characters.count)! + string.characters.count - range.length
             return newLength <= 25
-            changeTextFieldColor(value: existOrNotNumber, textField: nombreTextField)
         } else if textField == apellidosTextField {
             let existOrNotNumber = checkTextNumber(text: newString)
             changeTextFieldColor(value: existOrNotNumber, textField: apellidosTextField)
@@ -399,7 +412,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             cargoTextField.text = denuncia.getCargo()
         }
         
-        //Leyendo estados civiles
+        //Obteniendo Estados Civiles del web service
         DispatchQueue.global(qos: .userInitiated).async { () -> Void in
             let urlEstCivil = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/estados-civiles/")
             let task = URLSession.shared.dataTask(with: urlEstCivil!) { (data, response, error) in
@@ -440,7 +453,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             task.resume()
         }
         
-        //Leyendo provincias
+        //Obteniendo Provincias del web service
         DispatchQueue.global(qos: .userInitiated).async { () -> Void in
             let urlProvincias = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/provincias/?limit=30")
             let task = URLSession.shared.dataTask(with: urlProvincias!) { (data, response, error) in
@@ -465,7 +478,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                                     self.provSelector.isHidden = true
                                     self.provSelector.reloadAllComponents()
                                     if(self.denuncia.getPrimeraVentana()){
-                                        self.provShow.text = self.provOpciones[self.denuncia.getProvincia()]
+                                        self.provShow.text = self.provOpciones[self.provID.index(of: self.denuncia.getProvincia())!]
                                     } else {
                                         self.provShow.text = self.provOpciones[0]
                                         self.denuncia.setProvincia(opcion: self.provID[0])
@@ -478,15 +491,15 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                     }
                 }
                 if(self.denuncia.getPrimeraVentana()){
-                    self.getCiuidad(id: self.provID[self.denuncia.getProvincia()])
+                    self.searchCiudad(id: self.denuncia.getProvincia())
                 } else {
-                    self.getCiuidad(id: self.provID[0])
+                    self.searchCiudad(id: self.provID[0])
                 }
             }
             task.resume()
         }
         
-        //get Niveles de educacion
+        //Obteniendo Niveles de Educacion del web service
         DispatchQueue.global(qos: .userInitiated).async { () -> Void in
             let urlNivEdu = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/niveles-educacion/")
             let task = URLSession.shared.dataTask(with: urlNivEdu!) { (data, response, error) in
@@ -511,7 +524,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                                     self.nivEduSelector.isHidden = true
                                     self.nivEduSelector.reloadAllComponents()
                                     if(self.denuncia.getPrimeraVentana()){
-                                        self.nivEduShow.text = self.nivEduOpciones[self.denuncia.getNivEdu()]
+                                        self.nivEduShow.text = self.nivEduOpciones[self.nivEduID.index(of: self.denuncia.getNivEdu())!]
                                     } else {
                                         self.nivEduShow.text = self.nivEduOpciones[0]
                                         self.denuncia.setNivEdu(opcion: self.nivEduID[0])
@@ -527,7 +540,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             task.resume()
         }
         
-        //get nacionalidades
+        //Obteniendo Nacionalidades del web service
         DispatchQueue.global(qos: .userInitiated).async { () -> Void in
             let urlNac = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/nacionalidades/")
             let task = URLSession.shared.dataTask(with: urlNac!) { (data, response, error) in
@@ -552,7 +565,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                                     self.nacionSelector.isHidden = true
                                     self.nacionSelector.reloadAllComponents()
                                     if(self.denuncia.getPrimeraVentana()){
-                                        self.nacionShow.text = self.nacionOpciones[self.denuncia.getNacion()]
+                                        self.nacionShow.text = self.nacionOpciones[self.nacionID.index(of: self.denuncia.getNacion())!]
                                     } else {
                                         self.nacionShow.text = self.nacionOpciones[0]
                                         self.denuncia.setNacion(opcion: self.nacionID[0])
@@ -568,8 +581,8 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             task.resume()
         }
         
+        //Obteniendo Ocupacion del web service
         DispatchQueue.global(qos: .userInitiated).async { () -> Void in
-            //Leyendo ocupacion
             let urlOcupaciones = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/ocupaciones")
             let task = URLSession.shared.dataTask(with: urlOcupaciones!) { (data, response, error) in
                 self.empleadoOpciones.remove(at: 0)
@@ -593,7 +606,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                                     self.empleadoSelector.isHidden = true
                                     self.empleadoSelector.reloadAllComponents()
                                     if(self.denuncia.getPrimeraVentana()){
-                                        self.empleadoShow.text = self.empleadoOpciones[self.denuncia.getOcupacion()]
+                                        self.empleadoShow.text = self.empleadoOpciones[self.empleadoID.index(of: self.denuncia.getOcupacion())!]
                                     } else {
                                         self.empleadoShow.text = self.empleadoOpciones[0]
                                         self.denuncia.setOcupacion(opcion: self.empleadoID[0])
@@ -608,9 +621,8 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             }
             task.resume()
         }
-
         
-        // TextFields delegates assignment
+        //Asignacion de delegado para textfield, para personalizar sus eventos
         nombreTextField.delegate = self
         apellidosTextField.delegate = self
         edadTextField.delegate = self
@@ -621,6 +633,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         identificacionTextField.delegate = self
         cargoTextField.delegate = self
         
+        //Ocultar
         attachTapHandler(label: idenShow)
         attachTapHandler(label: empleadoShow)
         attachTapHandler(label: tipoIdentShow)
@@ -632,51 +645,22 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         attachTapHandler(label: nacionShow)
         attachTapHandler(label: provShow)
         attachTapHandler(label: ciuShow)
-        //generoSelector.delegate = self
     }
     
+    //Pregunta por los campos completados en la ventana actual, en caso de ser asi, pasa a la siguiente ventana; en caso contrario muestra mensaje apropiado. Esto se hace empleando la funcion "nextView"
     @IBAction func nextWindow(_ sender: UIButton) {
-        let reclamo = Reclamo(nombApelDenunciante: "Leonardo", tipoIdentificacion: 	"Cédula", numIdentificacion: "091231232123", direccion: "direccion", email: "leo@gmail.com", nombApelDenunciado: "Carlos", telefono: "23232322323", cargo: "ayudante", comparecer: true, documentores: true, identidadReservada: true, resideExtranjero: true, ciudadDelDenunciante: 115, ciudadDelDenunciado: 115, institucionImplicadaReclamo: 1, provinciaDenunciante: 1, provinciaDenunciado: 1)
-        CPCCSClient.sharedInstance().postToReclamo(reclamo) /*{ (statusCode, error) in
-             if let error = error {
-             print(error)
-             } else {
-             if statusCode == 1 || statusCode == 12 || statusCode == 13 {
-             print("Done")
-             } else {
-             print("Unexpected status code \(statusCode)")
-             // Si existe el id
-             }
-             }*/
-            // Si la respuesta le retorna un id, significa que se inserto correctamente
-        { (id, error) in
-            if let error = error {
-                print(error)
-            } else {
-                print("Reclamo insertado correctamente")
-                print("Reclamo id: \(id)")
-                // Colocar por aqui un self.present(ViewController, animated:true, nil)
-                // o algun AlertView y retornar al menu principal
-            }
-        }
-        
-        
         nextView()
         if (denuncia.getPrimeraVentana()){
             self.performSegue(withIdentifier: "d1d2", sender: self)
         } else {
-            // create the alert
             let alert = UIAlertController(title: "Denuncia", message: "Por favor llene todos los campos", preferredStyle: UIAlertControllerStyle.alert)
-            
-            // add the actions (buttons)
             alert.addAction(UIAlertAction(title: "Continuar", style: UIAlertActionStyle.default, handler: nil))
-            
-            // show the alert
             self.present(alert, animated: true, completion: nil)
         }
     }
     
-    func getCiuidad(id: Int){
+    //Obteniendo Ciudad del web service
+    func searchCiudad(id: Int){
         let urlCiudad = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/ciudades/?provincia=" + String(id))
         let task1 = URLSession.shared.dataTask(with: urlCiudad!) { (data, response, error) in
             self.ciuOpciones.removeAll()
@@ -700,10 +684,22 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                                 self.ciuSelector.isHidden = true
                                 self.ciuSelector.reloadAllComponents()
                                 if(self.denuncia.getPrimeraVentana()){
-                                    self.ciuShow.text = self.ciuOpciones[self.denuncia.getCiudad()]
+                                    if(self.ciuID.index(of: self.denuncia.getCiudad()) != nil){
+                                        self.ciuShow.text = self.ciuOpciones[self.ciuID.index(of: self.denuncia.getCiudad())!]
+                                    } else {
+                                        self.denuncia.setCiudad(opcion: self.ciuID[0])
+                                        self.ciuShow.text = self.ciuOpciones[0]
+                                    }
+                                    if(self.ciuOpciones.count == 0){
+                                        self.ciuShow.text = ""
+                                    }
                                 } else {
-                                    self.ciuShow.text = self.ciuOpciones[0]
-                                    self.denuncia.setCiudad(opcion: self.ciuID[0])
+                                    if(self.ciuOpciones.count == 0){
+                                        self.ciuShow.text = ""
+                                    } else {
+                                        self.ciuShow.text = self.ciuOpciones[0]
+                                        self.denuncia.setCiudad(opcion: self.ciuID[0])
+                                    }
                                 }
                             }
                         }
@@ -718,17 +714,13 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     
     //Regreso a Main
     @IBAction func backToMain(_ sender: UIButton) {
-        // create the alert
-        let alert = UIAlertController(title: "Peticionario", message: "¡Si retrocede se perderán los datos ingresados! ¿Desea regresar?", preferredStyle: UIAlertControllerStyle.alert)
-        
-        // add the actions (buttons)
+        let alert = UIAlertController(title: "Denuncias", message: "¡Si retrocede se perderán los datos ingresados! ¿Desea regresar?", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Sí", style: UIAlertActionStyle.default, handler: { action in
+            //Se debe realizar reset a los datos
             self.denuncia.resetData()
             self.performSegue(withIdentifier: "d1m", sender: self)
             }))
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
-        
-        // show the alert
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -739,6 +731,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         label.addGestureRecognizer(tap)
     }
     
+    //Manejador del tap
     func tapFunction(sender:UITapGestureRecognizer) {
         if(sender.view == idenShow){
             self.identidadSelector.isHidden = false
@@ -764,6 +757,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         hideAllKeyboards()
     }
     
+    //Oculta cualquier teclado que se muestre
     func hideAllKeyboards(){
         nombreTextField.resignFirstResponder()
         apellidosTextField.resignFirstResponder()
@@ -776,6 +770,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         cargoTextField.resignFirstResponder()
     }
     
+    //Pregunta condiciones para poder avanzar a la siguiente ventana
     func nextView(){
         if(nombreTextField.text != "" && apellidosTextField.text != "" &&
             edadTextField.text != "" && emailTextField.text != "" &&

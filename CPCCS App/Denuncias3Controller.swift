@@ -9,7 +9,7 @@
 import UIKit
 
 class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
-    var denuncia = Denuncia.shared
+    var denuncia = DataHolder.shared
     
     @IBOutlet weak var nombreTextField: UITextField!
     @IBOutlet weak var apellidosTextField: UITextField!
@@ -104,12 +104,14 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
         } else if (pickerView == provSelector){
             denuncia.setProvinciaDenunciado(opcion: provID[row])
             self.provShow.text = self.provOpciones[row]
-            self.getCiuidad(id: provID[row])
+            self.searchCiudad(id: provID[row])
             self.provSelector.isHidden = true
-        } else if (pickerView == ciuSelector){
-            denuncia.setCiudadDenunciado(opcion: ciuID[row])
-            self.ciuShow.text = self.ciuOpciones[row]
-            self.ciuSelector.isHidden = true
+        }  else if (pickerView == ciuSelector){
+            if(ciuOpciones.count != 0){
+                denuncia.setCiudadDenunciado(opcion: ciuID[row])
+                self.ciuShow.text = self.ciuOpciones[row]
+                self.ciuSelector.isHidden = true
+            }
         }
     }
     
@@ -263,7 +265,7 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
                                     self.ocupacionSelector.isHidden = true
                                     self.ocupacionSelector.reloadAllComponents()
                                     if(self.denuncia.getTerceraVentana()){
-                                        self.ocupacionShow.text = self.ocupacionOpciones[self.denuncia.getOcupacionDenunciado()]
+                                        self.ocupacionShow.text = self.ocupacionOpciones[self.ocupacionID.index(of: self.denuncia.getOcupacionDenunciado())!]
                                     } else {
                                         self.ocupacionShow.text = self.ocupacionOpciones[0]
                                         self.denuncia.setOcupacionDenunciado(opcion: self.ocupacionID[0])
@@ -304,7 +306,7 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
                                     self.provSelector.isHidden = true
                                     self.provSelector.reloadAllComponents()
                                     if(self.denuncia.getTerceraVentana()){
-                                        self.provShow.text = self.provOpciones[self.denuncia.getProvinciaDenunciado()]
+                                        self.provShow.text = self.provOpciones[self.provID.index(of: self.denuncia.getProvinciaDenunciado())!]
                                     } else {
                                         self.provShow.text = self.provOpciones[0]
                                         self.denuncia.setProvinciaDenunciado(opcion: self.provID[0])
@@ -317,9 +319,9 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
                     }
                 }
                 if(self.denuncia.getTerceraVentana()){
-                    self.getCiuidad(id: self.provID[self.denuncia.getProvinciaDenunciado()])
+                    self.searchCiudad(id: self.denuncia.getProvinciaDenunciado())
                 } else {
-                    self.getCiuidad(id: self.provID[0])
+                    self.searchCiudad(id: self.provID[0])
                 }
             }
             task1.resume()
@@ -339,7 +341,7 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
         attachTapHandler(label: ciuShow)
     }
     
-    func getCiuidad(id: Int){
+    func searchCiudad(id: Int){
         let urlCiudad = URL(string: "http://custom-env.6v3gjmadmw.sa-east-1.elasticbeanstalk.com/ciudades/?provincia=" + String(id))
         let task1 = URLSession.shared.dataTask(with: urlCiudad!) { (data, response, error) in
             self.ciuOpciones.removeAll()
@@ -363,10 +365,22 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
                                 self.ciuSelector.isHidden = true
                                 self.ciuSelector.reloadAllComponents()
                                 if(self.denuncia.getTerceraVentana()){
-                                    self.ciuShow.text = self.ciuOpciones[self.denuncia.getCiudadDenunciado()]
+                                    if(self.ciuID.index(of: self.denuncia.getCiudadDenunciado()) != nil){
+                                        self.ciuShow.text = self.ciuOpciones[self.ciuID.index(of: self.denuncia.getCiudadDenunciado())!]
+                                    } else {
+                                        self.denuncia.setCiudadDenunciado(opcion: self.ciuID[0])
+                                        self.ciuShow.text = self.ciuOpciones[0]
+                                    }
+                                    if(self.ciuOpciones.count == 0){
+                                        self.ciuShow.text = ""
+                                    }
                                 } else {
-                                    self.ciuShow.text = self.ciuOpciones[0]
-                                    self.denuncia.setCiudadDenunciado(opcion: self.ciuID[0])
+                                    if(self.ciuOpciones.count == 0){
+                                        self.ciuShow.text = ""
+                                    } else {
+                                        self.ciuShow.text = self.ciuOpciones[0]
+                                        self.denuncia.setCiudadDenunciado(opcion: self.ciuID[0])
+                                    }
                                 }
                             }
                         }
@@ -381,12 +395,12 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
     
     @IBAction func backToMain(_ sender: UIButton) {
         // create the alert
-        let alert = UIAlertController(title: "Peticionario", message: "¡Si retrocede se perderán los datos ingresados! ¿Desea regresar?", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Denuncias", message: "¡Si retrocede se perderán los datos ingresados! ¿Desea regresar?", preferredStyle: UIAlertControllerStyle.alert)
         
         // add the actions (buttons)
         alert.addAction(UIAlertAction(title: "Sí", style: UIAlertActionStyle.default, handler: { action in
             self.denuncia.resetData()
-            self.performSegue(withIdentifier: "d1m", sender: self)
+            self.performSegue(withIdentifier: "d3m", sender: self)
         }))
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
         
@@ -394,11 +408,10 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
         self.present(alert, animated: true, completion: nil)
     }
     
-    
     @IBAction func nextWindow(_ sender: UIButton) {
         nextView()
-        if (denuncia.getSegundaVentana()){
-            self.performSegue(withIdentifier: "d3m", sender: self)
+        if (denuncia.getTerceraVentana()){
+            self.performSegue(withIdentifier: "d3d4", sender: self)
         } else {
             // create the alert
             let alert = UIAlertController(title: "Denuncia", message: "Por favor llene todos los campos", preferredStyle: UIAlertControllerStyle.alert)

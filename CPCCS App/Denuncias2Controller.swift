@@ -9,7 +9,7 @@
 import UIKit
 
 class Denuncias2Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate {
-    var denuncia = Denuncia.shared
+    var denuncia = DataHolder.shared
     
     @IBOutlet weak var denunciaText: UITextView!
     @IBOutlet weak var compareceShow: UILabel!
@@ -39,6 +39,7 @@ class Denuncias2Controller: UIViewController, UIPickerViewDelegate, UIPickerView
             }
         } else {
             if(pickerView == compareceSelector){
+                denuncia.setComparece(opcion: row)
                 let titlerow = compareceOpciones[row]
                 return titlerow
             }
@@ -83,7 +84,7 @@ class Denuncias2Controller: UIViewController, UIPickerViewDelegate, UIPickerView
     
     @IBAction func backToMain(_ sender: UIButton) {
         // create the alert
-        let alert = UIAlertController(title: "Peticionario", message: "¡Si retrocede se perderán los datos ingresados! ¿Desea regresar?", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Denuncias", message: "¡Si retrocede se perderán los datos ingresados! ¿Desea regresar?", preferredStyle: UIAlertControllerStyle.alert)
         
         // add the actions (buttons)
         alert.addAction(UIAlertAction(title: "Sí", style: UIAlertActionStyle.default, handler: { action in

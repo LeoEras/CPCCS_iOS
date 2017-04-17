@@ -79,7 +79,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="footer.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Pdj-9X-Bdb">
-                                <rect key="frame" x="0.0" y="690" width="410" height="46"/>
+                                <rect key="frame" x="0.0" y="690" width="415" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pedidos.png" translatesAutoresizingMaskIntoConstraints="NO" id="s4h-rz-4Na">
@@ -181,7 +181,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RzF-67-vsZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-470.39999999999998" y="1561.6191904047978"/>
+            <point key="canvasLocation" x="-1082" y="1376"/>
         </scene>
         <!--Denuncias Controller-->
         <scene sceneID="tvf-rh-HqP">
@@ -645,7 +645,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7FR-pl-nPc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="232.80000000000001" y="1934.9325337331336"/>
+            <point key="canvasLocation" x="-215" y="1463"/>
         </scene>
         <!--Denuncias4 Controller-->
         <scene sceneID="dQh-kn-v3I">
@@ -899,7 +899,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8m6-fh-oR0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2616.8000000000002" y="1853.9730134932536"/>
+            <point key="canvasLocation" x="3038" y="1319"/>
         </scene>
         <!--Denuncias2 Controller-->
         <scene sceneID="aEV-FN-WuW">
@@ -910,7 +910,7 @@
                         <viewControllerLayoutGuide type="bottom" id="09s-b3-dT9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yeN-9g-J8f">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zGS-Ld-8RS">
@@ -1052,7 +1052,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FdM-Fq-x0C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1062" y="1795"/>
+            <point key="canvasLocation" x="862" y="1268"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Scx-wh-g3d">
@@ -1122,7 +1122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pqG-Gp-qv2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3871" y="1015"/>
+            <point key="canvasLocation" x="3268" y="-606"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="B2R-df-bv7">
@@ -1187,7 +1187,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vsj-c4-uGh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4204" y="22.488755622188908"/>
+            <point key="canvasLocation" x="4042" y="-607"/>
         </scene>
         <!--Denuncias3 Controller-->
         <scene sceneID="Ffd-Kx-GCJ">
@@ -1198,7 +1198,7 @@
                         <viewControllerLayoutGuide type="bottom" id="j57-gG-HAx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DFW-kR-tap">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="780"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CYf-sc-uTk">
@@ -1471,7 +1471,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tb3-Gi-Kj4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1833" y="1795"/>
+            <point key="canvasLocation" x="1929" y="1268"/>
         </scene>
         <!--Controller-->
         <scene sceneID="PDT-wl-95R">
@@ -1847,7 +1847,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gqf-CQ-ojv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4935.1999999999998" y="21.589205397301352"/>
+            <point key="canvasLocation" x="3655" y="344"/>
         </scene>
         <!--Pedidos Controller-->
         <scene sceneID="p96-8D-KhD">
@@ -1877,7 +1877,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="back_button.png"/>
                                         <connections>
-                                            <segue destination="pdE-db-C3B" kind="show" id="zda-u1-v7d"/>
+                                            <action selector="backToMain:" destination="P5y-q1-g0v" eventType="touchUpInside" id="J2C-QE-9MM"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PETICIONARIO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4S-sl-W2Y">
@@ -1919,7 +1919,7 @@
                                 <rect key="frame" x="0.0" y="98" width="375" height="1002"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9K4-Eh-ugp">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="860"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1002"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombres" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="veb-vB-gIn">
                                                 <rect key="frame" x="20" y="93" width="380" height="30"/>
@@ -2132,11 +2132,25 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4dz-Hn-ufL">
+                                                <rect key="frame" x="300" y="831" width="95" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.22731528540000001" green="0.2473167983" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title="SIGUENTE">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="nextWindow:" destination="P5y-q1-g0v" eventType="touchUpInside" id="AH4-bA-0gS"/>
+                                                    <action selector="nextWindow:" destination="BbN-v2-ycD" eventType="touchUpInside" id="xOQ-oq-Cr2"/>
+                                                    <action selector="sendAction:" destination="mKU-Mr-ABI" eventType="touchUpInside" id="Ggo-PZ-nF1"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="7vQ-hB-Na0" firstAttribute="top" secondItem="9K4-Eh-ugp" secondAttribute="top" constant="53" id="OET-w9-1zd"/>
-                                            <constraint firstAttribute="height" constant="860" id="jlK-5i-vTa"/>
+                                            <constraint firstAttribute="height" constant="1002" id="jlK-5i-vTa"/>
                                             <constraint firstItem="7vQ-hB-Na0" firstAttribute="leading" secondItem="9K4-Eh-ugp" secondAttribute="leading" constant="20" id="msj-RF-7zl"/>
                                         </constraints>
                                     </view>
@@ -2149,7 +2163,7 @@
                                 </constraints>
                             </scrollView>
                             <imageView userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="estilocolores.png" translatesAutoresizingMaskIntoConstraints="NO" id="4G9-7f-Vjp">
-                                <rect key="frame" x="0.0" y="570" width="420" height="137"/>
+                                <rect key="frame" x="0.0" y="590" width="420" height="137"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6yP-te-LSS">
@@ -2284,11 +2298,13 @@
                         <outlet property="telefonoTextField" destination="wrk-tG-ROy" id="OGJ-Zp-ChV"/>
                         <outlet property="tipoIdentSelector" destination="rz4-uE-vjJ" id="Tdd-uh-QCX"/>
                         <outlet property="tipoIdentShow" destination="pnc-ec-E8v" id="JvY-zf-K2I"/>
+                        <segue destination="pdE-db-C3B" kind="show" identifier="p1m" id="7zo-oZ-xmE"/>
+                        <segue destination="cDr-2g-Sop" kind="show" identifier="p1p2" id="iSP-Aa-AB3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i2Q-3i-Cax" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="233" y="-2009"/>
+            <point key="canvasLocation" x="-215" y="-1321"/>
         </scene>
         <!--Pedidos4 Controller-->
         <scene sceneID="jFL-Qp-PeS">
@@ -2318,7 +2334,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="back_button.png"/>
                                         <connections>
-                                            <segue destination="pdE-db-C3B" kind="show" id="Fo9-57-g14"/>
+                                            <action selector="backToMain:" destination="67W-MD-8A0" eventType="touchUpInside" id="gtr-qY-h0S"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PETICIONARIO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="77e-xG-KD4">
@@ -2363,7 +2379,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="680"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="estilocolores.png" translatesAutoresizingMaskIntoConstraints="NO" id="EbD-Sa-IQe">
-                                                <rect key="frame" x="0.0" y="470" width="420" height="137"/>
+                                                <rect key="frame" x="0.0" y="490" width="420" height="137"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Información Resumida" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3f3-yG-aDa">
                                                 <rect key="frame" x="120" y="52" width="180" height="21"/>
@@ -2481,6 +2497,23 @@
                                                 <state key="normal" title="ENVIAR">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="sendAction:" destination="67W-MD-8A0" eventType="touchUpInside" id="Z5M-Ni-jPN"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdA-fj-UXT">
+                                                <rect key="frame" x="20" y="600" width="95" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.22731528540000001" green="0.2473167983" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                <state key="normal" title="ANTERIOR">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="nextWindow:" destination="BbN-v2-ycD" eventType="touchUpInside" id="gXQ-xU-3cN"/>
+                                                    <action selector="sendAction:" destination="mKU-Mr-ABI" eventType="touchUpInside" id="xlT-c6-O0u"/>
+                                                    <segue destination="TA8-Wl-7SF" kind="show" id="mt2-YI-ToS"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -2511,10 +2544,21 @@
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="780"/>
+                    <connections>
+                        <outlet property="apellidoEntidad" destination="1S2-Rh-dPM" id="H4S-Jq-711"/>
+                        <outlet property="apellidos" destination="TQj-6a-Pwb" id="TUj-G6-807"/>
+                        <outlet property="correo" destination="UPF-OT-2Br" id="a9j-PE-EG1"/>
+                        <outlet property="descPedido" destination="OQt-z3-t3v" id="dzs-ap-Nil"/>
+                        <outlet property="identificacion" destination="fvu-Xn-eam" id="MZB-24-dTz"/>
+                        <outlet property="nombre" destination="9r5-Lc-a4N" id="PVq-v6-ZKI"/>
+                        <outlet property="nombreEntidad" destination="0RD-6I-SC1" id="GWw-hL-LL5"/>
+                        <segue destination="pdE-db-C3B" kind="show" identifier="postPedido" id="uZr-wO-tza"/>
+                        <segue destination="pdE-db-C3B" kind="show" identifier="p4m" id="fjj-IM-Pno"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jm3-9h-eaI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2617" y="-2073"/>
+            <point key="canvasLocation" x="3038" y="-1464"/>
         </scene>
         <!--Pedidos2 Controller-->
         <scene sceneID="1Yz-qq-uD8">
@@ -2525,7 +2569,7 @@
                         <viewControllerLayoutGuide type="bottom" id="eQ4-y8-E9j"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="q9W-zo-Omr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="780"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="obi-zO-jsp">
@@ -2544,7 +2588,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="back_button.png"/>
                                         <connections>
-                                            <segue destination="pdE-db-C3B" kind="show" id="RLs-V3-L7f"/>
+                                            <action selector="backToMain:" destination="cDr-2g-Sop" eventType="touchUpInside" id="VC2-Qa-2bL"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PETICIONARIO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emR-ij-t7x">
@@ -2583,9 +2627,38 @@
                                 <color key="backgroundColor" red="0.35695909009999999" green="0.22856674330000001" blue="0.71148397019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <imageView userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="estilocolores.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZHM-PX-SA7">
-                                <rect key="frame" x="0.0" y="570" width="420" height="137"/>
+                                <rect key="frame" x="0.0" y="590" width="420" height="137"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CU6-fd-qVV">
+                                <rect key="frame" x="300" y="675" width="95" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.22731528540000001" green="0.2473167983" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="SIGUENTE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextWindow:" destination="BbN-v2-ycD" eventType="touchUpInside" id="RSf-0a-Bfc"/>
+                                    <action selector="nextWindow:" destination="cDr-2g-Sop" eventType="touchUpInside" id="dMP-JS-ciS"/>
+                                    <action selector="nextWindow:" destination="EMC-ge-hc1" eventType="touchUpInside" id="ynq-dd-XQs"/>
+                                    <action selector="sendAction:" destination="mKU-Mr-ABI" eventType="touchUpInside" id="NQe-Kk-yl5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="am1-ZP-02p">
+                                <rect key="frame" x="20" y="675" width="95" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.22731528540000001" green="0.2473167983" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="ANTERIOR">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextWindow:" destination="BbN-v2-ycD" eventType="touchUpInside" id="gVH-ri-AKr"/>
+                                    <action selector="sendAction:" destination="mKU-Mr-ABI" eventType="touchUpInside" id="7kQ-Vo-RT5"/>
+                                    <segue destination="P5y-q1-g0v" kind="show" id="ckV-QF-fHx"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Describa su pedido" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="St2-vh-Gif">
                                 <rect key="frame" x="20" y="153" width="180" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2656,11 +2729,15 @@
                         <outlet property="compareceSelector" destination="hSz-3d-TL9" id="Ks3-S9-sx1"/>
                         <outlet property="compareceShow" destination="sog-Pg-Drw" id="Id8-nm-csd"/>
                         <outlet property="denunciaText" destination="RWo-mm-4uB" id="H8a-hc-hnr"/>
+                        <outlet property="documentosSelector" destination="E1U-KE-GGA" id="yur-wz-WeE"/>
+                        <outlet property="documentosShow" destination="NPe-6L-agE" id="0b8-aQ-Yvy"/>
+                        <segue destination="TA8-Wl-7SF" kind="show" identifier="p2p3" id="8PY-xW-e9k"/>
+                        <segue destination="pdE-db-C3B" kind="show" identifier="p2m" id="DKv-o4-lVq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sjS-tZ-lSj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1061.5999999999999" y="-2123.3883058470765"/>
+            <point key="canvasLocation" x="862" y="-1464"/>
         </scene>
         <!--Pedidos3 Controller-->
         <scene sceneID="jqv-PA-vVj">
@@ -2671,7 +2748,7 @@
                         <viewControllerLayoutGuide type="bottom" id="vie-Au-euC"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mvU-SW-Nom">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="780"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SPO-nu-Cbq">
@@ -2690,7 +2767,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="back_button.png"/>
                                         <connections>
-                                            <segue destination="pdE-db-C3B" kind="show" id="8hJ-iI-PaJ"/>
+                                            <action selector="backToMain:" destination="TA8-Wl-7SF" eventType="touchUpInside" id="Mjt-ab-KV7"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PETICIONARIO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CiY-YL-qkl">
@@ -2817,8 +2894,37 @@
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aua-pm-oBt">
+                                <rect key="frame" x="300" y="675" width="95" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.22731528540000001" green="0.2473167983" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="SIGUENTE">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextWindow:" destination="BbN-v2-ycD" eventType="touchUpInside" id="KUk-84-Rm7"/>
+                                    <action selector="nextWindow:" destination="EMC-ge-hc1" eventType="touchUpInside" id="SuG-LR-P6G"/>
+                                    <action selector="nextWindow:" destination="TA8-Wl-7SF" eventType="touchUpInside" id="mwy-lf-FPu"/>
+                                    <action selector="sendAction:" destination="mKU-Mr-ABI" eventType="touchUpInside" id="XU7-9I-vPs"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Le1-Gx-Iq9">
+                                <rect key="frame" x="20" y="675" width="95" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.22731528540000001" green="0.2473167983" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="ANTERIOR">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nextWindow:" destination="BbN-v2-ycD" eventType="touchUpInside" id="y9b-hl-Cz2"/>
+                                    <action selector="sendAction:" destination="mKU-Mr-ABI" eventType="touchUpInside" id="tIW-f4-JeY"/>
+                                    <segue destination="cDr-2g-Sop" kind="show" id="U4v-J6-L84"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="estilocolores.png" translatesAutoresizingMaskIntoConstraints="NO" id="lQ8-1t-Pc3">
-                                <rect key="frame" x="0.0" y="570" width="420" height="137"/>
+                                <rect key="frame" x="0.0" y="590" width="420" height="137"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fr2-IX-f7W">
@@ -2862,11 +2968,13 @@
                         <outlet property="nombreTextField" destination="psz-b5-umJ" id="ash-YM-PZz"/>
                         <outlet property="provSelector" destination="BlD-ic-KXD" id="YKf-CD-BwI"/>
                         <outlet property="provShow" destination="mrF-f4-a55" id="COW-tT-UiL"/>
+                        <segue destination="67W-MD-8A0" kind="show" identifier="p3p4" id="4MO-Lo-t63"/>
+                        <segue destination="pdE-db-C3B" kind="show" identifier="p3m" id="NJO-8I-DLF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EYc-Rs-VFk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1833" y="-2123"/>
+            <point key="canvasLocation" x="1929" y="-1464"/>
         </scene>
         <!--Institucion Picker View Controller-->
         <scene sceneID="L4M-YS-4r8">
@@ -2940,7 +3048,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jj5-1j-i3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Wmh-oq-i6F" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1223.2" y="-24.7376311844078"/>
+            <point key="canvasLocation" x="-215" y="37"/>
         </scene>
         <!--Institucion Pedidos 3 Controller-->
         <scene sceneID="NYI-Cq-ANC">
@@ -3014,7 +3122,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQg-E0-lgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="N30-H2-JK0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1223.2" y="-24.7376311844078"/>
+            <point key="canvasLocation" x="-215" y="37"/>
         </scene>
     </scenes>
     <resources>
@@ -3033,9 +3141,12 @@
         <image name="preguntasfrecuentes.png" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5Uc-fi-rL6"/>
-        <segue reference="ujB-1n-5br"/>
+        <segue reference="ckV-QF-fHx"/>
+        <segue reference="U4v-J6-L84"/>
+        <segue reference="mt2-YI-ToS"/>
+        <segue reference="NJO-8I-DLF"/>
         <segue reference="gsT-ss-tS7"/>
         <segue reference="cEv-Jf-Ur9"/>
+        <segue reference="hkv-J7-uFw"/>
     </inferredMetricsTieBreakers>
 </document>
