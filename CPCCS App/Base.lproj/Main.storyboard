@@ -79,7 +79,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="footer.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Pdj-9X-Bdb">
-                                <rect key="frame" x="0.0" y="690" width="420" height="46"/>
+                                <rect key="frame" x="0.0" y="690" width="410" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pedidos.png" translatesAutoresizingMaskIntoConstraints="NO" id="s4h-rz-4Na">
@@ -910,7 +910,7 @@
                         <viewControllerLayoutGuide type="bottom" id="09s-b3-dT9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yeN-9g-J8f">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zGS-Ld-8RS">
@@ -1067,11 +1067,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h0D-XV-nkD">
-                                <rect key="frame" x="0.0" y="315" width="375" height="204"/>
+                                <rect key="frame" x="0.0" y="315" width="420" height="204"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vW-VZ-dHX">
-                                        <rect key="frame" x="8" y="-8" width="359" height="203"/>
+                                        <rect key="frame" x="10" y="-8" width="395" height="203"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <string key="text">El Consejo de Participación Ciudadana y Control Social es un organismo reconocido por la ciudadanía por la promoción efectiva de los derechos de participación ciudadana, que impulsa mecanismos de control social, contrubuye a la transparencia y lucha contra la corrupción; bajo los enfoques de territorialidad, desconcentración, plurinacionalidad, interculturalidad, género y generacional.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1094,7 +1094,7 @@
                                 </subviews>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="VISIÓN.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="1Lo-xb-jBE">
-                                <rect key="frame" x="67" y="63" width="240" height="168"/>
+                                <rect key="frame" x="90" y="63" width="240" height="168"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cabecera.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="X4Q-IX-aIJ">
@@ -1137,15 +1137,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MISIÓN.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="9DI-AV-OcV">
-                                <rect key="frame" x="82" y="65" width="240" height="168"/>
+                                <rect key="frame" x="90" y="64" width="240" height="168"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nq7-3s-wYD">
-                                <rect key="frame" x="0.0" y="315" width="375" height="204"/>
+                                <rect key="frame" x="0.0" y="315" width="420" height="204"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pn5-OU-BM7">
-                                        <rect key="frame" x="8" y="-8" width="359" height="203"/>
+                                        <rect key="frame" x="10" y="-8" width="395" height="203"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <string key="text">El Consejo de Participación Ciudadana y Control Social es una entidad autónoma que promueve e incentiva el ejercicio de los derechos a la participación ciudadana; establece e impulsa mecanismos de control en los asuntos de interés público; fomenta la transparencia en la gestión de lo público, investiga actos que generen corrupción o afecten la participación ciudadana; y designa a las autoridades que le corresponde de acuerdo con la Constitución y la ley.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1198,7 +1198,7 @@
                         <viewControllerLayoutGuide type="bottom" id="j57-gG-HAx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DFW-kR-tap">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="780"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CYf-sc-uTk">
@@ -3033,9 +3033,9 @@
         <image name="preguntasfrecuentes.png" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Fp6-kk-H6g"/>
+        <segue reference="5Uc-fi-rL6"/>
+        <segue reference="ujB-1n-5br"/>
         <segue reference="gsT-ss-tS7"/>
         <segue reference="cEv-Jf-Ur9"/>
-        <segue reference="hkv-J7-uFw"/>
     </inferredMetricsTieBreakers>
 </document>
