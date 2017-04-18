@@ -104,7 +104,6 @@ class Pedidos3Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             let controller = storyboard.instantiateViewController(withIdentifier: "InstitucionPickerViewController") as! InstitucionPickerViewController
             self.present(controller, animated: true, completion: nil)
             return false
-            
         }
         return true
     }
@@ -135,12 +134,12 @@ class Pedidos3Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func checkTextNumber(text: String) -> Bool {
-        let regex = "[A-Za-zá-ú]+"
+        let regex = "[A-Za-zá-ú ]+"
         return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: text)
     }
     
     func checkLength(text: String) -> Bool {
-        let regex = "[A-Za-zá-ú]{1,24}"
+        let regex = "[A-Za-zá-ú ]{1,24}"
         return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: text)
     }
     
@@ -184,8 +183,6 @@ class Pedidos3Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         } else if textField == cargoTextField {
             let existOrNotNumber = checkTextNumber(text: newString)
             changeTextFieldColor(value: existOrNotNumber, textField: cargoTextField)
-            let length = checkIdentificacionLength(text: newString)
-            changeTextFieldColor(value: length, textField: cargoTextField)
             let newLength = (cargoTextField.text?.characters.count)! + string.characters.count - range.length
             return newLength <= 25
         }

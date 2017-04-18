@@ -232,13 +232,13 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     //Regex para texto
     func checkTextNumber(text: String) -> Bool {
-        let regex = "[A-Za-zá-ú]+"
+        let regex = "[A-Za-zá-ú ]+"
         return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: text)
     }
     
     //Control de longitud de caracteres
     func checkLength(text: String) -> Bool {
-        let regex = "[A-Za-zá-ú]{1,24}"
+        let regex = "[A-Za-zá-ú ]{1,24}"
         return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: text)
     }
     
@@ -322,8 +322,6 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         } else if textField == cargoTextField {
             let existOrNotNumber = checkTextNumber(text: newString)
             changeTextFieldColor(value: existOrNotNumber, textField: cargoTextField)
-            let length = checkIdentificacionLength(text: newString)
-            changeTextFieldColor(value: length, textField: cargoTextField)
             let newLength = (cargoTextField.text?.characters.count)! + string.characters.count - range.length
             return newLength <= 25
         }
