@@ -208,7 +208,7 @@ class Pedidos3Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 self.provOpciones.remove(at: 0)
                 self.provID.remove(at: 0)
                 if error != nil {
-                    print(error ?? "Error")
+                    self.noNetwork()
                 } else {
                     if let content = data{
                         do {
@@ -241,7 +241,9 @@ class Pedidos3Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDa
                 if(self.pedido.getTerceraVentana()){
                     self.searchCiudad(id: self.pedido.getProvinciaDenunciado())
                 } else {
-                    self.searchCiudad(id: self.provID[0])
+                    if(self.provID.count != 0){
+                        self.searchCiudad(id: self.provID[0])
+                    }
                 }
             }
             task1.resume()
@@ -264,7 +266,7 @@ class Pedidos3Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             self.ciuOpciones.removeAll()
             self.ciuID.removeAll()
             if error != nil {
-                print(error ?? "Error")
+                self.noNetwork()
             } else {
                 if let content = data{
                     do {
@@ -309,7 +311,16 @@ class Pedidos3Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         }
         task1.resume()
     }
-
+    
+    private func noNetwork() -> Void {
+        let alert = UIAlertController(title: "Conexión fallida", message: "Existe un problema con la conexión. Por favor intente más tarde.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: { action in
+            //Se debe realizar reset a los datos
+            self.pedido.resetData()
+            self.performSegue(withIdentifier: "p1m", sender: self)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
     
     @IBAction func backToMain(_ sender: UIButton) {
         // create the alert
@@ -341,7 +352,6 @@ class Pedidos3Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             self.present(alert, animated: true, completion: nil)
         }
     }
-    
     
     //Agrega el manejador de tap al label
     func attachTapHandler(label: UILabel)->Void{
@@ -392,7 +402,7 @@ class Pedidos3Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     func nextView(){
         if(nombreTextField.text != "" && apellidosTextField.text != "" &&
-            institucionTextField.text != "" && cargoTextField.text != ""){
+            institucionTextField.text != "" && cargoTextField.text != "" && pedido.getProvinciaDenunciado() != 0){
             pedido.setNombresDenunciado(name: nombreTextField.text!)
             pedido.setApellidosDenunciado(lname: apellidosTextField.text!)
             pedido.setInstitucionNombre(iname: institucionTextField.text!)

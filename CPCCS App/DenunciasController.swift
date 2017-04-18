@@ -417,7 +417,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 self.estCivilOpciones.remove(at: 0)
                 self.estCivilID.remove(at: 0)
                 if error != nil {
-                    print(error ?? "Error")
+                    self.noNetwork()
                 } else {
                     if let content = data{
                         do {
@@ -458,7 +458,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 self.provOpciones.remove(at: 0)
                 self.provID.remove(at: 0)
                 if error != nil {
-                    print(error ?? "Error")
+                    self.noNetwork()
                 } else {
                     if let content = data{
                         do {
@@ -491,7 +491,9 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 if(self.denuncia.getPrimeraVentana()){
                     self.searchCiudad(id: self.denuncia.getProvincia())
                 } else {
-                    self.searchCiudad(id: self.provID[0])
+                    if(self.provID.count != 0){
+                        self.searchCiudad(id: self.provID[0])
+                    }
                 }
             }
             task.resume()
@@ -504,7 +506,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 self.nivEduOpciones.remove(at: 0)
                 self.nivEduID.remove(at: 0)
                 if error != nil {
-                    print(error ?? "Error")
+                    self.noNetwork()
                 } else {
                     if let content = data{
                         do {
@@ -545,7 +547,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 self.nacionOpciones.remove(at: 0)
                 self.nacionID.remove(at: 0)
                 if error != nil {
-                    print(error ?? "Error")
+                    self.noNetwork()
                 } else {
                     if let content = data{
                         do {
@@ -586,7 +588,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
                 self.empleadoOpciones.remove(at: 0)
                 self.empleadoID.remove(at: 0)
                 if error != nil {
-                    print(error ?? "Error")
+                    self.noNetwork()
                 } else {
                     if let content = data{
                         do {
@@ -664,7 +666,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             self.ciuOpciones.removeAll()
             self.ciuID.removeAll()
             if error != nil {
-                print(error ?? "Error")
+                self.noNetwork()
             } else {
                 if let content = data{
                     do {
@@ -708,6 +710,16 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             }
         }
         task1.resume()
+    }
+    
+    private func noNetwork() -> Void {
+        let alert = UIAlertController(title: "Conexión fallida", message: "Existe un problema con la conexión. Por favor intente más tarde.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: { action in
+            //Se debe realizar reset a los datos
+            self.denuncia.resetData()
+            self.performSegue(withIdentifier: "d1m", sender: self)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     //Regreso a Main
@@ -776,7 +788,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             edadTextField.text != "" && emailTextField.text != "" &&
             telefonoTextField.text != "" && direccionTextField.text != "" &&
             organizacionTextField.text != "" && identificacionTextField.text != "" &&
-            cargoTextField.text != ""){
+            cargoTextField.text != "" && denuncia.getProvincia() != 0){
             denuncia.setNombres(name: nombreTextField.text!)
             denuncia.setApellidos(lname: apellidosTextField.text!)
             denuncia.setEdad(age: Int(edadTextField.text!)!)

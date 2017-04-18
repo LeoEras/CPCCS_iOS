@@ -476,7 +476,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="nextWindow:" destination="BbN-v2-ycD" eventType="touchUpInside" id="GP3-7O-x7h"/>
-                                                    <action selector="sendAction:" destination="mKU-Mr-ABI" eventType="touchUpInside" id="qSS-4E-dfs"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -831,7 +830,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="sendAction:" destination="mKU-Mr-ABI" eventType="touchUpInside" id="Wev-BL-HHg"/>
+                                                    <action selector="postDenuncia:" destination="mKU-Mr-ABI" eventType="touchUpInside" id="79T-Tn-72d"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BX9-xQ-aoV">
@@ -844,7 +843,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="nextWindow:" destination="BbN-v2-ycD" eventType="touchUpInside" id="7Pg-GP-7lS"/>
-                                                    <action selector="sendAction:" destination="mKU-Mr-ABI" eventType="touchUpInside" id="V1N-VB-de9"/>
                                                     <segue destination="q9b-0H-PTJ" kind="show" id="gsT-ss-tS7"/>
                                                 </connections>
                                             </button>
@@ -974,7 +972,6 @@
                                 <connections>
                                     <action selector="nextWindow:" destination="BbN-v2-ycD" eventType="touchUpInside" id="TtG-po-VpR"/>
                                     <action selector="nextWindow:" destination="EMC-ge-hc1" eventType="touchUpInside" id="qkN-hf-oEm"/>
-                                    <action selector="sendAction:" destination="mKU-Mr-ABI" eventType="touchUpInside" id="Fae-78-iQb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xIU-Iv-5T6">
@@ -987,7 +984,6 @@
                                 </state>
                                 <connections>
                                     <action selector="nextWindow:" destination="BbN-v2-ycD" eventType="touchUpInside" id="15e-b9-vja"/>
-                                    <action selector="sendAction:" destination="mKU-Mr-ABI" eventType="touchUpInside" id="s25-95-S5E"/>
                                     <segue destination="BbN-v2-ycD" kind="show" id="hkv-J7-uFw"/>
                                 </connections>
                             </button>
@@ -1386,7 +1382,6 @@
                                     <action selector="nextWindow:" destination="BbN-v2-ycD" eventType="touchUpInside" id="qEb-0m-gda"/>
                                     <action selector="nextWindow:" destination="q9b-0H-PTJ" eventType="touchUpInside" id="thp-a8-nKD"/>
                                     <action selector="nextWindow:" destination="EMC-ge-hc1" eventType="touchUpInside" id="xXh-DC-xBI"/>
-                                    <action selector="sendAction:" destination="mKU-Mr-ABI" eventType="touchUpInside" id="yMV-7e-BIQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ezl-RJ-ylJ">
@@ -1399,7 +1394,6 @@
                                 </state>
                                 <connections>
                                     <action selector="nextWindow:" destination="BbN-v2-ycD" eventType="touchUpInside" id="LZv-Oa-1t8"/>
-                                    <action selector="sendAction:" destination="mKU-Mr-ABI" eventType="touchUpInside" id="Tzy-mH-ZIm"/>
                                     <segue destination="EMC-ge-hc1" kind="show" id="cEv-Jf-Ur9"/>
                                 </connections>
                             </button>
@@ -1463,7 +1457,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tb3-Gi-Kj4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1929" y="1268"/>
+            <point key="canvasLocation" x="1929" y="1257"/>
         </scene>
         <!--Controller-->
         <scene sceneID="PDT-wl-95R">
@@ -2135,7 +2129,6 @@
                                                 <connections>
                                                     <action selector="nextWindow:" destination="P5y-q1-g0v" eventType="touchUpInside" id="AH4-bA-0gS"/>
                                                     <action selector="nextWindow:" destination="BbN-v2-ycD" eventType="touchUpInside" id="xOQ-oq-Cr2"/>
-                                                    <action selector="sendAction:" destination="mKU-Mr-ABI" eventType="touchUpInside" id="Ggo-PZ-nF1"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -2503,7 +2496,6 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="nextWindow:" destination="BbN-v2-ycD" eventType="touchUpInside" id="gXQ-xU-3cN"/>
-                                                    <action selector="sendAction:" destination="mKU-Mr-ABI" eventType="touchUpInside" id="xlT-c6-O0u"/>
                                                     <segue destination="TA8-Wl-7SF" kind="show" id="mt2-YI-ToS"/>
                                                 </connections>
                                             </button>
@@ -2634,7 +2626,6 @@
                                     <action selector="nextWindow:" destination="BbN-v2-ycD" eventType="touchUpInside" id="RSf-0a-Bfc"/>
                                     <action selector="nextWindow:" destination="cDr-2g-Sop" eventType="touchUpInside" id="dMP-JS-ciS"/>
                                     <action selector="nextWindow:" destination="EMC-ge-hc1" eventType="touchUpInside" id="ynq-dd-XQs"/>
-                                    <action selector="sendAction:" destination="mKU-Mr-ABI" eventType="touchUpInside" id="NQe-Kk-yl5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="am1-ZP-02p">
@@ -2647,7 +2638,6 @@
                                 </state>
                                 <connections>
                                     <action selector="nextWindow:" destination="BbN-v2-ycD" eventType="touchUpInside" id="gVH-ri-AKr"/>
-                                    <action selector="sendAction:" destination="mKU-Mr-ABI" eventType="touchUpInside" id="7kQ-Vo-RT5"/>
                                     <segue destination="P5y-q1-g0v" kind="show" id="ckV-QF-fHx"/>
                                 </connections>
                             </button>
@@ -2898,7 +2888,6 @@
                                     <action selector="nextWindow:" destination="BbN-v2-ycD" eventType="touchUpInside" id="KUk-84-Rm7"/>
                                     <action selector="nextWindow:" destination="EMC-ge-hc1" eventType="touchUpInside" id="SuG-LR-P6G"/>
                                     <action selector="nextWindow:" destination="TA8-Wl-7SF" eventType="touchUpInside" id="mwy-lf-FPu"/>
-                                    <action selector="sendAction:" destination="mKU-Mr-ABI" eventType="touchUpInside" id="XU7-9I-vPs"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Le1-Gx-Iq9">
@@ -2911,7 +2900,6 @@
                                 </state>
                                 <connections>
                                     <action selector="nextWindow:" destination="BbN-v2-ycD" eventType="touchUpInside" id="y9b-hl-Cz2"/>
-                                    <action selector="sendAction:" destination="mKU-Mr-ABI" eventType="touchUpInside" id="tIW-f4-JeY"/>
                                     <segue destination="cDr-2g-Sop" kind="show" id="U4v-J6-L84"/>
                                 </connections>
                             </button>
@@ -3133,12 +3121,12 @@
         <image name="preguntasfrecuentes.png" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ckV-QF-fHx"/>
-        <segue reference="iSP-Aa-AB3"/>
-        <segue reference="gsT-ss-tS7"/>
         <segue reference="mt2-YI-ToS"/>
+        <segue reference="gsT-ss-tS7"/>
+        <segue reference="G7w-MB-qKM"/>
+        <segue reference="cEv-Jf-Ur9"/>
+        <segue reference="XuS-yL-JNU"/>
+        <segue reference="iSP-Aa-AB3"/>
         <segue reference="hkv-J7-uFw"/>
-        <segue reference="CS9-Eo-y6i"/>
-        <segue reference="UFy-ck-YR0"/>
     </inferredMetricsTieBreakers>
 </document>

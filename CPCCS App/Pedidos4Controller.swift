@@ -8,6 +8,7 @@
 import UIKit
 
 class Pedidos4Controller: UIViewController {
+    var sent: Bool = false
     var pedido = DataHolder.shared
     
     @IBOutlet weak var nombre: UILabel!
@@ -21,6 +22,7 @@ class Pedidos4Controller: UIViewController {
     @IBAction func sendAction(_ sender: UIButton) {
         var tipoIdent: String = ""
         var comparece: Bool = true
+        var documentos: Bool = true
         var idenReservada: Bool = true
         var resExtranjero: Bool = true
         
@@ -40,11 +42,15 @@ class Pedidos4Controller: UIViewController {
             comparece = false
         }
         
+        if(pedido.getDocumentos() == 1){
+            documentos = false
+        }
+        
         if(pedido.getReside() == 1){
             resExtranjero = false
         }
         
-        let predenuncia = PreDenuncia(tipo: "0", genero1: String(pedido.getGenero()), descripcion: pedido.getMotivo(), genero2: String(pedido.getGeneroDenunciado()), funcionario: "a", nivelEdu: pedido.getNivEdu(), ocupacion: pedido.getOcupacion(), nacionalidad: pedido.getNacion(), estadoCivil: pedido.getEstCivil(), institucionImpl: pedido.getInstitucion())
+        let predenuncia = PreDenuncia(tipo: "1", genero1: String(pedido.getGenero()), descripcion: pedido.getMotivo(), genero2: String(pedido.getGeneroDenunciado()), funcionario: "a", nivelEdu: pedido.getNivEdu(), ocupacion: pedido.getOcupacion(), nacionalidad: pedido.getNacion(), estadoCivil: pedido.getEstCivil(), institucionImpl: pedido.getInstitucion())
         _ = CPCCSClient.sharedInstance().postToPreDenuncia(predenuncia) { (statusCode, error) in
             if let error = error {
                 print(error)
@@ -57,7 +63,7 @@ class Pedidos4Controller: UIViewController {
             }
         }
         
-        let reclamo = Reclamo(nombApelDenunciante: pedido.getNombres(), tipoIdentificacion: tipoIdent, numIdentificacion: pedido.getIdentificacion(), direccion: pedido.getDireccion(), email: pedido.getCorreo(), nombApelDenunciado: pedido.getNombresDenunciado(), telefono: pedido.getTelefono(), cargo: pedido.getCargo(), comparecer: comparece, documentores: false, identidadReservada: idenReservada, resideExtranjero: resExtranjero, ciudadDelDenunciante: pedido.getCiudad(), ciudadDelDenunciado: pedido.getCiudadDenunciado(), institucionImplicadaReclamo: pedido.getInstitucion(), provinciaDenunciante: pedido.getProvincia(), provinciaDenunciado: pedido.getProvinciaDenunciado())
+        let reclamo = Reclamo(nombApelDenunciante: pedido.getNombres(), tipoIdentificacion: tipoIdent, numIdentificacion: pedido.getIdentificacion(), direccion: pedido.getDireccion(), email: pedido.getCorreo(), nombApelDenunciado: pedido.getNombresDenunciado(), telefono: pedido.getTelefono(), cargo: pedido.getCargo(), comparecer: comparece, documentores: documentos, identidadReservada: idenReservada, resideExtranjero: resExtranjero, ciudadDelDenunciante: pedido.getCiudad(), ciudadDelDenunciado: pedido.getCiudadDenunciado(), institucionImplicadaReclamo: pedido.getInstitucion(), provinciaDenunciante: pedido.getProvincia(), provinciaDenunciado: pedido.getProvinciaDenunciado())
         CPCCSClient.sharedInstance().postToReclamo(reclamo) /*{ (statusCode, error) in
              if let error = error {
              print(error)
@@ -72,13 +78,21 @@ class Pedidos4Controller: UIViewController {
             // Si la respuesta le retorna un id, significa que se inserto correctamente
         { (id, error) in
             if let error = error {
-                print(error)
+                let alert = UIAlertController(title: "Pedidos", message: "Error al intentar enviar el pedido, intente más tarde", preferredStyle: UIAlertControllerStyle.alert)
+                
+                alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: { action in
+                    self.pedido.resetData()
+                    self.performSegue(withIdentifier: "postPedido", sender: self)
+                }))
+                self.present(alert, animated: true, completion: nil)
             } else {
-                print("Reclamo insertado correctamente")
-                print("Reclamo id: \(id)")
-                self.performSegue(withIdentifier: "postPedido", sender: self)
-                // Colocar por aqui un self.present(ViewController, animated:true, nil)
-                // o algun AlertView y retornar al menu principal
+                let alert = UIAlertController(title: "Denuncias", message: "Denuncia enviada con éxito", preferredStyle: UIAlertControllerStyle.alert)
+                
+                alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: { action in
+                    self.pedido.resetData()
+                    self.performSegue(withIdentifier: "postPedido", sender: self)
+                }))
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }

@@ -18,7 +18,7 @@ class Denuncias4Controller: UIViewController {
     @IBOutlet weak var apellidoDenunciado: UILabel!
     @IBOutlet weak var descDenuncia: UITextView!
     
-    @IBAction func sendAction(_ sender: Any) {
+    @IBAction func postDenuncia(_ sender: UIButton) {
         var tipoIdent: String = ""
         var comparece: Bool = true
         var idenReservada: Bool = true
@@ -43,7 +43,7 @@ class Denuncias4Controller: UIViewController {
         if(denuncia.getReside() == 1){
             resExtranjero = false
         }
-       
+        
         let predenuncia = PreDenuncia(tipo: "0", genero1: String(denuncia.getGenero()), descripcion: denuncia.getMotivo(), genero2: String(denuncia.getGeneroDenunciado()), funcionario: "a", nivelEdu: denuncia.getNivEdu(), ocupacion: denuncia.getOcupacion(), nacionalidad: denuncia.getNacion(), estadoCivil: denuncia.getEstCivil(), institucionImpl: denuncia.getInstitucion())
         _ = CPCCSClient.sharedInstance().postToPreDenuncia(predenuncia) { (statusCode, error) in
             if let error = error {
@@ -72,16 +72,23 @@ class Denuncias4Controller: UIViewController {
             // Si la respuesta le retorna un id, significa que se inserto correctamente
         { (id, error) in
             if let error = error {
-                print(error)
+                let alert = UIAlertController(title: "Denuncias", message: "Error al intentar enviar la denuncia, intente más tarde", preferredStyle: UIAlertControllerStyle.alert)
+                
+                alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: { action in
+                    self.denuncia.resetData()
+                    self.performSegue(withIdentifier: "denunciaPostReturnMain", sender: self)
+                }))
+                self.present(alert, animated: true, completion: nil)
             } else {
-                print("Reclamo insertado correctamente")
-                print("Reclamo id: \(id)")
-                self.performSegue(withIdentifier: "denunciaPostReturnMain", sender: self)
-                // Colocar por aqui un self.present(ViewController, animated:true, nil)
-                // o algun AlertView y retornar al menu principal
+                let alert = UIAlertController(title: "Denuncias", message: "Denuncia enviada con éxito", preferredStyle: UIAlertControllerStyle.alert)
+                
+                alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: { action in
+                    self.denuncia.resetData()
+                    self.performSegue(withIdentifier: "denunciaPostReturnMain", sender: self)
+                }))
+                self.present(alert, animated: true, completion: nil)
             }
         }
-        //
     }
     
     override func viewDidLoad() {
@@ -95,6 +102,16 @@ class Denuncias4Controller: UIViewController {
         descDenuncia.text = denuncia.getMotivo()
         
         // Do any additional setup after loading the view.
+    }
+    
+    private func noNetwork() -> Void {
+        let alert = UIAlertController(title: "Conexión fallida", message: "Existe un problema con la conexión. Por favor intente más tarde.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: { action in
+            //Se debe realizar reset a los datos
+            self.denuncia.resetData()
+            self.performSegue(withIdentifier: "d3m", sender: self)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

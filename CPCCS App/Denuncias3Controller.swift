@@ -245,7 +245,7 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
                 self.ocupacionOpciones.remove(at: 0)
                 self.ocupacionID.remove(at: 0)
                 if error != nil {
-                    print(error ?? "Error")
+                    self.noNetwork()
                 } else {
                     if let content = data{
                         do {
@@ -286,7 +286,7 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
                 self.provOpciones.remove(at: 0)
                 self.provID.remove(at: 0)
                 if error != nil {
-                    print(error ?? "Error")
+                    self.noNetwork()
                 } else {
                     if let content = data{
                         do {
@@ -345,7 +345,7 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
             self.ciuOpciones.removeAll()
             self.ciuID.removeAll()
             if error != nil {
-                print(error ?? "Error")
+                self.noNetwork()
             } else {
                 if let content = data{
                     do {
@@ -450,6 +450,16 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
         return false
     }
     
+    private func noNetwork() -> Void {
+        let alert = UIAlertController(title: "Conexión fallida", message: "Existe un problema con la conexión. Por favor intente más tarde.", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: { action in
+            //Se debe realizar reset a los datos
+            self.denuncia.resetData()
+            self.performSegue(withIdentifier: "d3m", sender: self)
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func tapFunction(sender:UITapGestureRecognizer) {
         if(sender.view == generoShow){
             self.generoSelector.isHidden = false
@@ -477,7 +487,7 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
     func nextView(){
         if(nombreTextField.text != "" && apellidosTextField.text != "" &&
             institucionTextField.text != "" && cargoTextField.text != "" &&
-            cantPerTextField.text != "" && uniDirTextField.text != ""){
+            cantPerTextField.text != "" && uniDirTextField.text != "" && denuncia.getProvinciaDenunciado() != 0){
             denuncia.setNombresDenunciado(name: nombreTextField.text!)
             denuncia.setApellidosDenunciado(lname: apellidosTextField.text!)
             denuncia.setInstitucionNombre(iname: institucionTextField.text!)

@@ -1,5 +1,5 @@
 //
-//  PedidosController.swift
+//  ViewController.swift
 //  CPCCS App
 //
 //  Created by Leonardo on 3/15/17.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UIPopoverPresentationControllerDelegate {
-    var pedido = DataHolder.shared
+class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UIPopoverPresentationControllerDelegate {
+    var denuncia = DataHolder.shared
     
     @IBOutlet weak var nombreTextField: UITextField!
     @IBOutlet weak var apellidosTextField: UITextField!
@@ -105,61 +105,61 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     //Que va en cada fila del Picker View
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         //Caso en que la ventana ya haya sido completada antes
-        if(pedido.getPrimeraVentana()){
+        if(denuncia.getPrimeraVentana()){
             if(pickerView == identidadSelector){
                 let titlerow = identidadOpciones[row]
-                idenShow.text = identidadOpciones[pedido.getIdentidad()]
+                idenShow.text = identidadOpciones[denuncia.getIdentidad()]
                 return titlerow
             } else if(pickerView == tipoIdentSelector){
                 let titlerow = tipoIdentOpciones[row]
-                tipoIdentShow.text = tipoIdentOpciones[pedido.getTipoIden()]
+                tipoIdentShow.text = tipoIdentOpciones[denuncia.getTipoIden()]
                 return titlerow
             } else if(pickerView == generoSelector){
                 let titlerow = generoOpciones[row]
-                generoShow.text = generoOpciones[pedido.getGenero()]
+                generoShow.text = generoOpciones[denuncia.getGenero()]
                 return titlerow
             } else if(pickerView == resideSelector){
                 let titlerow = resideOpciones[row]
-                resideShow.text = resideOpciones[pedido.getReside()]
+                resideShow.text = resideOpciones[denuncia.getReside()]
                 return titlerow
             }
         } else { //Caso contrario
             if(pickerView == identidadSelector){
-                pedido.setIdentidad(opcion: row)
+                denuncia.setIdentidad(opcion: row)
                 let titlerow = identidadOpciones[row]
                 return titlerow
             } else if(pickerView == tipoIdentSelector){
-                pedido.setTipoIden(opcion: row)
+                denuncia.setTipoIden(opcion: row)
                 let titlerow = tipoIdentOpciones[row]
                 return titlerow
             } else if(pickerView == generoSelector){
-                pedido.setGenero(opcion: row)
+                denuncia.setGenero(opcion: row)
                 let titlerow = generoOpciones[row]
                 return titlerow
             } else if(pickerView == resideSelector){
-                pedido.setReside(opcion: row)
+                denuncia.setReside(opcion: row)
                 let titlerow = resideOpciones[row]
                 return titlerow
             }
         }
         
         if(pickerView == estCivilSelector){
-            //pedido.setEstCivil(opcion: row)
+            //denuncia.setEstCivil(opcion: row)
             let titlerow = estCivilOpciones[row]
             return titlerow
         } else if(pickerView == nivEduSelector){
-            //pedido.setNivEdu(opcion: row)
+            //denuncia.setNivEdu(opcion: row)
             let titlerow = nivEduOpciones[row]
             return titlerow
         } else if(pickerView == empleadoSelector){
             let titlerow = empleadoOpciones[row]
             return titlerow
         } else if(pickerView == nacionSelector){
-            //pedido.setNacion(opcion: row)
+            //denuncia.setNacion(opcion: row)
             let titlerow = nacionOpciones[row]
             return titlerow
         } else if(pickerView == provSelector){
-            //pedido.setProvincia(opcion: row)
+            //denuncia.setProvincia(opcion: row)
             let titlerow = provOpciones[row]
             return titlerow
         } else if(pickerView == ciuSelector){
@@ -173,45 +173,45 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     //Oculta el Picker View cuando una opcion es seleccionada
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if (pickerView == identidadSelector){
-            pedido.setIdentidad(opcion: row)
+            denuncia.setIdentidad(opcion: row)
             self.idenShow.text = self.identidadOpciones[row]
             self.identidadSelector.isHidden = true
         } else if (pickerView == empleadoSelector){
-            pedido.setOcupacion(opcion: empleadoID[row])
+            denuncia.setOcupacion(opcion: empleadoID[row])
             self.empleadoShow.text = self.empleadoOpciones[row]
             self.empleadoSelector.isHidden = true
         } else if (pickerView == tipoIdentSelector){
-            pedido.setTipoIden(opcion: row)
+            denuncia.setTipoIden(opcion: row)
             self.tipoIdentShow.text = self.tipoIdentOpciones[row]
             self.tipoIdentSelector.isHidden = true
         } else if (pickerView == generoSelector){
-            pedido.setGenero(opcion: row)
+            denuncia.setGenero(opcion: row)
             self.generoShow.text = self.generoOpciones[row]
             self.generoSelector.isHidden = true
         } else if (pickerView == estCivilSelector){
-            pedido.setEstCivil(opcion: estCivilID[row])
+            denuncia.setEstCivil(opcion: estCivilID[row])
             self.estCivilShow.text = self.estCivilOpciones[row]
             self.estCivilSelector.isHidden = true
         } else if (pickerView == nivEduSelector){
-            pedido.setNivEdu(opcion: nivEduID[row])
+            denuncia.setNivEdu(opcion: nivEduID[row])
             self.nivEduShow.text = self.nivEduOpciones[row]
             self.nivEduSelector.isHidden = true
         } else if (pickerView == nacionSelector){
-            pedido.setNacion(opcion: nacionID[row])
+            denuncia.setNacion(opcion: nacionID[row])
             self.nacionShow.text = self.nacionOpciones[row]
             self.nacionSelector.isHidden = true
         } else if (pickerView == resideSelector){
-            pedido.setReside(opcion: row)
+            denuncia.setReside(opcion: row)
             self.resideShow.text = self.resideOpciones[row]
             self.resideSelector.isHidden = true
         } else if (pickerView == provSelector){
-            pedido.setProvincia(opcion: provID[row])
+            denuncia.setProvincia(opcion: provID[row])
             self.provShow.text = self.provOpciones[row]
             self.searchCiudad(id: provID[row])
             self.provSelector.isHidden = true
         } else if (pickerView == ciuSelector){
             if(ciuOpciones.count != 0){
-                pedido.setCiudad(opcion: ciuID[row])
+                denuncia.setCiudad(opcion: ciuID[row])
                 self.ciuShow.text = self.ciuOpciones[row]
                 self.ciuSelector.isHidden = true
             }
@@ -232,13 +232,13 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     
     //Regex para texto
     func checkTextNumber(text: String) -> Bool {
-        let regex = "[A-Za-zá-ú ]+"
+        let regex = "[A-Za-zá-ú]+"
         return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: text)
     }
     
     //Control de longitud de caracteres
     func checkLength(text: String) -> Bool {
-        let regex = "[A-Za-zá-ú ]{1,24}"
+        let regex = "[A-Za-zá-ú]{1,24}"
         return NSPredicate(format: "SELF MATCHES %@", regex).evaluate(with: text)
     }
     
@@ -282,9 +282,9 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         let newString = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
         if textField == nombreTextField {
             let existOrNotNumber = checkTextNumber(text: newString)
+            changeTextFieldColor(value: existOrNotNumber, textField: nombreTextField)
             let newLength = (nombreTextField.text?.characters.count)! + string.characters.count - range.length
             return newLength <= 25
-            changeTextFieldColor(value: existOrNotNumber, textField: nombreTextField)
         } else if textField == apellidosTextField {
             let existOrNotNumber = checkTextNumber(text: newString)
             changeTextFieldColor(value: existOrNotNumber, textField: apellidosTextField)
@@ -322,6 +322,8 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         } else if textField == cargoTextField {
             let existOrNotNumber = checkTextNumber(text: newString)
             changeTextFieldColor(value: existOrNotNumber, textField: cargoTextField)
+            let length = checkIdentificacionLength(text: newString)
+            changeTextFieldColor(value: length, textField: cargoTextField)
             let newLength = (cargoTextField.text?.characters.count)! + string.characters.count - range.length
             return newLength <= 25
         }
@@ -346,68 +348,68 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             // Not found, so remove keyboard.
             textField.resignFirstResponder()
         }
-        pedido.setNombres(name: nombreTextField.text!)
+        denuncia.setNombres(name: nombreTextField.text!)
         return false
     }
     
     // Alert View
     /*
-     func alertHandler(action: UIAlertAction) -> Void {
-     print("Perfectirijillo")
-     }
-     */
+    func alertHandler(action: UIAlertAction) -> Void {
+        print("Perfectirijillo")
+    }
+    */
     /*
-     override func viewDidAppear(_ animated: Bool) {
-     super.viewDidAppear(true)
-     print(currentReachabilityStatus != .notReachable)
-     if (currentReachabilityStatus != .notReachable){
-     //true connected
-     let alert = UIAlertController(title: "My Alert", message: "This is an alert.", preferredStyle: UIAlertControllerStyle.alert)
-     let defaultAction = UIAlertAction(title:"OK", style:UIAlertActionStyle.default,                                              handler: alertHandler)
-     
-     alert.addAction(defaultAction)
-     self.present(alert, animated:true, completion:nil)
-     }
-     } */
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        print(currentReachabilityStatus != .notReachable)
+        if (currentReachabilityStatus != .notReachable){
+            //true connected
+            let alert = UIAlertController(title: "My Alert", message: "This is an alert.", preferredStyle: UIAlertControllerStyle.alert)
+            let defaultAction = UIAlertAction(title:"OK", style:UIAlertActionStyle.default,                                              handler: alertHandler)
+            
+            alert.addAction(defaultAction)
+            self.present(alert, animated:true, completion:nil)
+        }
+    } */
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Present the view controller using the popover style.
         /*myPopoverViewController.modalPresentationStyle = UIModalPresentationPopover
-         [self presentViewController:myPopoverViewController animated: YES completion: nil]
-         
-         // Get the popover presentation controller and configure it.
-         UIPopoverPresentationController *presentationController =
-         [myPopoverViewController popoverPresentationController]
-         presentationController.permittedArrowDirections =
-         UIPopoverArrowDirectionLeft | UIPopoverArrowDirectionRight
-         presentationController.sourceView = myView
-         presentationController.sourceRect = sourceRect*/
+        [self presentViewController:myPopoverViewController animated: YES completion: nil]
+        
+        // Get the popover presentation controller and configure it.
+        UIPopoverPresentationController *presentationController =
+            [myPopoverViewController popoverPresentationController]
+        presentationController.permittedArrowDirections =
+            UIPopoverArrowDirectionLeft | UIPopoverArrowDirectionRight
+        presentationController.sourceView = myView
+        presentationController.sourceRect = sourceRect*/
         
         //print(currentReachabilityStatus != .notReachable)
         /*if (currentReachabilityStatus != .notReachable){
-         //true connected
-         let alert = UIAlertController(title: "My Alert", message: "This is an alert.", preferredStyle: UIAlertControllerStyle.alert)
-         let defaultAction = UIAlertAction(title:"OK", style:UIAlertActionStyle.default,                                              handler: alertHandler)
-         
-         alert.addAction(defaultAction)
-         self.present(alert, animated:true, completion:nil)
-         }*/
-        
+            //true connected
+            let alert = UIAlertController(title: "My Alert", message: "This is an alert.", preferredStyle: UIAlertControllerStyle.alert)
+            let defaultAction = UIAlertAction(title:"OK", style:UIAlertActionStyle.default,                                              handler: alertHandler)
+            
+            alert.addAction(defaultAction)
+            self.present(alert, animated:true, completion:nil)
+        }*/
+       
         
         
         //Caso en que la ventana ya haya sido completada
-        if(pedido.getPrimeraVentana()){
-            nombreTextField.text = pedido.getNombres()
-            apellidosTextField.text = pedido.getApellidos()
-            edadTextField.text = String(pedido.getEdad())
-            emailTextField.text = pedido.getCorreo()
-            telefonoTextField.text = pedido.getTelefono()
-            direccionTextField.text = pedido.getDireccion()
-            organizacionTextField.text = pedido.getOrgSocial()
-            identificacionTextField.text = pedido.getIdentificacion()
-            cargoTextField.text = pedido.getCargo()
+        if(denuncia.getPrimeraVentana()){
+            nombreTextField.text = denuncia.getNombres()
+            apellidosTextField.text = denuncia.getApellidos()
+            edadTextField.text = String(denuncia.getEdad())
+            emailTextField.text = denuncia.getCorreo()
+            telefonoTextField.text = denuncia.getTelefono()
+            direccionTextField.text = denuncia.getDireccion()
+            organizacionTextField.text = denuncia.getOrgSocial()
+            identificacionTextField.text = denuncia.getIdentificacion()
+            cargoTextField.text = denuncia.getCargo()
         }
         
         //Obteniendo Estados Civiles del web service
@@ -434,16 +436,16 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                                 DispatchQueue.main.async {
                                     self.estCivilSelector.isHidden = true
                                     self.estCivilSelector.reloadAllComponents()
-                                    if(self.pedido.getPrimeraVentana()){
-                                        self.estCivilShow.text = self.estCivilOpciones[self.pedido.getEstCivil()]
+                                    if(self.denuncia.getPrimeraVentana()){
+                                        self.estCivilShow.text = self.estCivilOpciones[self.denuncia.getEstCivil()]
                                     } else {
                                         self.estCivilShow.text = self.estCivilOpciones[0]
-                                        self.pedido.setEstCivil(opcion: self.estCivilID[0])
+                                        self.denuncia.setEstCivil(opcion: self.estCivilID[0])
                                     }
                                 }
                             }
                         } catch {
-                            
+
                         }
                     }
                 }
@@ -475,21 +477,21 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                                 DispatchQueue.main.async {
                                     self.provSelector.isHidden = true
                                     self.provSelector.reloadAllComponents()
-                                    if(self.pedido.getPrimeraVentana()){
-                                        self.provShow.text = self.provOpciones[self.provID.index(of: self.pedido.getProvincia())!]
+                                    if(self.denuncia.getPrimeraVentana()){
+                                        self.provShow.text = self.provOpciones[self.provID.index(of: self.denuncia.getProvincia())!]
                                     } else {
                                         self.provShow.text = self.provOpciones[0]
-                                        self.pedido.setProvincia(opcion: self.provID[0])
+                                        self.denuncia.setProvincia(opcion: self.provID[0])
                                     }
                                 }
                             }
                         } catch {
-                            
+                        
                         }
                     }
                 }
-                if(self.pedido.getPrimeraVentana()){
-                    self.searchCiudad(id: self.pedido.getProvincia())
+                if(self.denuncia.getPrimeraVentana()){
+                    self.searchCiudad(id: self.denuncia.getProvincia())
                 } else {
                     if(self.provID.count != 0){
                         self.searchCiudad(id: self.provID[0])
@@ -523,16 +525,15 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                                 DispatchQueue.main.async {
                                     self.nivEduSelector.isHidden = true
                                     self.nivEduSelector.reloadAllComponents()
-                                    if(self.pedido.getPrimeraVentana()){
-                                        self.nivEduShow.text = self.nivEduOpciones[self.nivEduID.index(of: self.pedido.getNivEdu())!]
+                                    if(self.denuncia.getPrimeraVentana()){
+                                        self.nivEduShow.text = self.nivEduOpciones[self.nivEduID.index(of: self.denuncia.getNivEdu())!]
                                     } else {
                                         self.nivEduShow.text = self.nivEduOpciones[0]
-                                        self.pedido.setNivEdu(opcion: self.nivEduID[0])
+                                        self.denuncia.setNivEdu(opcion: self.nivEduID[0])
                                     }
                                 }
                             }
                         } catch {
-                            
                         }
                     }
                 }
@@ -564,16 +565,15 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                                 DispatchQueue.main.async {
                                     self.nacionSelector.isHidden = true
                                     self.nacionSelector.reloadAllComponents()
-                                    if(self.pedido.getPrimeraVentana()){
-                                        self.nacionShow.text = self.nacionOpciones[self.nacionID.index(of: self.pedido.getNacion())!]
+                                    if(self.denuncia.getPrimeraVentana()){
+                                        self.nacionShow.text = self.nacionOpciones[self.nacionID.index(of: self.denuncia.getNacion())!]
                                     } else {
                                         self.nacionShow.text = self.nacionOpciones[0]
-                                        self.pedido.setNacion(opcion: self.nacionID[0])
+                                        self.denuncia.setNacion(opcion: self.nacionID[0])
                                     }
                                 }
                             }
                         } catch {
-                            
                         }
                     }
                 }
@@ -605,16 +605,15 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                                 DispatchQueue.main.async {
                                     self.empleadoSelector.isHidden = true
                                     self.empleadoSelector.reloadAllComponents()
-                                    if(self.pedido.getPrimeraVentana()){
-                                        self.empleadoShow.text = self.empleadoOpciones[self.empleadoID.index(of: self.pedido.getOcupacion())!]
+                                    if(self.denuncia.getPrimeraVentana()){
+                                        self.empleadoShow.text = self.empleadoOpciones[self.empleadoID.index(of: self.denuncia.getOcupacion())!]
                                     } else {
                                         self.empleadoShow.text = self.empleadoOpciones[0]
-                                        self.pedido.setOcupacion(opcion: self.empleadoID[0])
+                                        self.denuncia.setOcupacion(opcion: self.empleadoID[0])
                                     }
                                 }
                             }
                         } catch {
-                            
                         }
                     }
                 }
@@ -650,10 +649,10 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     //Pregunta por los campos completados en la ventana actual, en caso de ser asi, pasa a la siguiente ventana; en caso contrario muestra mensaje apropiado. Esto se hace empleando la funcion "nextView"
     @IBAction func nextWindow(_ sender: UIButton) {
         nextView()
-        if (pedido.getPrimeraVentana()){
-            self.performSegue(withIdentifier: "p1p2", sender: self)
+        if (denuncia.getPrimeraVentana()){
+            self.performSegue(withIdentifier: "d1d2", sender: self)
         } else {
-            let alert = UIAlertController(title: "Pedidos", message: "Por favor llene todos los campos", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "Denuncia", message: "Por favor llene todos los campos", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Continuar", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
@@ -666,7 +665,7 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             self.ciuOpciones.removeAll()
             self.ciuID.removeAll()
             if error != nil {
-                self.noNetwork()
+                //print(error ?? "Error")
             } else {
                 if let content = data{
                     do {
@@ -683,11 +682,11 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                             DispatchQueue.main.async {
                                 self.ciuSelector.isHidden = true
                                 self.ciuSelector.reloadAllComponents()
-                                if(self.pedido.getPrimeraVentana()){
-                                    if(self.ciuID.index(of: self.pedido.getCiudad()) != nil){
-                                        self.ciuShow.text = self.ciuOpciones[self.ciuID.index(of: self.pedido.getCiudad())!]
+                                if(self.denuncia.getPrimeraVentana()){
+                                    if(self.ciuID.index(of: self.denuncia.getCiudad()) != nil){
+                                        self.ciuShow.text = self.ciuOpciones[self.ciuID.index(of: self.denuncia.getCiudad())!]
                                     } else {
-                                        self.pedido.setCiudad(opcion: self.ciuID[0])
+                                        self.denuncia.setCiudad(opcion: self.ciuID[0])
                                         self.ciuShow.text = self.ciuOpciones[0]
                                     }
                                     if(self.ciuOpciones.count == 0){
@@ -698,13 +697,12 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
                                         self.ciuShow.text = ""
                                     } else {
                                         self.ciuShow.text = self.ciuOpciones[0]
-                                        self.pedido.setCiudad(opcion: self.ciuID[0])
+                                        self.denuncia.setCiudad(opcion: self.ciuID[0])
                                     }
                                 }
                             }
                         }
                     } catch {
-                        
                     }
                 }
             }
@@ -716,27 +714,27 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         let alert = UIAlertController(title: "Conexión fallida", message: "Existe un problema con la conexión. Por favor intente más tarde.", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: { action in
             //Se debe realizar reset a los datos
-            self.pedido.resetData()
-            self.performSegue(withIdentifier: "p1m", sender: self)
+            self.denuncia.resetData()
+            self.performSegue(withIdentifier: "d1m", sender: self)
         }))
         self.present(alert, animated: true, completion: nil)
     }
     
     //Regreso a Main
     @IBAction func backToMain(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Pedidos", message: "¡Si retrocede se perderán los datos ingresados! ¿Desea regresar?", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Denuncias", message: "¡Si retrocede se perderán los datos ingresados! ¿Desea regresar?", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Sí", style: UIAlertActionStyle.default, handler: { action in
             //Se debe realizar reset a los datos
-            self.pedido.resetData()
-            self.performSegue(withIdentifier: "p1m", sender: self)
-        }))
+            self.denuncia.resetData()
+            self.performSegue(withIdentifier: "d1m", sender: self)
+            }))
         alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
     //Agrega el manejador de tap al label
     func attachTapHandler(label: UILabel)->Void{
-        let tap = UITapGestureRecognizer(target: self, action: #selector(PedidosController.tapFunction))
+        let tap = UITapGestureRecognizer(target: self, action: #selector(DenunciasController.tapFunction))
         label.isUserInteractionEnabled = true
         label.addGestureRecognizer(tap)
     }
@@ -788,17 +786,17 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             edadTextField.text != "" && emailTextField.text != "" &&
             telefonoTextField.text != "" && direccionTextField.text != "" &&
             organizacionTextField.text != "" && identificacionTextField.text != "" &&
-            cargoTextField.text != "" && pedido.getProvincia() != 0){
-            pedido.setNombres(name: nombreTextField.text!)
-            pedido.setApellidos(lname: apellidosTextField.text!)
-            pedido.setEdad(age: Int(edadTextField.text!)!)
-            pedido.setCorreo(email: emailTextField.text!)
-            pedido.setTelefono(phone: telefonoTextField.text!)
-            pedido.setDireccion(address: direccionTextField.text!)
-            pedido.setOrgSocial(social: organizacionTextField.text!)
-            pedido.setIdentificacion(identification: identificacionTextField.text!)
-            pedido.setCargo(position: cargoTextField.text!)
-            pedido.setPrimeraVentana(boolean: true)
+            cargoTextField.text != ""){
+            denuncia.setNombres(name: nombreTextField.text!)
+            denuncia.setApellidos(lname: apellidosTextField.text!)
+            denuncia.setEdad(age: Int(edadTextField.text!)!)
+            denuncia.setCorreo(email: emailTextField.text!)
+            denuncia.setTelefono(phone: telefonoTextField.text!)
+            denuncia.setDireccion(address: direccionTextField.text!)
+            denuncia.setOrgSocial(social: organizacionTextField.text!)
+            denuncia.setIdentificacion(identification: identificacionTextField.text!)
+            denuncia.setCargo(position: cargoTextField.text!)
+            denuncia.setPrimeraVentana(boolean: true)
         }
     }
     
@@ -821,12 +819,12 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         self.present(popController, animated: true, completion: nil)
     }
     /*
-     // UIPopoverPresentationControllerDelegate method
-     func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
-     // Force popover style
-     return UIModalPresentationStyle.popover
-     }
-     */
+    // UIPopoverPresentationControllerDelegate method
+    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
+        // Force popover style
+        return UIModalPresentationStyle.popover
+    }
+    */
 }
 
 
