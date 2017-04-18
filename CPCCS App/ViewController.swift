@@ -30,11 +30,11 @@ class ViewController: UIViewController{
             leadingConstraint.constant = -260
         } else {
             leadingConstraint.constant = 0
-            
-            UIView.animate(withDuration: 0.3, animations: {
-                self.view.layoutIfNeeded()
-            })
         }
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+        })
         
         menuShowing = !menuShowing
     }

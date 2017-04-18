@@ -41,6 +41,12 @@
 		A7D8B03D1E93471000E6EA18 /* Denuncias4Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7D8B03C1E93471000E6EA18 /* Denuncias4Controller.swift */; };
 		A7D8B03F1E93641F00E6EA18 /* Bar.png in Resources */ = {isa = PBXBuildFile; fileRef = A7D8B03E1E93641F00E6EA18 /* Bar.png */; };
 		A7DAC9941EA5317D006D39C6 /* DataHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DAC9931EA5317D006D39C6 /* DataHolder.swift */; };
+		A7DAC99C1EA5D402006D39C6 /* ChosenFAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DAC99B1EA5D402006D39C6 /* ChosenFAQViewController.swift */; };
+		A7DAC9AC1EA5E9C3006D39C6 /* ContactosIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A7DAC9A71EA5E9C3006D39C6 /* ContactosIcon.png */; };
+		A7DAC9AD1EA5E9C3006D39C6 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A7DAC9A81EA5E9C3006D39C6 /* logo.png */; };
+		A7DAC9AE1EA5E9C3006D39C6 /* Misionicon.png in Resources */ = {isa = PBXBuildFile; fileRef = A7DAC9A91EA5E9C3006D39C6 /* Misionicon.png */; };
+		A7DAC9AF1EA5E9C3006D39C6 /* sidebar_.png in Resources */ = {isa = PBXBuildFile; fileRef = A7DAC9AA1EA5E9C3006D39C6 /* sidebar_.png */; };
+		A7DAC9B01EA5E9C3006D39C6 /* Visionicon.png in Resources */ = {isa = PBXBuildFile; fileRef = A7DAC9AB1EA5E9C3006D39C6 /* Visionicon.png */; };
 		A7F4D1AE1E947B4B00CEBCB7 /* FAQController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F4D1AD1E947B4B00CEBCB7 /* FAQController.swift */; };
 		A7F4D1B21E9483F300CEBCB7 /* btn.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F4D1B11E9483F300CEBCB7 /* btn.png */; };
 		A7F4D1B61E94A09500CEBCB7 /* PedidosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F4D1B51E94A09500CEBCB7 /* PedidosController.swift */; };
@@ -98,6 +104,12 @@
 		A7D8B03C1E93471000E6EA18 /* Denuncias4Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Denuncias4Controller.swift; sourceTree = "<group>"; };
 		A7D8B03E1E93641F00E6EA18 /* Bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bar.png; path = Icons/Bar.png; sourceTree = "<group>"; };
 		A7DAC9931EA5317D006D39C6 /* DataHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHolder.swift; sourceTree = "<group>"; };
+		A7DAC99B1EA5D402006D39C6 /* ChosenFAQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChosenFAQViewController.swift; sourceTree = "<group>"; };
+		A7DAC9A71EA5E9C3006D39C6 /* ContactosIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ContactosIcon.png; path = Icons/ContactosIcon.png; sourceTree = "<group>"; };
+		A7DAC9A81EA5E9C3006D39C6 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = Icons/logo.png; sourceTree = "<group>"; };
+		A7DAC9A91EA5E9C3006D39C6 /* Misionicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Misionicon.png; path = Icons/Misionicon.png; sourceTree = "<group>"; };
+		A7DAC9AA1EA5E9C3006D39C6 /* sidebar_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sidebar_.png; path = Icons/sidebar_.png; sourceTree = "<group>"; };
+		A7DAC9AB1EA5E9C3006D39C6 /* Visionicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Visionicon.png; path = Icons/Visionicon.png; sourceTree = "<group>"; };
 		A7F4D1AD1E947B4B00CEBCB7 /* FAQController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FAQController.swift; path = ../FAQController.swift; sourceTree = "<group>"; };
 		A7F4D1B11E9483F300CEBCB7 /* btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn.png; path = Icons/btn.png; sourceTree = "<group>"; };
 		A7F4D1B51E94A09500CEBCB7 /* PedidosController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedidosController.swift; sourceTree = "<group>"; };
@@ -127,6 +139,11 @@
 		A73CF7B11E7A1E3900741F82 = {
 			isa = PBXGroup;
 			children = (
+				A7DAC9A71EA5E9C3006D39C6 /* ContactosIcon.png */,
+				A7DAC9A81EA5E9C3006D39C6 /* logo.png */,
+				A7DAC9A91EA5E9C3006D39C6 /* Misionicon.png */,
+				A7DAC9AA1EA5E9C3006D39C6 /* sidebar_.png */,
+				A7DAC9AB1EA5E9C3006D39C6 /* Visionicon.png */,
 				A7F4D1B11E9483F300CEBCB7 /* btn.png */,
 				A7D8B03E1E93641F00E6EA18 /* Bar.png */,
 				A72692061E90A3DD0024EB33 /* MISIÓN.jpg */,
@@ -163,6 +180,7 @@
 		A73CF7BC1E7A1E3A00741F82 /* CPCCS App */ = {
 			isa = PBXGroup;
 			children = (
+				A7DAC99B1EA5D402006D39C6 /* ChosenFAQViewController.swift */,
 				A7F4D1AD1E947B4B00CEBCB7 /* FAQController.swift */,
 				3004A4961EA108F00095FD32 /* PopoverViewController.swift */,
 				30355CF71E97171100E0DA33 /* InstitucionPickerViewController.swift */,
@@ -281,6 +299,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7DAC9AC1EA5E9C3006D39C6 /* ContactosIcon.png in Resources */,
+				A7DAC9AD1EA5E9C3006D39C6 /* logo.png in Resources */,
+				A7DAC9AE1EA5E9C3006D39C6 /* Misionicon.png in Resources */,
+				A7DAC9AF1EA5E9C3006D39C6 /* sidebar_.png in Resources */,
+				A7DAC9B01EA5E9C3006D39C6 /* Visionicon.png in Resources */,
 				A7F4D1B21E9483F300CEBCB7 /* btn.png in Resources */,
 				A7D8B03F1E93641F00E6EA18 /* Bar.png in Resources */,
 				A72692081E90A3DD0024EB33 /* MISIÓN.jpg in Resources */,
@@ -331,6 +354,7 @@
 				A7F4D1B61E94A09500CEBCB7 /* PedidosController.swift in Sources */,
 				30355CFC1E9AD91A00E0DA33 /* InstitucionPedidos3Controller.swift in Sources */,
 				A7F4D1AE1E947B4B00CEBCB7 /* FAQController.swift in Sources */,
+				A7DAC99C1EA5D402006D39C6 /* ChosenFAQViewController.swift in Sources */,
 				A7D8B03D1E93471000E6EA18 /* Denuncias4Controller.swift in Sources */,
 				A79C52941E9315E000A5C7D5 /* Denuncias3Controller.swift in Sources */,
 				30355CF81E97171100E0DA33 /* InstitucionPickerViewController.swift in Sources */,

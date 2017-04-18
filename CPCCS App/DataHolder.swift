@@ -348,6 +348,23 @@ final class DataHolder {
         return DataHolder.shared.unidadDireccion
     }
     
+    //Variables para el FAQ
+    private var FAQSelected: Int = 0
+    
+    public func setFAQSelected(opcion: Int) {
+        DataHolder.shared.FAQSelected = opcion
+    }
+    
+    public func getFAQSelected() -> Int {
+        return DataHolder.shared.FAQSelected
+    }
+    
+    //Reset para FAQ
+    public func resetFAQSelected() {
+        setFAQSelected(opcion: 0)
+    }
+    
+    //Reset para Denuncias o Pedidos
     public func resetData() {
         setPrimeraVentana(boolean: false)
         setSegundaVentana(boolean: false)

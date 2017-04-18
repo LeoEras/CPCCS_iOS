@@ -90,23 +90,47 @@
                                 <rect key="frame" x="-260" y="20" width="250" height="647"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUq-cu-53o">
-                                        <rect key="frame" x="25" y="90" width="120" height="30"/>
+                                        <rect key="frame" x="25" y="200" width="120" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Misión"/>
                                         <connections>
                                             <segue destination="hGG-Uy-hsn" kind="show" id="Vwi-je-tFk"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6q-lY-6s6">
-                                        <rect key="frame" x="25" y="125" width="120" height="30"/>
+                                        <rect key="frame" x="25" y="245" width="120" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Visión"/>
                                         <connections>
                                             <segue destination="7yB-z7-aSi" kind="show" id="Qgj-xm-A6F"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ch2-ix-avN">
+                                        <rect key="frame" x="49" y="292" width="120" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Contáctenos"/>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ContactosIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="gVJ-J3-aYU">
+                                        <rect key="frame" x="20" y="292" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Misionicon.png" translatesAutoresizingMaskIntoConstraints="NO" id="X32-w1-eIt">
+                                        <rect key="frame" x="20" y="200" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Visionicon.png" translatesAutoresizingMaskIntoConstraints="NO" id="AGD-YB-kaT">
+                                        <rect key="frame" x="20" y="245" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="ttx-zY-OAl">
+                                        <rect key="frame" x="55" y="60" width="140" height="115"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.7730444073677063" green="0.74876731634140015" blue="0.72528201341629028" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="250" id="0nM-51-ew5"/>
                                 </constraints>
@@ -151,7 +175,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ekg-ea-5YA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2176.8000000000002" y="115.14242878560721"/>
+            <point key="canvasLocation" x="2176.8000000000002" y="114.69265367316342"/>
         </scene>
         <!--Popover Controller-->
         <scene sceneID="2Sf-Pe-Iwf">
@@ -495,7 +519,7 @@
                                 </constraints>
                             </scrollView>
                             <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="estilocolores.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZBN-sc-taP">
-                                <rect key="frame" x="0.0" y="590" width="420" height="137"/>
+                                <rect key="frame" x="0.0" y="600" width="420" height="137"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U0W-df-IK0">
@@ -711,7 +735,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="680"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="estilocolores.png" translatesAutoresizingMaskIntoConstraints="NO" id="0Rv-ee-BL1">
-                                                <rect key="frame" x="0.0" y="470" width="420" height="137"/>
+                                                <rect key="frame" x="0.0" y="500" width="420" height="137"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Información Resumida" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8p-Dx-Zk9">
                                                 <rect key="frame" x="120" y="52" width="180" height="21"/>
@@ -850,7 +874,7 @@
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="0Rv-ee-BL1" secondAttribute="trailing" constant="-45" id="ZrE-fD-EyE"/>
-                                            <constraint firstAttribute="bottom" secondItem="0Rv-ee-BL1" secondAttribute="bottom" constant="63" id="l6G-jF-wjN"/>
+                                            <constraint firstAttribute="bottom" secondItem="0Rv-ee-BL1" secondAttribute="bottom" constant="43" id="l6G-jF-wjN"/>
                                             <constraint firstAttribute="height" constant="680" id="ss4-Zu-SOo"/>
                                             <constraint firstItem="0Rv-ee-BL1" firstAttribute="leading" secondItem="KM8-ca-z87" secondAttribute="leading" id="w8U-Ye-00h"/>
                                         </constraints>
@@ -900,7 +924,7 @@
                         <viewControllerLayoutGuide type="bottom" id="09s-b3-dT9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yeN-9g-J8f">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zGS-Ld-8RS">
@@ -958,7 +982,7 @@
                                 <color key="backgroundColor" red="0.35695909009999999" green="0.22856674330000001" blue="0.71148397019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <imageView userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="estilocolores.png" translatesAutoresizingMaskIntoConstraints="NO" id="67U-S2-aDF">
-                                <rect key="frame" x="0.0" y="590" width="420" height="137"/>
+                                <rect key="frame" x="0.0" y="600" width="420" height="137"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btI-Zi-bKq">
@@ -1177,6 +1201,76 @@
             </objects>
             <point key="canvasLocation" x="4042" y="-607"/>
         </scene>
+        <!--ChosenFAQ View Controller-->
+        <scene sceneID="jwZ-cN-5Um">
+            <objects>
+                <viewController id="eJ9-f4-oDw" customClass="ChosenFAQViewController" customModule="CPCCS_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5FS-cD-P0z"/>
+                        <viewControllerLayoutGuide type="bottom" id="jJr-QQ-p5T"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Jaf-LC-Hgk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="840"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AMF-fF-Lxz">
+                                <rect key="frame" x="0.0" y="0.0" width="420" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cabecera.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Zq8-u7-KHR">
+                                        <rect key="frame" x="0.0" y="0.0" width="420" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preguntas Frecuentes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hO-i7-ZSs">
+                                        <rect key="frame" x="57" y="32" width="262" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pum-no-Qt3">
+                                        <rect key="frame" x="16" y="33" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="back_button.png"/>
+                                        <connections>
+                                            <action selector="backToFAQ:" destination="eJ9-f4-oDw" eventType="touchUpInside" id="yDd-VY-AyY"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.35695909009999999" green="0.22856674330000001" blue="0.71148397019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="estilocolores.png" translatesAutoresizingMaskIntoConstraints="NO" id="JAC-Lh-VV4">
+                                <rect key="frame" x="0.0" y="600" width="420" height="137"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Título de la pregunta" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="178-C7-6Um">
+                                <rect key="frame" x="85" y="110" width="250" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMj-0u-x0l">
+                                <rect key="frame" x="30" y="130" width="350" height="300"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Explicación de la pregunta. Esta ventana es manejada por un controlador, para evitar realizar 7 ventanas diferentes, este controlador maneja las vistas de las preguntas 6 hasta la 12. Puede usar este mismo controlador para realizar las demás preguntas o crear uno nuevo que se amolde a la estructura de la pregunta. Por ejemplo: este para preguntas 6 a 12 (la 5 puede también debido a su estructura); la 2, 3 y 13 comparten otra estructura (título, texto, imagen, texto, imagen, texto); así con las demás.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="texto" destination="gMj-0u-x0l" id="tYz-DU-q5q"/>
+                        <outlet property="titulo" destination="178-C7-6Um" id="wOD-ce-bGe"/>
+                        <segue destination="8jx-0O-VMN" kind="show" identifier="backToGeneralFAQ" id="k50-oa-g6S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1zr-oy-vJ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4681" y="344"/>
+        </scene>
         <!--Denuncias3 Controller-->
         <scene sceneID="Ffd-Kx-GCJ">
             <objects>
@@ -1367,7 +1461,7 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </view>
                             <imageView userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="estilocolores.png" translatesAutoresizingMaskIntoConstraints="NO" id="qfk-e5-WVz">
-                                <rect key="frame" x="0.0" y="590" width="420" height="137"/>
+                                <rect key="frame" x="0.0" y="600" width="420" height="137"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZSe-se-z5h">
@@ -1517,6 +1611,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fvR-1B-DOi">
                                                         <rect key="frame" x="0.0" y="0.0" width="420" height="60"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="chooseQuestion:" destination="8jx-0O-VMN" eventType="touchUpInside" id="okT-M9-vgS"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="btn.png" translatesAutoresizingMaskIntoConstraints="NO" id="mnA-lC-Ta7">
                                                         <rect key="frame" x="375" y="15" width="30" height="30"/>
@@ -1539,6 +1636,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAG-Y8-CBE">
                                                         <rect key="frame" x="0.0" y="0.0" width="420" height="60"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="chooseQuestion:" destination="8jx-0O-VMN" eventType="touchUpInside" id="Sen-Ga-poP"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="btn.png" translatesAutoresizingMaskIntoConstraints="NO" id="5vA-hN-4Xd">
                                                         <rect key="frame" x="375" y="15" width="30" height="30"/>
@@ -1561,6 +1661,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LLH-7l-EIH">
                                                         <rect key="frame" x="0.0" y="0.0" width="420" height="60"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="chooseQuestion:" destination="8jx-0O-VMN" eventType="touchUpInside" id="ha7-xp-GRQ"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="btn.png" translatesAutoresizingMaskIntoConstraints="NO" id="pG8-yf-mR3">
                                                         <rect key="frame" x="375" y="15" width="30" height="30"/>
@@ -1583,6 +1686,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0XP-QD-Byw">
                                                         <rect key="frame" x="0.0" y="0.0" width="420" height="60"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="chooseQuestion:" destination="8jx-0O-VMN" eventType="touchUpInside" id="dI7-2O-Ua7"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="btn.png" translatesAutoresizingMaskIntoConstraints="NO" id="rkM-0d-bFb">
                                                         <rect key="frame" x="375" y="15" width="30" height="30"/>
@@ -1605,6 +1711,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y3U-C5-9xZ">
                                                         <rect key="frame" x="0.0" y="0.0" width="420" height="60"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="chooseQuestion:" destination="8jx-0O-VMN" eventType="touchUpInside" id="hbv-Cv-LYd"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="btn.png" translatesAutoresizingMaskIntoConstraints="NO" id="qPZ-s0-3F2">
                                                         <rect key="frame" x="375" y="15" width="30" height="30"/>
@@ -1627,6 +1736,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBw-zJ-Uya">
                                                         <rect key="frame" x="0.0" y="0.0" width="420" height="60"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="chooseQuestion:" destination="8jx-0O-VMN" eventType="touchUpInside" id="3HM-xz-kyk"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="btn.png" translatesAutoresizingMaskIntoConstraints="NO" id="HyT-sJ-Rtl">
                                                         <rect key="frame" x="375" y="15" width="30" height="30"/>
@@ -1649,6 +1761,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMO-eU-z66">
                                                         <rect key="frame" x="0.0" y="0.0" width="420" height="60"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="chooseQuestion:" destination="8jx-0O-VMN" eventType="touchUpInside" id="Xrv-HT-rTJ"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="btn.png" translatesAutoresizingMaskIntoConstraints="NO" id="SD4-Pp-xea">
                                                         <rect key="frame" x="375" y="15" width="30" height="30"/>
@@ -1671,6 +1786,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzn-TQ-hCd">
                                                         <rect key="frame" x="0.0" y="0.0" width="420" height="60"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="chooseQuestion:" destination="8jx-0O-VMN" eventType="touchUpInside" id="wnr-gI-smy"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="btn.png" translatesAutoresizingMaskIntoConstraints="NO" id="13r-T4-klV">
                                                         <rect key="frame" x="375" y="15" width="30" height="30"/>
@@ -1693,6 +1811,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1I-Vg-rhl">
                                                         <rect key="frame" x="0.0" y="0.0" width="420" height="60"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="chooseQuestion:" destination="8jx-0O-VMN" eventType="touchUpInside" id="XaY-Xc-74I"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="btn.png" translatesAutoresizingMaskIntoConstraints="NO" id="P2F-3V-uEY">
                                                         <rect key="frame" x="375" y="15" width="30" height="30"/>
@@ -1715,6 +1836,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nul-hQ-hGQ">
                                                         <rect key="frame" x="0.0" y="0.0" width="420" height="60"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="chooseQuestion:" destination="8jx-0O-VMN" eventType="touchUpInside" id="kWS-B5-fp0"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="btn.png" translatesAutoresizingMaskIntoConstraints="NO" id="w8e-xL-nhp">
                                                         <rect key="frame" x="375" y="15" width="30" height="30"/>
@@ -1737,6 +1861,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yK6-hm-4i5">
                                                         <rect key="frame" x="0.0" y="0.0" width="420" height="60"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="chooseQuestion:" destination="8jx-0O-VMN" eventType="touchUpInside" id="xmi-gY-9c2"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="btn.png" translatesAutoresizingMaskIntoConstraints="NO" id="0Hd-UJ-Fc1">
                                                         <rect key="frame" x="375" y="15" width="30" height="30"/>
@@ -1759,6 +1886,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chX-Ia-xci">
                                                         <rect key="frame" x="0.0" y="0.0" width="420" height="60"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="chooseQuestion:" destination="8jx-0O-VMN" eventType="touchUpInside" id="Q9Q-d2-kWZ"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="btn.png" translatesAutoresizingMaskIntoConstraints="NO" id="iBq-j6-m5x">
                                                         <rect key="frame" x="375" y="15" width="30" height="30"/>
@@ -1781,6 +1911,9 @@
                                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7V-98-sFQ">
                                                         <rect key="frame" x="0.0" y="0.0" width="420" height="60"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="chooseQuestion:" destination="8jx-0O-VMN" eventType="touchUpInside" id="HH8-rQ-tce"/>
+                                                        </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="btn.png" translatesAutoresizingMaskIntoConstraints="NO" id="93C-QO-TYM">
                                                         <rect key="frame" x="375" y="15" width="30" height="30"/>
@@ -1829,6 +1962,7 @@
                         <outlet property="preg7" destination="xMO-eU-z66" id="kCT-vT-xqv"/>
                         <outlet property="preg8" destination="fzn-TQ-hCd" id="gEN-ri-Irz"/>
                         <outlet property="preg9" destination="G1I-Vg-rhl" id="e8K-7I-55O"/>
+                        <segue destination="eJ9-f4-oDw" kind="show" identifier="showQuestion" id="nsw-Yw-PqT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gqf-CQ-ojv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2148,7 +2282,7 @@
                                 </constraints>
                             </scrollView>
                             <imageView userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="estilocolores.png" translatesAutoresizingMaskIntoConstraints="NO" id="4G9-7f-Vjp">
-                                <rect key="frame" x="0.0" y="590" width="420" height="137"/>
+                                <rect key="frame" x="0.0" y="600" width="420" height="137"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6yP-te-LSS">
@@ -2364,7 +2498,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="680"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="estilocolores.png" translatesAutoresizingMaskIntoConstraints="NO" id="EbD-Sa-IQe">
-                                                <rect key="frame" x="0.0" y="490" width="420" height="137"/>
+                                                <rect key="frame" x="0.0" y="500" width="420" height="137"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Información Resumida" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3f3-yG-aDa">
                                                 <rect key="frame" x="120" y="52" width="180" height="21"/>
@@ -2505,7 +2639,7 @@
                                             <constraint firstAttribute="trailing" secondItem="EbD-Sa-IQe" secondAttribute="trailing" constant="-45" id="AdS-Bx-Snj"/>
                                             <constraint firstItem="EbD-Sa-IQe" firstAttribute="leading" secondItem="Wlo-PT-pb7" secondAttribute="leading" id="RIW-qH-DbO"/>
                                             <constraint firstAttribute="height" constant="680" id="hRJ-0c-yby"/>
-                                            <constraint firstAttribute="bottom" secondItem="EbD-Sa-IQe" secondAttribute="bottom" constant="63" id="xTd-Th-leG"/>
+                                            <constraint firstAttribute="bottom" secondItem="EbD-Sa-IQe" secondAttribute="bottom" constant="43" id="xTd-Th-leG"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -2553,7 +2687,7 @@
                         <viewControllerLayoutGuide type="bottom" id="eQ4-y8-E9j"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="q9W-zo-Omr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="1100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="780"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="obi-zO-jsp">
@@ -2611,7 +2745,7 @@
                                 <color key="backgroundColor" red="0.35695909009999999" green="0.22856674330000001" blue="0.71148397019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <imageView userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="estilocolores.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZHM-PX-SA7">
-                                <rect key="frame" x="0.0" y="590" width="420" height="137"/>
+                                <rect key="frame" x="0.0" y="600" width="420" height="137"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CU6-fd-qVV">
@@ -2904,7 +3038,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="estilocolores.png" translatesAutoresizingMaskIntoConstraints="NO" id="lQ8-1t-Pc3">
-                                <rect key="frame" x="0.0" y="590" width="420" height="137"/>
+                                <rect key="frame" x="0.0" y="600" width="420" height="137"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fr2-IX-f7W">
@@ -3107,8 +3241,11 @@
     </scenes>
     <resources>
         <image name="Bar.png" width="56" height="6"/>
+        <image name="ContactosIcon.png" width="73" height="73"/>
         <image name="MISIÓN.jpg" width="253" height="139"/>
+        <image name="Misionicon.png" width="74" height="64"/>
         <image name="VISIÓN.jpg" width="253" height="139"/>
+        <image name="Visionicon.png" width="69" height="69"/>
         <image name="back_button.png" width="1200" height="1200"/>
         <image name="btn.png" width="70" height="70"/>
         <image name="cabecera.jpg" width="1920" height="42"/>
@@ -3117,16 +3254,18 @@
         <image name="fondo.png" width="1810" height="3073"/>
         <image name="footer.jpg" width="1920" height="36"/>
         <image name="hamburger.png" width="600" height="400"/>
+        <image name="logo.png" width="422" height="300"/>
         <image name="pedidos.png" width="100" height="100"/>
         <image name="preguntasfrecuentes.png" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="mt2-YI-ToS"/>
-        <segue reference="gsT-ss-tS7"/>
-        <segue reference="G7w-MB-qKM"/>
-        <segue reference="cEv-Jf-Ur9"/>
+        <segue reference="U4v-J6-L84"/>
+        <segue reference="uZr-wO-tza"/>
+        <segue reference="ujB-1n-5br"/>
+        <segue reference="Wbz-fP-1XC"/>
         <segue reference="XuS-yL-JNU"/>
-        <segue reference="iSP-Aa-AB3"/>
-        <segue reference="hkv-J7-uFw"/>
+        <segue reference="gsT-ss-tS7"/>
+        <segue reference="cEv-Jf-Ur9"/>
     </inferredMetricsTieBreakers>
 </document>
