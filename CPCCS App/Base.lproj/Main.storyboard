@@ -3123,7 +3123,7 @@
                                         <rect key="frame" x="0.0" y="22" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qPf-4l-Ghc" id="gHU-Ru-383">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <accessibility key="accessibilityConfiguration" identifier="InstitucionSearchCell">
@@ -3197,7 +3197,7 @@
                                         <rect key="frame" x="0.0" y="22" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sTr-o3-DqS" id="aTD-KB-bFI">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <accessibility key="accessibilityConfiguration" identifier="InstitucionSearchCell">
@@ -3273,7 +3273,6 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="back_button.png"/>
                                         <connections>
-                                            <action selector="backToFAQ:" destination="Yfg-88-9ds" eventType="touchUpInside" id="mrf-cG-CEo"/>
                                             <segue destination="pdE-db-C3B" kind="show" id="xJe-Cb-OPc"/>
                                         </connections>
                                     </button>
@@ -3316,10 +3315,6 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
-                    <connections>
-                        <outlet property="texto" destination="cOR-mJ-LOy" id="7ws-iD-Euq"/>
-                        <outlet property="titulo" destination="PdL-zD-DX7" id="6Pt-5C-g5x"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xci-sH-juC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
