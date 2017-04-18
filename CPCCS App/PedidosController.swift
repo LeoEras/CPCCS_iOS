@@ -752,7 +752,9 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         } else if(sender.view == provShow){
             self.provSelector.isHidden = false
         } else if(sender.view == ciuShow){
-            self.ciuSelector.isHidden = false
+            if(ciuOpciones.count != 0){
+                self.ciuSelector.isHidden = false
+            }
         }
         hideAllKeyboards()
     }

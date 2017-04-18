@@ -479,14 +479,6 @@
                                                     <action selector="sendAction:" destination="mKU-Mr-ABI" eventType="touchUpInside" id="qSS-4E-dfs"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5U-dn-nJH">
-                                                <rect key="frame" x="243" y="8" width="46" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Popover"/>
-                                                <connections>
-                                                    <action selector="buttonTap:" destination="BbN-v2-ycD" eventType="touchUpInside" id="SfN-3k-tQd"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
@@ -2569,7 +2561,7 @@
                         <viewControllerLayoutGuide type="bottom" id="eQ4-y8-E9j"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="q9W-zo-Omr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="780"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="obi-zO-jsp">
@@ -3142,11 +3134,11 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ckV-QF-fHx"/>
-        <segue reference="U4v-J6-L84"/>
-        <segue reference="mt2-YI-ToS"/>
-        <segue reference="NJO-8I-DLF"/>
+        <segue reference="iSP-Aa-AB3"/>
         <segue reference="gsT-ss-tS7"/>
-        <segue reference="cEv-Jf-Ur9"/>
+        <segue reference="mt2-YI-ToS"/>
         <segue reference="hkv-J7-uFw"/>
+        <segue reference="CS9-Eo-y6i"/>
+        <segue reference="UFy-ck-YR0"/>
     </inferredMetricsTieBreakers>
 </document>
