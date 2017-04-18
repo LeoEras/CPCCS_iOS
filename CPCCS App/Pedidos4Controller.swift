@@ -86,7 +86,7 @@ class Pedidos4Controller: UIViewController {
                 }))
                 self.present(alert, animated: true, completion: nil)
             } else {
-                let alert = UIAlertController(title: "Denuncias", message: "Denuncia enviada con éxito", preferredStyle: UIAlertControllerStyle.alert)
+                let alert = UIAlertController(title: "Pedidos", message: "Pedido enviado con éxito", preferredStyle: UIAlertControllerStyle.alert)
                 
                 alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: { action in
                     self.pedido.resetData()
@@ -117,7 +117,7 @@ class Pedidos4Controller: UIViewController {
     
     @IBAction func backToMain(_ sender: UIButton) {
         // create the alert
-        let alert = UIAlertController(title: "Denuncias", message: "¡Si retrocede se perderán los datos ingresados! ¿Desea regresar?", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Pedidos", message: "¡Si retrocede se perderán los datos ingresados! ¿Desea regresar?", preferredStyle: UIAlertControllerStyle.alert)
         
         // add the actions (buttons)
         alert.addAction(UIAlertAction(title: "Sí", style: UIAlertActionStyle.default, handler: { action in

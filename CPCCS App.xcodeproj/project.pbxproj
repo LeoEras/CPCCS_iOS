@@ -269,6 +269,7 @@
 				TargetAttributes = {
 					A73CF7B91E7A1E3900741F82 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 6JRDE3RPDV;
 						ProvisioningStyle = Automatic;
 					};
 					A73CF7CD1E7A1E3C00741F82 = {
@@ -503,6 +504,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6JRDE3RPDV;
 				INFOPLIST_FILE = "CPCCS App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.CPCCS-App";
@@ -515,6 +517,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6JRDE3RPDV;
 				INFOPLIST_FILE = "CPCCS App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.CPCCS-App";
