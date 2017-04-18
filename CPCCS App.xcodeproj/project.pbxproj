@@ -47,6 +47,7 @@
 		A7DAC9AE1EA5E9C3006D39C6 /* Misionicon.png in Resources */ = {isa = PBXBuildFile; fileRef = A7DAC9A91EA5E9C3006D39C6 /* Misionicon.png */; };
 		A7DAC9AF1EA5E9C3006D39C6 /* sidebar_.png in Resources */ = {isa = PBXBuildFile; fileRef = A7DAC9AA1EA5E9C3006D39C6 /* sidebar_.png */; };
 		A7DAC9B01EA5E9C3006D39C6 /* Visionicon.png in Resources */ = {isa = PBXBuildFile; fileRef = A7DAC9AB1EA5E9C3006D39C6 /* Visionicon.png */; };
+		A7DAC9B21EA5F05D006D39C6 /* main.png in Resources */ = {isa = PBXBuildFile; fileRef = A7DAC9B11EA5F05D006D39C6 /* main.png */; };
 		A7F4D1AE1E947B4B00CEBCB7 /* FAQController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F4D1AD1E947B4B00CEBCB7 /* FAQController.swift */; };
 		A7F4D1B21E9483F300CEBCB7 /* btn.png in Resources */ = {isa = PBXBuildFile; fileRef = A7F4D1B11E9483F300CEBCB7 /* btn.png */; };
 		A7F4D1B61E94A09500CEBCB7 /* PedidosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F4D1B51E94A09500CEBCB7 /* PedidosController.swift */; };
@@ -110,6 +111,7 @@
 		A7DAC9A91EA5E9C3006D39C6 /* Misionicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Misionicon.png; path = Icons/Misionicon.png; sourceTree = "<group>"; };
 		A7DAC9AA1EA5E9C3006D39C6 /* sidebar_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sidebar_.png; path = Icons/sidebar_.png; sourceTree = "<group>"; };
 		A7DAC9AB1EA5E9C3006D39C6 /* Visionicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Visionicon.png; path = Icons/Visionicon.png; sourceTree = "<group>"; };
+		A7DAC9B11EA5F05D006D39C6 /* main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = main.png; path = Icons/main.png; sourceTree = "<group>"; };
 		A7F4D1AD1E947B4B00CEBCB7 /* FAQController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FAQController.swift; path = ../FAQController.swift; sourceTree = "<group>"; };
 		A7F4D1B11E9483F300CEBCB7 /* btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn.png; path = Icons/btn.png; sourceTree = "<group>"; };
 		A7F4D1B51E94A09500CEBCB7 /* PedidosController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PedidosController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		A73CF7B11E7A1E3900741F82 = {
 			isa = PBXGroup;
 			children = (
+				A7DAC9B11EA5F05D006D39C6 /* main.png */,
 				A7DAC9A71EA5E9C3006D39C6 /* ContactosIcon.png */,
 				A7DAC9A81EA5E9C3006D39C6 /* logo.png */,
 				A7DAC9A91EA5E9C3006D39C6 /* Misionicon.png */,
@@ -299,6 +302,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7DAC9B21EA5F05D006D39C6 /* main.png in Resources */,
 				A7DAC9AC1EA5E9C3006D39C6 /* ContactosIcon.png in Resources */,
 				A7DAC9AD1EA5E9C3006D39C6 /* logo.png in Resources */,
 				A7DAC9AE1EA5E9C3006D39C6 /* Misionicon.png in Resources */,

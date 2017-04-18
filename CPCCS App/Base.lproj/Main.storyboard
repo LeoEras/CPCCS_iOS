@@ -112,6 +112,9 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Contáctenos"/>
+                                        <connections>
+                                            <segue destination="Yfg-88-9ds" kind="show" id="tuN-dY-WFU"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ContactosIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="gVJ-J3-aYU">
                                         <rect key="frame" x="20" y="292" width="30" height="30"/>
@@ -1280,7 +1283,7 @@
                         <viewControllerLayoutGuide type="bottom" id="j57-gG-HAx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DFW-kR-tap">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="780"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CYf-sc-uTk">
@@ -3120,7 +3123,7 @@
                                         <rect key="frame" x="0.0" y="22" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qPf-4l-Ghc" id="gHU-Ru-383">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <accessibility key="accessibilityConfiguration" identifier="InstitucionSearchCell">
@@ -3194,7 +3197,7 @@
                                         <rect key="frame" x="0.0" y="22" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sTr-o3-DqS" id="aTD-KB-bFI">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <accessibility key="accessibilityConfiguration" identifier="InstitucionSearchCell">
@@ -3238,6 +3241,90 @@
             </objects>
             <point key="canvasLocation" x="-215" y="37"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="d8U-tY-UJT">
+            <objects>
+                <viewController id="Yfg-88-9ds" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ae0-wy-17L"/>
+                        <viewControllerLayoutGuide type="bottom" id="Nia-fK-7Hh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0nX-cr-yiI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rqp-O6-QNh">
+                                <rect key="frame" x="0.0" y="0.0" width="420" height="64"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cabecera.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="KMG-tP-j85">
+                                        <rect key="frame" x="0.0" y="0.0" width="420" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contáctenos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jy-Nn-o8o">
+                                        <rect key="frame" x="57" y="32" width="262" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wO5-Rt-RAL">
+                                        <rect key="frame" x="16" y="33" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="back_button.png"/>
+                                        <connections>
+                                            <action selector="backToFAQ:" destination="Yfg-88-9ds" eventType="touchUpInside" id="mrf-cG-CEo"/>
+                                            <segue destination="pdE-db-C3B" kind="show" id="xJe-Cb-OPc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.35695909009999999" green="0.22856674330000001" blue="0.71148397019999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="estilocolores.png" translatesAutoresizingMaskIntoConstraints="NO" id="XMO-xn-zMe">
+                                <rect key="frame" x="0.0" y="600" width="420" height="137"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contáctenos" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PdL-zD-DX7">
+                                <rect key="frame" x="80" y="72" width="250" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dirección" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PzG-h1-DQF">
+                                <rect key="frame" x="62" y="328" width="250" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cOR-mJ-LOy">
+                                <rect key="frame" x="25" y="106" width="350" height="300"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Horario de atención: 08h30 a 17h00.  Envía tus comentarios y sugerencias a: comunicacion@cpccs.gob.ec nos comunicaremos contigo lo antes posible.  El CPCCS funciona en oficinas en todo el país.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="QUITO Dirección: Santa Prisca 425 entre Vargas y Pasaje Ibarra.  Edificio Centenario  Teléfono: (593-2) 3957210" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Udp-Yd-dkJ">
+                                <rect key="frame" x="25" y="305" width="350" height="300"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="texto" destination="cOR-mJ-LOy" id="7ws-iD-Euq"/>
+                        <outlet property="titulo" destination="PdL-zD-DX7" id="6Pt-5C-g5x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xci-sH-juC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4246" y="1268"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Bar.png" width="56" height="6"/>
@@ -3259,13 +3346,13 @@
         <image name="preguntasfrecuentes.png" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mt2-YI-ToS"/>
-        <segue reference="U4v-J6-L84"/>
-        <segue reference="uZr-wO-tza"/>
-        <segue reference="ujB-1n-5br"/>
-        <segue reference="Wbz-fP-1XC"/>
         <segue reference="XuS-yL-JNU"/>
+        <segue reference="xJe-Cb-OPc"/>
+        <segue reference="Wbz-fP-1XC"/>
+        <segue reference="ujB-1n-5br"/>
         <segue reference="gsT-ss-tS7"/>
         <segue reference="cEv-Jf-Ur9"/>
+        <segue reference="U4v-J6-L84"/>
+        <segue reference="mt2-YI-ToS"/>
     </inferredMetricsTieBreakers>
 </document>
