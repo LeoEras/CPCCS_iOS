@@ -12,7 +12,7 @@
         <!--CPCCS-->
         <scene sceneID="mpW-A4-yBa">
             <objects>
-                <viewController id="pdE-db-C3B" customClass="ViewController" customModule="CPCCS_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pdE-db-C3B" customClass="MenuPrincipal" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JpL-1z-rUn"/>
                         <viewControllerLayoutGuide type="bottom" id="eiW-Px-evA"/>
@@ -3341,13 +3341,13 @@
         <image name="preguntasfrecuentes.png" width="100" height="100"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XuS-yL-JNU"/>
-        <segue reference="xJe-Cb-OPc"/>
-        <segue reference="Wbz-fP-1XC"/>
-        <segue reference="ujB-1n-5br"/>
+        <segue reference="G7w-MB-qKM"/>
         <segue reference="gsT-ss-tS7"/>
         <segue reference="cEv-Jf-Ur9"/>
-        <segue reference="U4v-J6-L84"/>
+        <segue reference="Wbz-fP-1XC"/>
+        <segue reference="ujB-1n-5br"/>
+        <segue reference="XuS-yL-JNU"/>
         <segue reference="mt2-YI-ToS"/>
+        <segue reference="U4v-J6-L84"/>
     </inferredMetricsTieBreakers>
 </document>

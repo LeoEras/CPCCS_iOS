@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController{
+class MenuPrincipal: UIViewController{
    
     @IBOutlet weak var leadingConstraint: NSLayoutConstraint!
     
