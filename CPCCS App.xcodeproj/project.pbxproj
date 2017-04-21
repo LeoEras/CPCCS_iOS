@@ -13,11 +13,46 @@
 		A73CF7C51E7A1E3B00741F82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A73CF7C41E7A1E3B00741F82 /* Assets.xcassets */; };
 		A73CF7C81E7A1E3B00741F82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A73CF7C61E7A1E3B00741F82 /* LaunchScreen.storyboard */; };
 		A73CF7D31E7A1E3D00741F82 /* CPCCS_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73CF7D21E7A1E3D00741F82 /* CPCCS_AppTests.swift */; };
-		A7C498F11EA991740006E6E9 /* Denuncias in Resources */ = {isa = PBXBuildFile; fileRef = A7C498F01EA991740006E6E9 /* Denuncias */; };
-		A7C498F51EA991B60006E6E9 /* Controladores Generales in Resources */ = {isa = PBXBuildFile; fileRef = A7C498F21EA991B60006E6E9 /* Controladores Generales */; };
-		A7C498F61EA991B60006E6E9 /* Pedidos in Resources */ = {isa = PBXBuildFile; fileRef = A7C498F31EA991B60006E6E9 /* Pedidos */; };
-		A7C498F71EA991B60006E6E9 /* Preguntas Frecuentes in Resources */ = {isa = PBXBuildFile; fileRef = A7C498F41EA991B60006E6E9 /* Preguntas Frecuentes */; };
-		A7C498FB1EA9946F0006E6E9 /* Imágenes in Resources */ = {isa = PBXBuildFile; fileRef = A7C498FA1EA9946F0006E6E9 /* Imágenes */; };
+		A7C499521EA9BF790006E6E9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C4994C1EA9BF790006E6E9 /* Constants.swift */; };
+		A7C499531EA9BF790006E6E9 /* DataHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C4994D1EA9BF790006E6E9 /* DataHolder.swift */; };
+		A7C499541EA9BF790006E6E9 /* InstitucionPedidos3Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C4994E1EA9BF790006E6E9 /* InstitucionPedidos3Controller.swift */; };
+		A7C499551EA9BF790006E6E9 /* InstitucionPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C4994F1EA9BF790006E6E9 /* InstitucionPickerViewController.swift */; };
+		A7C499561EA9BF790006E6E9 /* MenuPrincipal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C499501EA9BF790006E6E9 /* MenuPrincipal.swift */; };
+		A7C499571EA9BF790006E6E9 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C499511EA9BF790006E6E9 /* Utilities.swift */; };
+		A7C4995C1EA9BFA10006E6E9 /* Denuncias2Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C499581EA9BFA00006E6E9 /* Denuncias2Controller.swift */; };
+		A7C4995D1EA9BFA10006E6E9 /* Denuncias3Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C499591EA9BFA00006E6E9 /* Denuncias3Controller.swift */; };
+		A7C4995E1EA9BFA10006E6E9 /* Denuncias4Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C4995A1EA9BFA00006E6E9 /* Denuncias4Controller.swift */; };
+		A7C4995F1EA9BFA10006E6E9 /* DenunciasController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C4995B1EA9BFA10006E6E9 /* DenunciasController.swift */; };
+		A7C499641EA9BFC50006E6E9 /* Pedidos2Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C499601EA9BFC50006E6E9 /* Pedidos2Controller.swift */; };
+		A7C499651EA9BFC50006E6E9 /* Pedidos3Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C499611EA9BFC50006E6E9 /* Pedidos3Controller.swift */; };
+		A7C499661EA9BFC50006E6E9 /* Pedidos4Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C499621EA9BFC50006E6E9 /* Pedidos4Controller.swift */; };
+		A7C499671EA9BFC50006E6E9 /* PedidosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C499631EA9BFC50006E6E9 /* PedidosController.swift */; };
+		A7C4996A1EA9BFD90006E6E9 /* ChosenFAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C499681EA9BFD90006E6E9 /* ChosenFAQViewController.swift */; };
+		A7C4996B1EA9BFD90006E6E9 /* FAQController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C499691EA9BFD90006E6E9 /* FAQController.swift */; };
+		A7C499841EA9C0CC0006E6E9 /* back_button.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C4996C1EA9C0CC0006E6E9 /* back_button.png */; };
+		A7C499851EA9C0CC0006E6E9 /* Bar.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C4996D1EA9C0CC0006E6E9 /* Bar.png */; };
+		A7C499861EA9C0CC0006E6E9 /* btn.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C4996E1EA9C0CC0006E6E9 /* btn.png */; };
+		A7C499871EA9C0CC0006E6E9 /* cabecera.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A7C4996F1EA9C0CC0006E6E9 /* cabecera.jpg */; };
+		A7C499881EA9C0CC0006E6E9 /* Captura de pantalla 2017-03-20 a las 2.33.44 p.m_.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C499701EA9C0CC0006E6E9 /* Captura de pantalla 2017-03-20 a las 2.33.44 p.m_.png */; };
+		A7C499891EA9C0CC0006E6E9 /* ContactosIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C499711EA9C0CC0006E6E9 /* ContactosIcon.png */; };
+		A7C4998A1EA9C0CC0006E6E9 /* denuncias.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C499721EA9C0CC0006E6E9 /* denuncias.png */; };
+		A7C4998B1EA9C0CC0006E6E9 /* estilocolores.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C499731EA9C0CC0006E6E9 /* estilocolores.png */; };
+		A7C4998C1EA9C0CC0006E6E9 /* fondo.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C499741EA9C0CC0006E6E9 /* fondo.png */; };
+		A7C4998D1EA9C0CC0006E6E9 /* footer.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A7C499751EA9C0CC0006E6E9 /* footer.jpg */; };
+		A7C4998E1EA9C0CC0006E6E9 /* hamburger.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C499761EA9C0CC0006E6E9 /* hamburger.png */; };
+		A7C4998F1EA9C0CC0006E6E9 /* iconosweb.psd in Resources */ = {isa = PBXBuildFile; fileRef = A7C499771EA9C0CC0006E6E9 /* iconosweb.psd */; };
+		A7C499901EA9C0CC0006E6E9 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C499781EA9C0CC0006E6E9 /* logo.png */; };
+		A7C499911EA9C0CC0006E6E9 /* main.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C499791EA9C0CC0006E6E9 /* main.png */; };
+		A7C499921EA9C0CC0006E6E9 /* mec-controlsocial.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C4997A1EA9C0CC0006E6E9 /* mec-controlsocial.png */; };
+		A7C499931EA9C0CC0006E6E9 /* mec-participacion.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C4997B1EA9C0CC0006E6E9 /* mec-participacion.png */; };
+		A7C499941EA9C0CC0006E6E9 /* MISIÓN.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A7C4997C1EA9C0CC0006E6E9 /* MISIÓN.jpg */; };
+		A7C499951EA9C0CC0006E6E9 /* Misionicon.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C4997D1EA9C0CC0006E6E9 /* Misionicon.png */; };
+		A7C499961EA9C0CC0006E6E9 /* noticias.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C4997E1EA9C0CC0006E6E9 /* noticias.png */; };
+		A7C499971EA9C0CC0006E6E9 /* pedidos.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C4997F1EA9C0CC0006E6E9 /* pedidos.png */; };
+		A7C499981EA9C0CC0006E6E9 /* preguntasfrecuentes.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C499801EA9C0CC0006E6E9 /* preguntasfrecuentes.png */; };
+		A7C499991EA9C0CC0006E6E9 /* sidebar_.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C499811EA9C0CC0006E6E9 /* sidebar_.png */; };
+		A7C4999A1EA9C0CC0006E6E9 /* VISIÓN.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A7C499821EA9C0CC0006E6E9 /* VISIÓN.jpg */; };
+		A7C4999B1EA9C0CC0006E6E9 /* Visionicon.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C499831EA9C0CC0006E6E9 /* Visionicon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,11 +76,46 @@
 		A73CF7CE1E7A1E3C00741F82 /* CPCCS AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CPCCS AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A73CF7D21E7A1E3D00741F82 /* CPCCS_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPCCS_AppTests.swift; sourceTree = "<group>"; };
 		A73CF7D41E7A1E3D00741F82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A7C498F01EA991740006E6E9 /* Denuncias */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Denuncias; sourceTree = "<group>"; };
-		A7C498F21EA991B60006E6E9 /* Controladores Generales */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Controladores Generales"; sourceTree = "<group>"; };
-		A7C498F31EA991B60006E6E9 /* Pedidos */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Pedidos; sourceTree = "<group>"; };
-		A7C498F41EA991B60006E6E9 /* Preguntas Frecuentes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Preguntas Frecuentes"; sourceTree = "<group>"; };
-		A7C498FA1EA9946F0006E6E9 /* Imágenes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Imágenes"; sourceTree = "<group>"; };
+		A7C4994C1EA9BF790006E6E9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "Controladores Generales/Constants.swift"; sourceTree = "<group>"; };
+		A7C4994D1EA9BF790006E6E9 /* DataHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataHolder.swift; path = "Controladores Generales/DataHolder.swift"; sourceTree = "<group>"; };
+		A7C4994E1EA9BF790006E6E9 /* InstitucionPedidos3Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstitucionPedidos3Controller.swift; path = "Controladores Generales/InstitucionPedidos3Controller.swift"; sourceTree = "<group>"; };
+		A7C4994F1EA9BF790006E6E9 /* InstitucionPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstitucionPickerViewController.swift; path = "Controladores Generales/InstitucionPickerViewController.swift"; sourceTree = "<group>"; };
+		A7C499501EA9BF790006E6E9 /* MenuPrincipal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuPrincipal.swift; path = "Controladores Generales/MenuPrincipal.swift"; sourceTree = "<group>"; };
+		A7C499511EA9BF790006E6E9 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = "Controladores Generales/Utilities.swift"; sourceTree = "<group>"; };
+		A7C499581EA9BFA00006E6E9 /* Denuncias2Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Denuncias2Controller.swift; path = Denuncias/Denuncias2Controller.swift; sourceTree = "<group>"; };
+		A7C499591EA9BFA00006E6E9 /* Denuncias3Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Denuncias3Controller.swift; path = Denuncias/Denuncias3Controller.swift; sourceTree = "<group>"; };
+		A7C4995A1EA9BFA00006E6E9 /* Denuncias4Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Denuncias4Controller.swift; path = Denuncias/Denuncias4Controller.swift; sourceTree = "<group>"; };
+		A7C4995B1EA9BFA10006E6E9 /* DenunciasController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DenunciasController.swift; path = Denuncias/DenunciasController.swift; sourceTree = "<group>"; };
+		A7C499601EA9BFC50006E6E9 /* Pedidos2Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pedidos2Controller.swift; path = Pedidos/Pedidos2Controller.swift; sourceTree = "<group>"; };
+		A7C499611EA9BFC50006E6E9 /* Pedidos3Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pedidos3Controller.swift; path = Pedidos/Pedidos3Controller.swift; sourceTree = "<group>"; };
+		A7C499621EA9BFC50006E6E9 /* Pedidos4Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Pedidos4Controller.swift; path = Pedidos/Pedidos4Controller.swift; sourceTree = "<group>"; };
+		A7C499631EA9BFC50006E6E9 /* PedidosController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PedidosController.swift; path = Pedidos/PedidosController.swift; sourceTree = "<group>"; };
+		A7C499681EA9BFD90006E6E9 /* ChosenFAQViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChosenFAQViewController.swift; path = "Preguntas Frecuentes/ChosenFAQViewController.swift"; sourceTree = "<group>"; };
+		A7C499691EA9BFD90006E6E9 /* FAQController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FAQController.swift; path = "Preguntas Frecuentes/FAQController.swift"; sourceTree = "<group>"; };
+		A7C4996C1EA9C0CC0006E6E9 /* back_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = back_button.png; path = "CPCCS App/Imágenes/back_button.png"; sourceTree = "<group>"; };
+		A7C4996D1EA9C0CC0006E6E9 /* Bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Bar.png; path = "CPCCS App/Imágenes/Bar.png"; sourceTree = "<group>"; };
+		A7C4996E1EA9C0CC0006E6E9 /* btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn.png; path = "CPCCS App/Imágenes/btn.png"; sourceTree = "<group>"; };
+		A7C4996F1EA9C0CC0006E6E9 /* cabecera.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cabecera.jpg; path = "CPCCS App/Imágenes/cabecera.jpg"; sourceTree = "<group>"; };
+		A7C499701EA9C0CC0006E6E9 /* Captura de pantalla 2017-03-20 a las 2.33.44 p.m_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Captura de pantalla 2017-03-20 a las 2.33.44 p.m_.png"; path = "CPCCS App/Imágenes/Captura de pantalla 2017-03-20 a las 2.33.44 p.m_.png"; sourceTree = "<group>"; };
+		A7C499711EA9C0CC0006E6E9 /* ContactosIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ContactosIcon.png; path = "CPCCS App/Imágenes/ContactosIcon.png"; sourceTree = "<group>"; };
+		A7C499721EA9C0CC0006E6E9 /* denuncias.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = denuncias.png; path = "CPCCS App/Imágenes/denuncias.png"; sourceTree = "<group>"; };
+		A7C499731EA9C0CC0006E6E9 /* estilocolores.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = estilocolores.png; path = "CPCCS App/Imágenes/estilocolores.png"; sourceTree = "<group>"; };
+		A7C499741EA9C0CC0006E6E9 /* fondo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fondo.png; path = "CPCCS App/Imágenes/fondo.png"; sourceTree = "<group>"; };
+		A7C499751EA9C0CC0006E6E9 /* footer.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = footer.jpg; path = "CPCCS App/Imágenes/footer.jpg"; sourceTree = "<group>"; };
+		A7C499761EA9C0CC0006E6E9 /* hamburger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hamburger.png; path = "CPCCS App/Imágenes/hamburger.png"; sourceTree = "<group>"; };
+		A7C499771EA9C0CC0006E6E9 /* iconosweb.psd */ = {isa = PBXFileReference; lastKnownFileType = file; name = iconosweb.psd; path = "CPCCS App/Imágenes/iconosweb.psd"; sourceTree = "<group>"; };
+		A7C499781EA9C0CC0006E6E9 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = "CPCCS App/Imágenes/logo.png"; sourceTree = "<group>"; };
+		A7C499791EA9C0CC0006E6E9 /* main.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = main.png; path = "CPCCS App/Imágenes/main.png"; sourceTree = "<group>"; };
+		A7C4997A1EA9C0CC0006E6E9 /* mec-controlsocial.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mec-controlsocial.png"; path = "CPCCS App/Imágenes/mec-controlsocial.png"; sourceTree = "<group>"; };
+		A7C4997B1EA9C0CC0006E6E9 /* mec-participacion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mec-participacion.png"; path = "CPCCS App/Imágenes/mec-participacion.png"; sourceTree = "<group>"; };
+		A7C4997C1EA9C0CC0006E6E9 /* MISIÓN.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "MISIÓN.jpg"; path = "CPCCS App/Imágenes/MISIÓN.jpg"; sourceTree = "<group>"; };
+		A7C4997D1EA9C0CC0006E6E9 /* Misionicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Misionicon.png; path = "CPCCS App/Imágenes/Misionicon.png"; sourceTree = "<group>"; };
+		A7C4997E1EA9C0CC0006E6E9 /* noticias.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = noticias.png; path = "CPCCS App/Imágenes/noticias.png"; sourceTree = "<group>"; };
+		A7C4997F1EA9C0CC0006E6E9 /* pedidos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pedidos.png; path = "CPCCS App/Imágenes/pedidos.png"; sourceTree = "<group>"; };
+		A7C499801EA9C0CC0006E6E9 /* preguntasfrecuentes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = preguntasfrecuentes.png; path = "CPCCS App/Imágenes/preguntasfrecuentes.png"; sourceTree = "<group>"; };
+		A7C499811EA9C0CC0006E6E9 /* sidebar_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sidebar_.png; path = "CPCCS App/Imágenes/sidebar_.png"; sourceTree = "<group>"; };
+		A7C499821EA9C0CC0006E6E9 /* VISIÓN.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "VISIÓN.jpg"; path = "CPCCS App/Imágenes/VISIÓN.jpg"; sourceTree = "<group>"; };
+		A7C499831EA9C0CC0006E6E9 /* Visionicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Visionicon.png; path = "CPCCS App/Imágenes/Visionicon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +139,30 @@
 		A73CF7B11E7A1E3900741F82 = {
 			isa = PBXGroup;
 			children = (
+				A7C4996C1EA9C0CC0006E6E9 /* back_button.png */,
+				A7C4996D1EA9C0CC0006E6E9 /* Bar.png */,
+				A7C4996E1EA9C0CC0006E6E9 /* btn.png */,
+				A7C4996F1EA9C0CC0006E6E9 /* cabecera.jpg */,
+				A7C499701EA9C0CC0006E6E9 /* Captura de pantalla 2017-03-20 a las 2.33.44 p.m_.png */,
+				A7C499711EA9C0CC0006E6E9 /* ContactosIcon.png */,
+				A7C499721EA9C0CC0006E6E9 /* denuncias.png */,
+				A7C499731EA9C0CC0006E6E9 /* estilocolores.png */,
+				A7C499741EA9C0CC0006E6E9 /* fondo.png */,
+				A7C499751EA9C0CC0006E6E9 /* footer.jpg */,
+				A7C499761EA9C0CC0006E6E9 /* hamburger.png */,
+				A7C499771EA9C0CC0006E6E9 /* iconosweb.psd */,
+				A7C499781EA9C0CC0006E6E9 /* logo.png */,
+				A7C499791EA9C0CC0006E6E9 /* main.png */,
+				A7C4997A1EA9C0CC0006E6E9 /* mec-controlsocial.png */,
+				A7C4997B1EA9C0CC0006E6E9 /* mec-participacion.png */,
+				A7C4997C1EA9C0CC0006E6E9 /* MISIÓN.jpg */,
+				A7C4997D1EA9C0CC0006E6E9 /* Misionicon.png */,
+				A7C4997E1EA9C0CC0006E6E9 /* noticias.png */,
+				A7C4997F1EA9C0CC0006E6E9 /* pedidos.png */,
+				A7C499801EA9C0CC0006E6E9 /* preguntasfrecuentes.png */,
+				A7C499811EA9C0CC0006E6E9 /* sidebar_.png */,
+				A7C499821EA9C0CC0006E6E9 /* VISIÓN.jpg */,
+				A7C499831EA9C0CC0006E6E9 /* Visionicon.png */,
 				A73CF7BC1E7A1E3A00741F82 /* CPCCS App */,
 				A73CF7D11E7A1E3C00741F82 /* CPCCS AppTests */,
 				A73CF7BB1E7A1E3A00741F82 /* Products */,
@@ -87,11 +181,22 @@
 		A73CF7BC1E7A1E3A00741F82 /* CPCCS App */ = {
 			isa = PBXGroup;
 			children = (
-				A7C498FA1EA9946F0006E6E9 /* Imágenes */,
-				A7C498F21EA991B60006E6E9 /* Controladores Generales */,
-				A7C498F31EA991B60006E6E9 /* Pedidos */,
-				A7C498F41EA991B60006E6E9 /* Preguntas Frecuentes */,
-				A7C498F01EA991740006E6E9 /* Denuncias */,
+				A7C499681EA9BFD90006E6E9 /* ChosenFAQViewController.swift */,
+				A7C499691EA9BFD90006E6E9 /* FAQController.swift */,
+				A7C499601EA9BFC50006E6E9 /* Pedidos2Controller.swift */,
+				A7C499611EA9BFC50006E6E9 /* Pedidos3Controller.swift */,
+				A7C499621EA9BFC50006E6E9 /* Pedidos4Controller.swift */,
+				A7C499631EA9BFC50006E6E9 /* PedidosController.swift */,
+				A7C499581EA9BFA00006E6E9 /* Denuncias2Controller.swift */,
+				A7C499591EA9BFA00006E6E9 /* Denuncias3Controller.swift */,
+				A7C4995A1EA9BFA00006E6E9 /* Denuncias4Controller.swift */,
+				A7C4995B1EA9BFA10006E6E9 /* DenunciasController.swift */,
+				A7C4994C1EA9BF790006E6E9 /* Constants.swift */,
+				A7C4994D1EA9BF790006E6E9 /* DataHolder.swift */,
+				A7C4994E1EA9BF790006E6E9 /* InstitucionPedidos3Controller.swift */,
+				A7C4994F1EA9BF790006E6E9 /* InstitucionPickerViewController.swift */,
+				A7C499501EA9BF790006E6E9 /* MenuPrincipal.swift */,
+				A7C499511EA9BF790006E6E9 /* Utilities.swift */,
 				A73CF7BD1E7A1E3A00741F82 /* AppDelegate.swift */,
 				309B09B61E90572D009E4C5F /* GCDBlackBox.swift */,
 				A73CF7C11E7A1E3B00741F82 /* Main.storyboard */,
@@ -195,11 +300,30 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7C498FB1EA9946F0006E6E9 /* Imágenes in Resources */,
-				A7C498F51EA991B60006E6E9 /* Controladores Generales in Resources */,
-				A7C498F61EA991B60006E6E9 /* Pedidos in Resources */,
-				A7C498F71EA991B60006E6E9 /* Preguntas Frecuentes in Resources */,
-				A7C498F11EA991740006E6E9 /* Denuncias in Resources */,
+				A7C499841EA9C0CC0006E6E9 /* back_button.png in Resources */,
+				A7C499851EA9C0CC0006E6E9 /* Bar.png in Resources */,
+				A7C499861EA9C0CC0006E6E9 /* btn.png in Resources */,
+				A7C499871EA9C0CC0006E6E9 /* cabecera.jpg in Resources */,
+				A7C499881EA9C0CC0006E6E9 /* Captura de pantalla 2017-03-20 a las 2.33.44 p.m_.png in Resources */,
+				A7C499891EA9C0CC0006E6E9 /* ContactosIcon.png in Resources */,
+				A7C4998A1EA9C0CC0006E6E9 /* denuncias.png in Resources */,
+				A7C4998B1EA9C0CC0006E6E9 /* estilocolores.png in Resources */,
+				A7C4998C1EA9C0CC0006E6E9 /* fondo.png in Resources */,
+				A7C4998D1EA9C0CC0006E6E9 /* footer.jpg in Resources */,
+				A7C4998E1EA9C0CC0006E6E9 /* hamburger.png in Resources */,
+				A7C4998F1EA9C0CC0006E6E9 /* iconosweb.psd in Resources */,
+				A7C499901EA9C0CC0006E6E9 /* logo.png in Resources */,
+				A7C499911EA9C0CC0006E6E9 /* main.png in Resources */,
+				A7C499921EA9C0CC0006E6E9 /* mec-controlsocial.png in Resources */,
+				A7C499931EA9C0CC0006E6E9 /* mec-participacion.png in Resources */,
+				A7C499941EA9C0CC0006E6E9 /* MISIÓN.jpg in Resources */,
+				A7C499951EA9C0CC0006E6E9 /* Misionicon.png in Resources */,
+				A7C499961EA9C0CC0006E6E9 /* noticias.png in Resources */,
+				A7C499971EA9C0CC0006E6E9 /* pedidos.png in Resources */,
+				A7C499981EA9C0CC0006E6E9 /* preguntasfrecuentes.png in Resources */,
+				A7C499991EA9C0CC0006E6E9 /* sidebar_.png in Resources */,
+				A7C4999A1EA9C0CC0006E6E9 /* VISIÓN.jpg in Resources */,
+				A7C4999B1EA9C0CC0006E6E9 /* Visionicon.png in Resources */,
 				A73CF7C81E7A1E3B00741F82 /* LaunchScreen.storyboard in Resources */,
 				A73CF7C51E7A1E3B00741F82 /* Assets.xcassets in Resources */,
 				A73CF7C31E7A1E3B00741F82 /* Main.storyboard in Resources */,
@@ -220,6 +344,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7C4996A1EA9BFD90006E6E9 /* ChosenFAQViewController.swift in Sources */,
+				A7C4996B1EA9BFD90006E6E9 /* FAQController.swift in Sources */,
+				A7C499641EA9BFC50006E6E9 /* Pedidos2Controller.swift in Sources */,
+				A7C499651EA9BFC50006E6E9 /* Pedidos3Controller.swift in Sources */,
+				A7C499661EA9BFC50006E6E9 /* Pedidos4Controller.swift in Sources */,
+				A7C499671EA9BFC50006E6E9 /* PedidosController.swift in Sources */,
+				A7C4995C1EA9BFA10006E6E9 /* Denuncias2Controller.swift in Sources */,
+				A7C4995D1EA9BFA10006E6E9 /* Denuncias3Controller.swift in Sources */,
+				A7C4995E1EA9BFA10006E6E9 /* Denuncias4Controller.swift in Sources */,
+				A7C4995F1EA9BFA10006E6E9 /* DenunciasController.swift in Sources */,
+				A7C499521EA9BF790006E6E9 /* Constants.swift in Sources */,
+				A7C499531EA9BF790006E6E9 /* DataHolder.swift in Sources */,
+				A7C499541EA9BF790006E6E9 /* InstitucionPedidos3Controller.swift in Sources */,
+				A7C499551EA9BF790006E6E9 /* InstitucionPickerViewController.swift in Sources */,
+				A7C499561EA9BF790006E6E9 /* MenuPrincipal.swift in Sources */,
+				A7C499571EA9BF790006E6E9 /* Utilities.swift in Sources */,
 				A73CF7BE1E7A1E3A00741F82 /* AppDelegate.swift in Sources */,
 				309B09B71E90572D009E4C5F /* GCDBlackBox.swift in Sources */,
 			);
@@ -362,7 +502,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6JRDE3RPDV;
 				INFOPLIST_FILE = "CPCCS App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.CPCCS-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -376,7 +516,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6JRDE3RPDV;
 				INFOPLIST_FILE = "CPCCS App/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.CPCCS-App";
 				PRODUCT_NAME = "$(TARGET_NAME)";

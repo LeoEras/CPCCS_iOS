@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UIPopoverPresentationControllerDelegate {
+class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     var pedido = DataHolder.shared
     
     @IBOutlet weak var nombreTextField: UITextField!
@@ -802,24 +802,6 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         }
     }
     
-    @IBAction func buttonTap(_ sender: UIButton) {
-        // get a reference to the view controller for the popover
-        let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popoverID")
-        popController.preferredContentSize = CGSize(width: 250, height: 50)
-        popController.view.frame = CGRect(x: 30, y: 20, width: 10, height: 10)
-        // set the presentation style
-        popController.modalPresentationStyle = UIModalPresentationStyle.popover
-        
-        // set up the popover presentation controller
-        popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
-        popController.popoverPresentationController?.delegate = self
-        popController.popoverPresentationController?.sourceView = sender // button
-        popController.popoverPresentationController?.sourceRect = sender.bounds
-        //popController.popoverPresentationController?.sourceRect = CGRect(x: 30, y: 20, width: 10, height: 10)
-        
-        // present the popover
-        self.present(popController, animated: true, completion: nil)
-    }
     /*
      // UIPopoverPresentationControllerDelegate method
      func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
