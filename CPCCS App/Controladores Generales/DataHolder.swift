@@ -13,6 +13,8 @@ final class DataHolder {
     private var primeraVentana: Bool = false
     private var segundaVentana: Bool = false
     private var terceraVentana: Bool = false
+    private var segundaVentanaCompleta: Bool = false
+    private var terceraVentanaCompleta: Bool = false
     static let shared = DataHolder()
     
     public func setPrimeraVentana(boolean: Bool){
@@ -37,6 +39,22 @@ final class DataHolder {
     
     public func getTerceraVentana() -> Bool{
         return DataHolder.shared.terceraVentana
+    }
+    
+    public func setSegundaCompleta(boolean: Bool){
+        DataHolder.shared.segundaVentanaCompleta = boolean
+    }
+    
+    public func getSegundaCompleta() -> Bool{
+        return DataHolder.shared.segundaVentanaCompleta
+    }
+    
+    public func setTerceraCompleta(boolean: Bool){
+        DataHolder.shared.terceraVentanaCompleta = boolean
+    }
+    
+    public func getTerceraCompleta() -> Bool{
+        return DataHolder.shared.terceraVentanaCompleta
     }
     
     //No mas instancias accidentales

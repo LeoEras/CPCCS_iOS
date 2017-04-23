@@ -81,8 +81,8 @@ class CPCCSClient : NSObject {
         
         /* 1. Set the parameters */
         var parametersWithApiKey = parameters
-        let username = "cpccs-admin"
-        let password = "cpccs2017admin"
+        let username = ""
+        let password = ""
         let loginString = NSString(format: "%@:%@", username, password)
         let loginData: NSData = loginString.data(using: String.Encoding.utf8.rawValue)! as NSData
         let base64LoginString = loginData.base64EncodedString(options: [ ])

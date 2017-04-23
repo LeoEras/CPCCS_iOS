@@ -13,12 +13,9 @@
 		A73CF7C51E7A1E3B00741F82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A73CF7C41E7A1E3B00741F82 /* Assets.xcassets */; };
 		A73CF7C81E7A1E3B00741F82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A73CF7C61E7A1E3B00741F82 /* LaunchScreen.storyboard */; };
 		A73CF7D31E7A1E3D00741F82 /* CPCCS_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73CF7D21E7A1E3D00741F82 /* CPCCS_AppTests.swift */; };
-		A7C499521EA9BF790006E6E9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C4994C1EA9BF790006E6E9 /* Constants.swift */; };
 		A7C499531EA9BF790006E6E9 /* DataHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C4994D1EA9BF790006E6E9 /* DataHolder.swift */; };
-		A7C499541EA9BF790006E6E9 /* InstitucionPedidos3Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C4994E1EA9BF790006E6E9 /* InstitucionPedidos3Controller.swift */; };
 		A7C499551EA9BF790006E6E9 /* InstitucionPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C4994F1EA9BF790006E6E9 /* InstitucionPickerViewController.swift */; };
 		A7C499561EA9BF790006E6E9 /* MenuPrincipal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C499501EA9BF790006E6E9 /* MenuPrincipal.swift */; };
-		A7C499571EA9BF790006E6E9 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C499511EA9BF790006E6E9 /* Utilities.swift */; };
 		A7C4995C1EA9BFA10006E6E9 /* Denuncias2Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C499581EA9BFA00006E6E9 /* Denuncias2Controller.swift */; };
 		A7C4995D1EA9BFA10006E6E9 /* Denuncias3Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C499591EA9BFA00006E6E9 /* Denuncias3Controller.swift */; };
 		A7C4995E1EA9BFA10006E6E9 /* Denuncias4Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C4995A1EA9BFA00006E6E9 /* Denuncias4Controller.swift */; };
@@ -53,6 +50,7 @@
 		A7C499991EA9C0CC0006E6E9 /* sidebar_.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C499811EA9C0CC0006E6E9 /* sidebar_.png */; };
 		A7C4999A1EA9C0CC0006E6E9 /* VISIÓN.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A7C499821EA9C0CC0006E6E9 /* VISIÓN.jpg */; };
 		A7C4999B1EA9C0CC0006E6E9 /* Visionicon.png in Resources */ = {isa = PBXBuildFile; fileRef = A7C499831EA9C0CC0006E6E9 /* Visionicon.png */; };
+		A7C4999D1EA9E2430006E6E9 /* NoticiasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7C4999C1EA9E2430006E6E9 /* NoticiasViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,12 +74,9 @@
 		A73CF7CE1E7A1E3C00741F82 /* CPCCS AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CPCCS AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A73CF7D21E7A1E3D00741F82 /* CPCCS_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPCCS_AppTests.swift; sourceTree = "<group>"; };
 		A73CF7D41E7A1E3D00741F82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A7C4994C1EA9BF790006E6E9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "Controladores Generales/Constants.swift"; sourceTree = "<group>"; };
 		A7C4994D1EA9BF790006E6E9 /* DataHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataHolder.swift; path = "Controladores Generales/DataHolder.swift"; sourceTree = "<group>"; };
-		A7C4994E1EA9BF790006E6E9 /* InstitucionPedidos3Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstitucionPedidos3Controller.swift; path = "Controladores Generales/InstitucionPedidos3Controller.swift"; sourceTree = "<group>"; };
 		A7C4994F1EA9BF790006E6E9 /* InstitucionPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstitucionPickerViewController.swift; path = "Controladores Generales/InstitucionPickerViewController.swift"; sourceTree = "<group>"; };
 		A7C499501EA9BF790006E6E9 /* MenuPrincipal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuPrincipal.swift; path = "Controladores Generales/MenuPrincipal.swift"; sourceTree = "<group>"; };
-		A7C499511EA9BF790006E6E9 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = "Controladores Generales/Utilities.swift"; sourceTree = "<group>"; };
 		A7C499581EA9BFA00006E6E9 /* Denuncias2Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Denuncias2Controller.swift; path = Denuncias/Denuncias2Controller.swift; sourceTree = "<group>"; };
 		A7C499591EA9BFA00006E6E9 /* Denuncias3Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Denuncias3Controller.swift; path = Denuncias/Denuncias3Controller.swift; sourceTree = "<group>"; };
 		A7C4995A1EA9BFA00006E6E9 /* Denuncias4Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Denuncias4Controller.swift; path = Denuncias/Denuncias4Controller.swift; sourceTree = "<group>"; };
@@ -116,6 +111,7 @@
 		A7C499811EA9C0CC0006E6E9 /* sidebar_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sidebar_.png; path = "CPCCS App/Imágenes/sidebar_.png"; sourceTree = "<group>"; };
 		A7C499821EA9C0CC0006E6E9 /* VISIÓN.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "VISIÓN.jpg"; path = "CPCCS App/Imágenes/VISIÓN.jpg"; sourceTree = "<group>"; };
 		A7C499831EA9C0CC0006E6E9 /* Visionicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Visionicon.png; path = "CPCCS App/Imágenes/Visionicon.png"; sourceTree = "<group>"; };
+		A7C4999C1EA9E2430006E6E9 /* NoticiasViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoticiasViewController.swift; path = Noticias/NoticiasViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,18 +187,16 @@
 				A7C499591EA9BFA00006E6E9 /* Denuncias3Controller.swift */,
 				A7C4995A1EA9BFA00006E6E9 /* Denuncias4Controller.swift */,
 				A7C4995B1EA9BFA10006E6E9 /* DenunciasController.swift */,
-				A7C4994C1EA9BF790006E6E9 /* Constants.swift */,
 				A7C4994D1EA9BF790006E6E9 /* DataHolder.swift */,
-				A7C4994E1EA9BF790006E6E9 /* InstitucionPedidos3Controller.swift */,
 				A7C4994F1EA9BF790006E6E9 /* InstitucionPickerViewController.swift */,
 				A7C499501EA9BF790006E6E9 /* MenuPrincipal.swift */,
-				A7C499511EA9BF790006E6E9 /* Utilities.swift */,
 				A73CF7BD1E7A1E3A00741F82 /* AppDelegate.swift */,
 				309B09B61E90572D009E4C5F /* GCDBlackBox.swift */,
 				A73CF7C11E7A1E3B00741F82 /* Main.storyboard */,
 				A73CF7C41E7A1E3B00741F82 /* Assets.xcassets */,
 				A73CF7C61E7A1E3B00741F82 /* LaunchScreen.storyboard */,
 				A73CF7C91E7A1E3B00741F82 /* Info.plist */,
+				A7C4999C1EA9E2430006E6E9 /* NoticiasViewController.swift */,
 			);
 			path = "CPCCS App";
 			sourceTree = "<group>";
@@ -344,6 +338,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7C4999D1EA9E2430006E6E9 /* NoticiasViewController.swift in Sources */,
 				A7C4996A1EA9BFD90006E6E9 /* ChosenFAQViewController.swift in Sources */,
 				A7C4996B1EA9BFD90006E6E9 /* FAQController.swift in Sources */,
 				A7C499641EA9BFC50006E6E9 /* Pedidos2Controller.swift in Sources */,
@@ -354,12 +349,9 @@
 				A7C4995D1EA9BFA10006E6E9 /* Denuncias3Controller.swift in Sources */,
 				A7C4995E1EA9BFA10006E6E9 /* Denuncias4Controller.swift in Sources */,
 				A7C4995F1EA9BFA10006E6E9 /* DenunciasController.swift in Sources */,
-				A7C499521EA9BF790006E6E9 /* Constants.swift in Sources */,
 				A7C499531EA9BF790006E6E9 /* DataHolder.swift in Sources */,
-				A7C499541EA9BF790006E6E9 /* InstitucionPedidos3Controller.swift in Sources */,
 				A7C499551EA9BF790006E6E9 /* InstitucionPickerViewController.swift in Sources */,
 				A7C499561EA9BF790006E6E9 /* MenuPrincipal.swift in Sources */,
-				A7C499571EA9BF790006E6E9 /* Utilities.swift in Sources */,
 				A73CF7BE1E7A1E3A00741F82 /* AppDelegate.swift in Sources */,
 				309B09B71E90572D009E4C5F /* GCDBlackBox.swift in Sources */,
 			);

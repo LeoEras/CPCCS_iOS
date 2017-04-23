@@ -19,7 +19,7 @@ class Pedidos4Controller: UIViewController {
     @IBOutlet weak var apellidoEntidad: UILabel!
     @IBOutlet weak var descPedido: UITextView!
     
-    @IBAction func sendAction(_ sender: UIButton) {
+    @IBAction func postPedido(_ sender: UIButton) {
         var tipoIdent: String = ""
         var comparece: Bool = true
         var documentos: Bool = true
@@ -63,7 +63,7 @@ class Pedidos4Controller: UIViewController {
             }
         }
         
-        let reclamo = Reclamo(nombApelDenunciante: pedido.getNombres(), tipoIdentificacion: tipoIdent, numIdentificacion: pedido.getIdentificacion(), direccion: pedido.getDireccion(), email: pedido.getCorreo(), nombApelDenunciado: pedido.getNombresDenunciado(), telefono: pedido.getTelefono(), cargo: pedido.getCargo(), comparecer: comparece, documentores: documentos, identidadReservada: idenReservada, resideExtranjero: resExtranjero, ciudadDelDenunciante: pedido.getCiudad(), ciudadDelDenunciado: pedido.getCiudadDenunciado(), institucionImplicadaReclamo: pedido.getInstitucion(), provinciaDenunciante: pedido.getProvincia(), provinciaDenunciado: pedido.getProvinciaDenunciado())
+        let reclamo = Reclamo(nombApelDenunciante: pedido.getNombres() + " " + pedido.getApellidos(), tipoIdentificacion: tipoIdent, numIdentificacion: pedido.getIdentificacion(), direccion: pedido.getDireccion(), email: pedido.getCorreo(), nombApelDenunciado: pedido.getNombresDenunciado() + " " + pedido.getApellidosDenunciado(), telefono: pedido.getTelefono(), cargo: pedido.getCargo(), comparecer: comparece, documentores: documentos, identidadReservada: idenReservada, resideExtranjero: resExtranjero, ciudadDelDenunciante: pedido.getCiudad(), ciudadDelDenunciado: pedido.getCiudadDenunciado(), institucionImplicadaReclamo: pedido.getInstitucion(), provinciaDenunciante: pedido.getProvincia(), provinciaDenunciado: pedido.getProvinciaDenunciado())
         CPCCSClient.sharedInstance().postToReclamo(reclamo) /*{ (statusCode, error) in
              if let error = error {
              print(error)

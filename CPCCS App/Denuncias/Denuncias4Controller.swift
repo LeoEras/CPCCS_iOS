@@ -57,7 +57,7 @@ class Denuncias4Controller: UIViewController {
             }
         }
         
-        let reclamo = Reclamo(nombApelDenunciante: denuncia.getNombres(), tipoIdentificacion: tipoIdent, numIdentificacion: denuncia.getIdentificacion(), direccion: denuncia.getDireccion(), email: denuncia.getCorreo(), nombApelDenunciado: denuncia.getNombresDenunciado(), telefono: denuncia.getTelefono(), cargo: denuncia.getCargo(), comparecer: comparece, documentores: false, identidadReservada: idenReservada, resideExtranjero: resExtranjero, ciudadDelDenunciante: denuncia.getCiudad(), ciudadDelDenunciado: denuncia.getCiudadDenunciado(), institucionImplicadaReclamo: denuncia.getInstitucion(), provinciaDenunciante: denuncia.getProvincia(), provinciaDenunciado: denuncia.getProvinciaDenunciado())
+        let reclamo = Reclamo(nombApelDenunciante: denuncia.getNombres() + " " + denuncia.getApellidos(), tipoIdentificacion: tipoIdent, numIdentificacion: denuncia.getIdentificacion(), direccion: denuncia.getDireccion(), email: denuncia.getCorreo(), nombApelDenunciado: denuncia.getNombresDenunciado() + " " + denuncia.getApellidosDenunciado(), telefono: denuncia.getTelefono(), cargo: denuncia.getCargo(), comparecer: comparece, documentores: false, identidadReservada: idenReservada, resideExtranjero: resExtranjero, ciudadDelDenunciante: denuncia.getCiudad(), ciudadDelDenunciado: denuncia.getCiudadDenunciado(), institucionImplicadaReclamo: denuncia.getInstitucion(), provinciaDenunciante: denuncia.getProvincia(), provinciaDenunciado: denuncia.getProvinciaDenunciado())
         CPCCSClient.sharedInstance().postToReclamo(reclamo) /*{ (statusCode, error) in
              if let error = error {
              print(error)
