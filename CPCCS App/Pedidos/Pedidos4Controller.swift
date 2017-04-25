@@ -26,6 +26,8 @@ class Pedidos4Controller: UIViewController {
         var idenReservada: Bool = true
         var resExtranjero: Bool = true
         
+        sender.isUserInteractionEnabled = false
+        
         if(pedido.getTipoIden() == 0){
             tipoIdent = "Cédula"
         } else if(pedido.getTipoIden() == 1){

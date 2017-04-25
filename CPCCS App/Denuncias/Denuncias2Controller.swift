@@ -129,6 +129,7 @@ class Denuncias2Controller: UIViewController, UIPickerViewDelegate, UIPickerView
             denuncia.setMotivo(motive: denunciaText.text!)
             denuncia.setSegundaVentana(boolean: true)
         }
+        denuncia.setSegundaVentana(boolean: true)
     }
 }
 

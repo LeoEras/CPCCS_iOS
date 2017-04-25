@@ -23,6 +23,7 @@ class Denuncias4Controller: UIViewController {
         var comparece: Bool = true
         var idenReservada: Bool = true
         var resExtranjero: Bool = true
+        sender.isUserInteractionEnabled = false
         
         if(denuncia.getTipoIden() == 0){
             tipoIdent = "Cédula"
@@ -80,6 +81,7 @@ class Denuncias4Controller: UIViewController {
                 }))
                 self.present(alert, animated: true, completion: nil)
             } else {
+                
                 let alert = UIAlertController(title: "Denuncias", message: "Denuncia enviada con éxito", preferredStyle: UIAlertControllerStyle.alert)
                 
                 alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: { action in
@@ -133,7 +135,6 @@ class Denuncias4Controller: UIViewController {
         // show the alert
         self.present(alert, animated: true, completion: nil)
     }
-    
     
     
     /*

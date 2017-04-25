@@ -528,6 +528,7 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
             denuncia.setUnidadDireccion(string: uniDirTextField.text!)
             denuncia.setTerceraVentana(boolean: true)
         }
+        denuncia.setTerceraVentana(boolean: true)
     }
 }
 
