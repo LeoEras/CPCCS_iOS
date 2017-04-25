@@ -837,7 +837,7 @@ class DenunciasController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             denuncia.setCargo(position: cargoTextField.text!)
             denuncia.setPrimeraVentana(boolean: true)
         }
-        denuncia.setPrimeraVentana(boolean: true)
+        //denuncia.setPrimeraVentana(boolean: true)
     }
     
     @IBAction func buttonTap(_ sender: UIButton) {
