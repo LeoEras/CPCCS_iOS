@@ -36,6 +36,7 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
     @IBOutlet weak var ciuSelector: UIPickerView!
     var ciuOpciones = [""]
     var ciuID = [0]
+    @IBOutlet weak var errorMessage: UILabel!
     
     // MARK: Helper variables
     var institucion: Institucion?
@@ -188,6 +189,23 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
             textField.textColor = UIColor.black
         }
     }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        var  rect = errorMessage.frame
+        rect.origin.y = textField.frame.origin.y + textField.frame.height
+        rect.origin.x = textField.frame.origin.x
+        rect.size.width = textField.frame.width
+        errorMessage.frame = rect
+        setErrorMessage(value: true, text: "");
+    }
+    
+    func setErrorMessage(value: Bool, text: String){
+        if (!value){
+            errorMessage.text = text
+            errorMessage.isHidden = false
+        } else {
+            errorMessage.isHidden = true
+        }
+    }
     
     //Validaciones del texto
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -196,21 +214,25 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
             let existOrNotNumber = checkTextNumber(text: newString)
             changeTextFieldColor(value: existOrNotNumber, textField: nombreTextField)
             let newLength = (nombreTextField.text?.characters.count)! + string.characters.count - range.length
+            setErrorMessage(value: existOrNotNumber, text: "Sólo ingrese letras")
             return newLength <= 25
         } else if textField == apellidosTextField {
             let existOrNotNumber = checkTextNumber(text: newString)
             changeTextFieldColor(value: existOrNotNumber, textField: apellidosTextField)
             let newLength = (apellidosTextField.text?.characters.count)! + string.characters.count - range.length
+            setErrorMessage(value: existOrNotNumber, text: "Sólo ingrese letras")
             return newLength <= 25
         } else if textField == cargoTextField {
             let existOrNotNumber = checkTextNumber(text: newString)
             changeTextFieldColor(value: existOrNotNumber, textField: cargoTextField)
             let newLength = (cargoTextField.text?.characters.count)! + string.characters.count - range.length
+            setErrorMessage(value: existOrNotNumber, text: "Sólo ingrese letras")
             return newLength <= 25
         } else if textField == uniDirTextField {
             let existOrNotNumber = checkTextNumber(text: newString)
             changeTextFieldColor(value: existOrNotNumber, textField: nombreTextField)
             let newLength = (uniDirTextField.text?.characters.count)! + string.characters.count - range.length
+            setErrorMessage(value: existOrNotNumber, text: "Sólo ingrese letras")
             return newLength <= 25
         } else if textField == cantPerTextField {
             let onlyNumbers = checkOnlyNumbers(text: newString)
@@ -218,6 +240,13 @@ class Denuncias3Controller: UIViewController, UIPickerViewDelegate, UIPickerView
             let length = checkCantAfectadosLength(text: newString)
             changeTextFieldColor(value: length, textField: cantPerTextField)
             let newLength = (cantPerTextField.text?.characters.count)! + string.characters.count - range.length
+            if (!onlyNumbers){
+                setErrorMessage(value: onlyNumbers, text: "Sólo ingrese números")
+            } else if (!length){
+                setErrorMessage(value: length, text: "Ingrese un número válido, 1 a 5 caracteres")
+            } else {
+                setErrorMessage(value: true, text: "")
+            }
             return newLength <= 6
         }
         

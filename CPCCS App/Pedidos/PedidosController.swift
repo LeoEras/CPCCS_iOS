@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate, UIScrollViewDelegate {
     var pedido = DataHolder.shared
     
     @IBOutlet weak var nombreTextField: UITextField!
@@ -20,6 +20,7 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var identidadSelector: UIPickerView!
     var identidadOpciones = ["SI", "NO"]
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var organizacionTextField: UITextField!
     @IBOutlet weak var direccionTextField: UITextField!
     @IBOutlet weak var telefonoTextField: UITextField!
@@ -70,6 +71,16 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     var ciuID = [0]
     
     var institucion: Institucion?
+    @IBOutlet weak var errorMessage: UILabel!
+    
+    /*var previousOffset: CGFloat = CGFloat(0)
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //var  rect = errorMessage.frame
+        //rect.origin.y = previousOffset - scrollView.contentOffset.y
+        //previousOffset = scrollView.contentOffset.y
+        //errorMessage.frame = rect
+    }*/
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -219,6 +230,7 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
     }
     
     // MARK: Textfield
+    
     //Al dejar de seleccionar el textfield
     func textFieldDidEndEditing(_ textField: UITextField) {
         
@@ -277,29 +289,51 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         }
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        var  rect = errorMessage.frame
+        rect.origin.y = textField.frame.origin.y + textField.frame.height
+        rect.origin.x = textField.frame.origin.x
+        rect.size.width = textField.frame.width
+        errorMessage.frame = rect
+        setErrorMessage(value: true, text: "");
+    }
+    
+    func setErrorMessage(value: Bool, text: String){
+        if (!value){
+            errorMessage.text = text
+            errorMessage.isHidden = false
+        } else {
+            errorMessage.isHidden = true
+        }
+    }
+    
     //Limitante de entrada de texto, manejo de errores en texto y caracteres permitidos
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let newString = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
         if textField == nombreTextField {
             let existOrNotNumber = checkTextNumber(text: newString)
             let newLength = (nombreTextField.text?.characters.count)! + string.characters.count - range.length
-            return newLength <= 25
             changeTextFieldColor(value: existOrNotNumber, textField: nombreTextField)
+            setErrorMessage(value: existOrNotNumber, text: "Sólo ingrese letras")
+            return newLength <= 25
         } else if textField == apellidosTextField {
             let existOrNotNumber = checkTextNumber(text: newString)
             changeTextFieldColor(value: existOrNotNumber, textField: apellidosTextField)
             let newLength = (apellidosTextField.text?.characters.count)! + string.characters.count - range.length
+            setErrorMessage(value: existOrNotNumber, text: "Sólo ingrese letras")
             return newLength <= 25
         } else if textField == emailTextField {
             let emailValidated = checkEmail(candidate: newString)
             changeTextFieldColor(value: emailValidated, textField: emailTextField)
             let newLength = (emailTextField.text?.characters.count)! + string.characters.count - range.length
+            setErrorMessage(value: emailValidated, text: "Ingrese un correo válido Ej: nombre@dom.com")
             return newLength <= 25
         } else if textField == edadTextField {
             let onlyNumbers = checkOnlyNumbers(text: newString)
             changeTextFieldColor(value: onlyNumbers, textField: edadTextField)
             let length = checkEdadLength(text: newString)
             changeTextFieldColor(value: length, textField: edadTextField)
+            setErrorMessage(value: onlyNumbers, text: "Sólo ingrese números")
             let newLength = (edadTextField.text?.characters.count)! + string.characters.count - range.length
             return newLength <= 2
         } else if textField == telefonoTextField {
@@ -307,6 +341,13 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             changeTextFieldColor(value: onlyNumbers, textField: telefonoTextField)
             let length = checkTelefonoLength(text: newString)
             changeTextFieldColor(value: length, textField: telefonoTextField)
+            if (!onlyNumbers){
+                setErrorMessage(value: onlyNumbers, text: "Sólo ingrese números")
+            } else if (!length){
+                setErrorMessage(value: length, text: "Ingrese un número válido, 7 a 12 caracteres")
+            } else {
+                setErrorMessage(value: true, text: "")
+            }
             let newLength = (telefonoTextField.text?.characters.count)! + string.characters.count - range.length
             return newLength <= 10
         } else if textField == direccionTextField {
@@ -317,11 +358,19 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
             changeTextFieldColor(value: onlyNumbers, textField: identificacionTextField)
             let length = checkIdentificacionLength(text: newString)
             changeTextFieldColor(value: length, textField: identificacionTextField)
+            if (!onlyNumbers){
+                setErrorMessage(value: onlyNumbers, text: "Sólo ingrese números")
+            } else if (!length){
+                setErrorMessage(value: length, text: "Ingrese un número válido, 10 a 11 caracteres")
+            } else {
+                setErrorMessage(value: true, text: "")
+            }
             let newLength = (identificacionTextField.text?.characters.count)! + string.characters.count - range.length
             return newLength <= 11
         } else if textField == cargoTextField {
             let existOrNotNumber = checkTextNumber(text: newString)
             changeTextFieldColor(value: existOrNotNumber, textField: cargoTextField)
+            setErrorMessage(value: existOrNotNumber, text: "Sólo ingrese letras")
             let newLength = (cargoTextField.text?.characters.count)! + string.characters.count - range.length
             return newLength <= 25
         }
@@ -632,7 +681,7 @@ class PedidosController: UIViewController, UIPickerViewDelegate, UIPickerViewDat
         organizacionTextField.delegate = self
         identificacionTextField.delegate = self
         cargoTextField.delegate = self
-        
+        scrollView.delegate = self
         //Ocultar
         attachTapHandler(label: idenShow)
         attachTapHandler(label: empleadoShow)

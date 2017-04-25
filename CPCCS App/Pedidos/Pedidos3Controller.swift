@@ -16,6 +16,7 @@ class Pedidos3Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBOutlet weak var institucionTextField: UITextField!
     @IBOutlet weak var cargoTextField: UITextField!
 
+    @IBOutlet weak var errorMessage: UILabel!
     @IBOutlet weak var generoShow: UILabel!
     @IBOutlet weak var generoSelector: UIPickerView!
     var generoOpciones = ["FEMENINO", "MASCULINO"]
@@ -167,6 +168,24 @@ class Pedidos3Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         }
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        var  rect = errorMessage.frame
+        rect.origin.y = textField.frame.origin.y + textField.frame.height
+        rect.origin.x = textField.frame.origin.x
+        rect.size.width = textField.frame.width
+        errorMessage.frame = rect
+        setErrorMessage(value: true, text: "");
+    }
+    
+    func setErrorMessage(value: Bool, text: String){
+        if (!value){
+            errorMessage.text = text
+            errorMessage.isHidden = false
+        } else {
+            errorMessage.isHidden = true
+        }
+    }
+    
     //Validaciones del texto
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let newString = NSString(string: textField.text!).replacingCharacters(in: range, with: string)
@@ -174,22 +193,25 @@ class Pedidos3Controller: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             let existOrNotNumber = checkTextNumber(text: newString)
             changeTextFieldColor(value: existOrNotNumber, textField: nombreTextField)
             let newLength = (nombreTextField.text?.characters.count)! + string.characters.count - range.length
+            setErrorMessage(value: existOrNotNumber, text: "Sólo ingrese letras")
             return newLength <= 25
         } else if textField == apellidosTextField {
             let existOrNotNumber = checkTextNumber(text: newString)
             changeTextFieldColor(value: existOrNotNumber, textField: apellidosTextField)
             let newLength = (apellidosTextField.text?.characters.count)! + string.characters.count - range.length
+            setErrorMessage(value: existOrNotNumber, text: "Sólo ingrese letras")
             return newLength <= 25
         } else if textField == cargoTextField {
             let existOrNotNumber = checkTextNumber(text: newString)
             changeTextFieldColor(value: existOrNotNumber, textField: cargoTextField)
             let newLength = (cargoTextField.text?.characters.count)! + string.characters.count - range.length
+            setErrorMessage(value: existOrNotNumber, text: "Sólo ingrese letras")
             return newLength <= 25
         }
         
         return true
     }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
