@@ -84,8 +84,8 @@ class Pedidos4Controller: UIViewController {
                 let alert = UIAlertController(title: "Pedidos", message: "Error al intentar enviar el pedido, intente más tarde", preferredStyle: UIAlertControllerStyle.alert)
                 
                 alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: { action in
-                    self.pedido.resetData()
-                    self.performSegue(withIdentifier: "postPedido", sender: self)
+                    //self.pedido.resetData()
+                    //self.performSegue(withIdentifier: "postPedido", sender: self)
                 }))
                 self.present(alert, animated: true, completion: nil)
             } else {
@@ -134,7 +134,7 @@ class Pedidos4Controller: UIViewController {
     }
     
     func showMessage(){
-        let alert = UIAlertController(title: "", message: "Enviando denuncia", preferredStyle: .alert)
+        let alert = UIAlertController(title: "", message: "Enviando pedido", preferredStyle: .alert)
         self.present(alert, animated: true, completion: nil)
         
         // change to desired number of seconds (in this case 5 seconds)

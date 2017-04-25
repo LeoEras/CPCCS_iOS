@@ -78,8 +78,8 @@ class Denuncias4Controller: UIViewController {
                 let alert = UIAlertController(title: "Denuncias", message: "Error al intentar enviar la denuncia, intente más tarde", preferredStyle: UIAlertControllerStyle.alert)
                 
                 alert.addAction(UIAlertAction(title: "Aceptar", style: UIAlertActionStyle.default, handler: { action in
-                    self.denuncia.resetData()
-                    self.performSegue(withIdentifier: "denunciaPostReturnMain", sender: self)
+                    //self.denuncia.resetData()
+                    //self.performSegue(withIdentifier: "denunciaPostReturnMain", sender: self)
                 }))
                 self.present(alert, animated: true, completion: nil)
             } else {
