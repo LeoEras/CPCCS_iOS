@@ -53,13 +53,13 @@ class ChosenFAQViewController: UIViewController {
             texto.text = "Si su denuncia no fue enviada puede ser por dos razones: no hay conexión en la página del CPCCS o no está conectado a internet."
         } else if(pregunta == 10){
             titulo.text = "¿Qué datos necesito para poder realizar una denuncia?"
-            texto.text = "Es muy importante tener la sigueiente información para realizar una denuncia: Datos del denunciante (quien hace la denuncia), datos del denunciado (quien comete el acto de corrupción) y descripción del acto de corrupción."
+            texto.text = "Es muy importante tener la siguiente información para realizar una denuncia: Datos del denunciante (quien hace la denuncia), datos del denunciado (quien comete el acto de corrupción) y descripción del acto de corrupción."
         } else if(pregunta == 11){
             titulo.text = "¿Cuándo hacer un pedido?"
-            texto.text = "Cuando usted como ciudadano quiere informar sobre asuntos que afecten la participación y el control social que no hayan sido atendidos por instituciones del sector público o por persona natural o jurídica privada que presete servicios públicos o desarrolle actividades de interés público."
+            texto.text = "Cuando usted como ciudadano quiere informar sobre asuntos que afecten la participación y el control social que no hayan sido atendidos por instituciones del sector público o por persona natural o jurídica privada que preste servicios públicos o desarrolle actividades de interés público."
         } else if(pregunta == 12){
             titulo.text = "¿Qué ocurre cuando envío mi pedido?"
-            texto.text = "Cuando el usuario envíe su pedido se envía una notificación al correo indicando que su pedido fue enviada con éxito."
+            texto.text = "Cuando el usuario envíe su pedido se envía una notificación al correo indicando que su pedido fue enviado con éxito."
         } else if(pregunta == 13){
             //
         }
